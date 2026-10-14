@@ -68,22 +68,46 @@ Reader 读取 `papers`，写回 `paper_analysis`：
 }
 ```
 
-## 4. Reader -> Analyst
+## 4. Reader -> Analyst（成员4）
 
-Analyst 读取 `paper_analysis`，写回 `method_summary`：
+成员4已实现 `research_assistant/agents/analyst.py` 中的 `analyst_node(state) -> dict`，
+负责论文分类、方法对比和技术路线总结，只返回 `{"method_summary": ...}`。
+
+**给成员3：输入约定**
+
+- 返回 `{"paper_analysis": [...]}`，每篇沿用第3节的格式。
+- `paper_title`、`problem`、`motivation`、`method` 为必填字符串；论文标题与
+  `papers.title` 保持一致。`method` 尽量说明输入模态、融合方式和主干模型。
+- `datasets`、`metrics`、`contributions`、`limitations` 使用字符串列表，缺失填 `[]`，
+  不要编造内容。
+- 补充论文后返回完整分析列表。Analyst 会结合研究问题重新分析；需要总结时间演进时，
+  从 `papers.year` 读取已知年份。
+
+**给成员5：输出约定**
+
+读取 `state["method_summary"]`，仍使用原有 `ResearchLandscape` 格式。以下是格式
+示例，`Paper A` 仅为占位标题：
 
 ```json
 {
   "categories": [
-    {"name": "Cross Attention", "description": "...", "papers": ["Paper A"]}
+    {"name": "Cross Attention", "description": "按融合机制分类", "papers": ["Paper A"]}
   ],
   "comparison_table": [
-    {"paper": "Paper A", "input": "...", "fusion": "...", "backbone": "...", "dataset": "...", "limitation": "..."}
+    {"paper": "Paper A", "input": "时间序列与文本", "fusion": "Cross Attention", "backbone": "Transformer", "dataset": "输入材料未提供", "limitation": "输入材料未提供"}
   ],
-  "evolution": ["Traditional TS", "Transformer", "Foundation Model", "Multimodal Foundation Model"],
-  "summary": "..."
+  "evolution": [],
+  "summary": "该方法通过跨模态注意力实现交互。（依据：Paper A）\n证据缺口：缺少数据集、局限和技术演进证据。"
 }
 ```
+
+- `categories` 给出分类及对应论文；`comparison_table` 每篇论文一行。
+- 对比表中的数据集和局限直接取自 Reader，缺失时标为“输入材料未提供”。
+- `evolution` 为字符串列表，`summary` 为总结文本，结论附支持论文标题；证据不足
+  时演进列表可以为空，证据缺口写在 `summary` 中。
+- Analyst 已检查引用标题和论文覆盖情况，结论是否确有证据仍交给 Critic 审核。
+
+没有阅读材料时返回空分类、空对比表、空演进列表和“证据不足”的总结。
 
 ## 5. Analyst -> Critic
 

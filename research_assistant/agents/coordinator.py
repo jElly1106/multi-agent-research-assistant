@@ -5,6 +5,7 @@ from typing import Any
 
 from dotenv import load_dotenv
 
+from ..llm import create_structured_model
 from ..schemas import CoordinatorOutput
 from ..state import ResearchState
 
@@ -96,27 +97,7 @@ def _fallback_output(topic: str) -> CoordinatorOutput:
 
 
 def _invoke_llm(topic: str) -> CoordinatorOutput:
-    try:
-        from langchain_openai import ChatOpenAI
-    except ImportError as exc:
-        raise RuntimeError("未安装 langchain-openai，请先 pip install -r requirements.txt") from exc
-
-    api_key = os.getenv("OPENAI_API_KEY", "").strip()
-    model_name = os.getenv("LLM_MODEL", "").strip()
-    if not api_key or not model_name:
-        raise RuntimeError("使用 LLM 时必须设置 OPENAI_API_KEY 和 LLM_MODEL")
-
-    kwargs: dict[str, Any] = {
-        "model": model_name,
-        "api_key": api_key,
-        "temperature": 0.2,
-    }
-    base_url = os.getenv("OPENAI_BASE_URL", "").strip()
-    if base_url:
-        kwargs["base_url"] = base_url
-
-    llm = ChatOpenAI(**kwargs)
-    structured_llm = llm.with_structured_output(CoordinatorOutput)
+    structured_llm = create_structured_model(CoordinatorOutput, label="Coordinator")
     return structured_llm.invoke(
         [
             ("system", SYSTEM_PROMPT),
