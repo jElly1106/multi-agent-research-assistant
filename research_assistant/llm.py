@@ -1,4 +1,4 @@
-"""Coordinator 与 Analyst 共用的模型配置。"""
+"""Coordinator、Analyst 与 Critic 共用的模型配置。"""
 from __future__ import annotations
 
 import os

@@ -49,15 +49,17 @@ def build_research_graph(
     analyst_node: Node,
     critic_node: Node,
     writer_node: Node,
+    coordinator: Node = coordinator_node,
 ):
     """构建成员1负责的 LangGraph 总体架构。
 
     其他成员只需要把自己的 Agent 函数按 Node 签名传进来即可：
         node(state: ResearchState) -> dict[str, Any]
+    coordinator 可选注入；消融实验用它固定两组相同的研究规划。
     """
     graph = StateGraph(ResearchState)
 
-    graph.add_node("coordinator", coordinator_node)
+    graph.add_node("coordinator", coordinator)
     graph.add_node("search", search_node)
     graph.add_node("reader", reader_node)
     graph.add_node("analyst", analyst_node)
