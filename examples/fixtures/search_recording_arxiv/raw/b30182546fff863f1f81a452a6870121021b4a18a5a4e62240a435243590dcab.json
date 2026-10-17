@@ -1,0 +1,8 @@
+{
+  "request_url": "https://export.arxiv.org/api/query?search_query=all%3A%22multimodal%22+AND+all%3A%22time%22+AND+all%3A%22series%22+AND+all%3A%22forecasting%22&start=0&max_results=10&sortBy=relevance&sortOrder=descending",
+  "retrieved_at": "2026-10-15T04:08:13.144018+00:00",
+  "response_sha256": "040a132cf4af39efa0cbf7d4f17d1700609a8f26de8c042946e4d5929c57876a",
+  "response_file": "040a132cf4af39efa0cbf7d4f17d1700609a8f26de8c042946e4d5929c57876a.response",
+  "route": "direct",
+  "attempts": 1
+}

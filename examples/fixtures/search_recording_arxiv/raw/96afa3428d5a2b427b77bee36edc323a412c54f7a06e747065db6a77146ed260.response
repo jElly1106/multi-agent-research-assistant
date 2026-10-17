@@ -1,0 +1,320 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/Hr76fv3FkZ9vT4ymT4u/WNqWuJw</id>
+  <title>arXiv Query: search_query=all:"time" AND all:"series" AND all:"fusion" AND all:"text"&amp;id_list=&amp;start=0&amp;max_results=10</title>
+  <updated>2026-10-15T04:08:15Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:%22time%22+AND+(all:%22series%22+AND+(all:%22fusion%22+AND+all:%22text%22))&amp;start=0&amp;max_results=10&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:totalResults>74</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2406.06603v1</id>
+    <title>FPN-fusion: Enhanced Linear Complexity Time Series Forecasting Model</title>
+    <updated>2024-06-06T14:34:26Z</updated>
+    <link href="https://arxiv.org/abs/2406.06603v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2406.06603v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This study presents a novel time series prediction model, FPN-fusion, designed with linear computational complexity, demonstrating superior predictive performance compared to DLiner without increasing parameter count or computational demands. Our model introduces two key innovations: first, a Feature Pyramid Network (FPN) is employed to effectively capture time series data characteristics, bypassing the traditional decomposition into trend and seasonal components. Second, a multi-level fusion structure is developed to integrate deep and shallow features seamlessly. Empirically, FPN-fusion outperforms DLiner in 31 out of 32 test cases on eight open-source datasets, with an average reduction of 16.8% in mean squared error (MSE) and 11.8% in mean absolute error (MAE). Additionally, compared to the transformer-based PatchTST, FPN-fusion achieves 10 best MSE and 15 best MAE results, using only 8% of PatchTST's total computational load in the 32 test projects.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-06-06T14:34:26Z</published>
+    <arxiv:comment>FPN,time series,fusion. arXiv admin note: text overlap with arXiv:2401.03001 by other authors</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Chu Li</name>
+    </author>
+    <author>
+      <name>Pingjia Xiao</name>
+    </author>
+    <author>
+      <name>Qiping Yuan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.22372v3</id>
+    <title>Rethinking Multimodal Fusion for Time Series: Text Modalities Need Constrained Fusion</title>
+    <updated>2026-07-15T04:24:43Z</updated>
+    <link href="https://arxiv.org/abs/2603.22372v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.22372v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Recent advances in multimodal learning have motivated the integration of auxiliary modalities such as text or vision into time series (TS) forecasting. However, most existing methods provide limited gains, often improving performance only in specific datasets or relying on architecture-specific designs that limit generalization. In this paper, we show that multimodal models with naive fusion strategies (e.g., simple addition or concatenation) often underperform unimodal TS models, which we attribute to the uncontrolled integration of auxiliary modalities which may introduce irrelevant information. Motivated by this observation, we explore various constrained fusion methods designed to control such integration and find that they consistently outperform naive fusion methods. Furthermore, we propose Controlled Fusion Adapter (CFA), a simple plug-in method that enables controlled cross-modal interactions without modifying the TS backbone, integrating only relevant textual information aligned with TS dynamics. CFA employs low rank adapters to filter irrelevant textual information before fusing it into temporal representations. We conduct over 20K experiments across various datasets and TS/text models, demonstrating the effectiveness of the constrained fusion methods. Code is available at: https://github.com/seunghan96/cfa.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-23T07:44:46Z</published>
+    <arxiv:comment>KDD Workshop on Mining and Learning from Time Series 2026 (Oral presentation)</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Seunghan Lee</name>
+    </author>
+    <author>
+      <name>Jun Seo</name>
+    </author>
+    <author>
+      <name>Jaehoon Lee</name>
+    </author>
+    <author>
+      <name>Sungdong Yoo</name>
+    </author>
+    <author>
+      <name>Minjae Kim</name>
+    </author>
+    <author>
+      <name>Tae Yoon Lim</name>
+    </author>
+    <author>
+      <name>Dongwan Kang</name>
+    </author>
+    <author>
+      <name>Hwanil Choi</name>
+    </author>
+    <author>
+      <name>SoonYoung Lee</name>
+    </author>
+    <author>
+      <name>Wonbin Ahn</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2501.19043v2</id>
+    <title>Self-Supervised Cross-Modal Text-Image Time Series Retrieval in Remote Sensing</title>
+    <updated>2025-07-15T15:06:16Z</updated>
+    <link href="https://arxiv.org/abs/2501.19043v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2501.19043v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The development of image time series retrieval (ITSR) methods is a growing research interest in remote sensing (RS). Given a user-defined image time series (i.e., the query time series), ITSR methods search and retrieve from large archives the image time series that have similar content to the query time series. Existing ITSR methods in RS are designed for unimodal retrieval problems, relying on an assumption that users always have access to a query image time series in the considered image modality. In operational scenarios, this assumption may not hold. To overcome this issue, as a first time in RS we introduce the task of cross-modal text-image time series retrieval (text-ITSR). In detail, we present a self-supervised cross-modal text-ITSR method that enables the retrieval of image time series using text sentences as queries, and vice versa. We focus our attention on text-ITSR in pairs of images (i.e., bitemporal images). Our text-ITSR method consists of two key components: 1) modality-specific encoders to model the semantic content of bitemporal images and text sentences with discriminative features; and 2) modality-specific projection heads to align textual and image representations in a shared embedding space. To effectively model the temporal information in the bitemporal images, we exploit two fusion strategies: i) global feature fusion (GFF) strategy that combines global image features through simple yet effective operators; and ii) transformer-based feature fusion (TFF) strategy that leverages transformers for fine-grained temporal integration. Extensive experiments conducted on two benchmark RS archives demonstrate the effectiveness of our method in accurately retrieving semantically relevant bitemporal images (or text sentences) to a query text sentence (or bitemporal image). The code of this work is publicly available at https://git.tu-berlin.de/rsim/cross-modal-text-tsir .</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-01-31T11:14:38Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Genc Hoxha</name>
+    </author>
+    <author>
+      <name>Olivér Angyal</name>
+    </author>
+    <author>
+      <name>Begüm Demir</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2501.07048v1</id>
+    <title>Unveiling the Potential of Text in High-Dimensional Time Series Forecasting</title>
+    <updated>2025-01-13T04:10:45Z</updated>
+    <link href="https://arxiv.org/abs/2501.07048v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2501.07048v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Time series forecasting has traditionally focused on univariate and multivariate numerical data, often overlooking the benefits of incorporating multimodal information, particularly textual data. In this paper, we propose a novel framework that integrates time series models with Large Language Models to improve high-dimensional time series forecasting. Inspired by multimodal models, our method combines time series and textual data in the dual-tower structure. This fusion of information creates a comprehensive representation, which is then processed through a linear layer to generate the final forecast. Extensive experiments demonstrate that incorporating text enhances high-dimensional time series forecasting performance. This work paves the way for further research in multimodal time series forecasting.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-01-13T04:10:45Z</published>
+    <arxiv:comment>Accepted by NeurIPS24 TSALM Workshop</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Xin Zhou</name>
+    </author>
+    <author>
+      <name>Weiqing Wang</name>
+    </author>
+    <author>
+      <name>Shilin Qu</name>
+    </author>
+    <author>
+      <name>Zhiqiang Zhang</name>
+    </author>
+    <author>
+      <name>Christoph Bergmeir</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.15452v1</id>
+    <title>Unlocking the Value of Text: Event-Driven Reasoning and Multi-Level Alignment for Time Series Forecasting</title>
+    <updated>2026-03-16T15:51:26Z</updated>
+    <link href="https://arxiv.org/abs/2603.15452v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.15452v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Existing time series forecasting methods primarily rely on the numerical data itself. However, real-world time series exhibit complex patterns associated with multimodal information, making them difficult to predict with numerical data alone. While several multimodal time series forecasting methods have emerged, they either utilize text with limited supplementary information or focus merely on representation extraction, extracting minimal textual information for forecasting. To unlock the Value of Text, we propose VoT, a method with Event-driven Reasoning and Multi-level Alignment. Event-driven Reasoning combines the rich information in exogenous text with the powerful reasoning capabilities of LLMs for time series forecasting. To guide the LLMs in effective reasoning, we propose the Historical In-context Learning that retrieves and applies historical examples as in-context guidance. To maximize the utilization of text, we propose Multi-level Alignment. At the representation level, we utilize the Endogenous Text Alignment to integrate the endogenous text information with the time series. At the prediction level, we design the Adaptive Frequency Fusion to fuse the frequency components of event-driven prediction and numerical prediction to achieve complementary advantages. Experiments on real-world datasets across 10 domains demonstrate significant improvements over existing methods, validating the effectiveness of our approach in the utilization of text. The code is made available at https://github.com/decisionintelligence/VoT.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-16T15:51:26Z</published>
+    <arxiv:comment>Accepted by ICLR 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Siyuan Wang</name>
+    </author>
+    <author>
+      <name>Peng Chen</name>
+    </author>
+    <author>
+      <name>Yihang Wang</name>
+    </author>
+    <author>
+      <name>Wanghui Qiu</name>
+    </author>
+    <author>
+      <name>Chenjuan Guo</name>
+    </author>
+    <author>
+      <name>Bin Yang</name>
+    </author>
+    <author>
+      <name>Yang Shu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2602.01588v3</id>
+    <title>Spectral Text Fusion: A Frequency-Aware Approach to Multimodal Time-Series Forecasting</title>
+    <updated>2026-06-26T12:41:08Z</updated>
+    <link href="https://arxiv.org/abs/2602.01588v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2602.01588v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Multimodal time series forecasting is crucial in real-world applications, where decisions depend on both numerical data and contextual signals. The core challenge is to effectively combine temporal numerical patterns with the context embedded in other modalities, such as text. While most existing methods align textual features with time-series patterns one step at a time, they neglect the multiscale temporal influences of contextual information such as time-series cycles and dynamic shifts. This mismatch between local alignment and global textual context can be addressed by spectral decomposition, which separates time series into frequency components capturing both short-term changes and long-term trends. In this paper, we propose SpecTF, a simple yet effective framework that integrates the effect of textual data on time series in the frequency domain. Our method extracts textual embeddings, projects them into the frequency domain, and fuses them with the time series' spectral components using a lightweight cross-attention mechanism. This adaptively reweights frequency bands based on textual relevance before mapping the results back to the temporal domain for predictions. Experimental results demonstrate that SpecTF significantly outperforms state-of-the-art models across diverse multi-modal time series datasets while utilizing considerably fewer parameters. Code is available at https://github.com/hiepnh137/SpecTF.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-02-02T03:28:21Z</published>
+    <arxiv:comment>Accepted at AISTATS 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Huu Hiep Nguyen</name>
+    </author>
+    <author>
+      <name>Minh Hoang Nguyen</name>
+    </author>
+    <author>
+      <name>Dung Nguyen</name>
+    </author>
+    <author>
+      <name>Hung Le</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2508.16059v1</id>
+    <title>Integrating Time Series into LLMs via Multi-layer Steerable Embedding Fusion for Enhanced Forecasting</title>
+    <updated>2025-08-22T03:22:10Z</updated>
+    <link href="https://arxiv.org/abs/2508.16059v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2508.16059v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Time series (TS) data are ubiquitous across various application areas, rendering time series forecasting (TSF) a fundamental task. With the astounding advances in large language models (LLMs), a variety of methods have been developed to adapt LLMs for time series forecasting. Despite unlocking the potential of LLMs in comprehending TS data, existing methods are inherently constrained by their shallow integration of TS information, wherein LLMs typically access TS representations at shallow layers, primarily at the input layer. This causes the influence of TS representations to progressively fade in deeper layers and eventually leads to ineffective adaptation between textual embeddings and TS representations. In this paper, we propose the Multi-layer Steerable Embedding Fusion (MSEF), a novel framework that enables LLMs to directly access time series patterns at all depths, thereby mitigating the progressive loss of TS information in deeper layers. Specifically, MSEF leverages off-the-shelf time series foundation models to extract semantically rich embeddings, which are fused with intermediate text representations across LLM layers via layer-specific steering vectors. These steering vectors are designed to continuously optimize the alignment between time series and textual modalities and facilitate a layer-specific adaptation mechanism that ensures efficient few-shot learning capabilities. Experimental results on seven benchmarks demonstrate significant performance improvements by MSEF compared with baselines, with an average reduction of 31.8% in terms of MSE. The code is available at https://github.com/One1sAll/MSEF.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-08-22T03:22:10Z</published>
+    <arxiv:comment>To be published in CIKM 2025</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Zhuomin Chen</name>
+    </author>
+    <author>
+      <name>Dan Li</name>
+    </author>
+    <author>
+      <name>Jiahui Zhou</name>
+    </author>
+    <author>
+      <name>Shunyu Wu</name>
+    </author>
+    <author>
+      <name>Haozheng Ye</name>
+    </author>
+    <author>
+      <name>Jian Lou</name>
+    </author>
+    <author>
+      <name>See-Kiong Ng</name>
+    </author>
+    <arxiv:doi>10.1145/3746252.3760803</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1145/3746252.3760803" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.11282v1</id>
+    <title>When Does Text Inform? Benchmarking Information-Theoretic Metrics for Multimodal Time-Series Forecasting</title>
+    <updated>2026-09-10T09:15:47Z</updated>
+    <link href="https://arxiv.org/abs/2609.11282v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.11282v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Multimodal forecasting models that combine time series with text annotations promise richer prediction through textual context, but how do we know whether a text annotation meaningfully contributes to the forecasters prediction? This is an information-theoretic question, but to evaluate whether information-theoretic metrics can reliably measure the predictive value an annotation provides, a ground truth benchmark is needed, and none currently exist. We create a synthetic time series signal with annotations in three categories: semantically correct, incorrect, and irrelevant. Because the data generation process is fully controlled, ground-truth information content is known exactly, enabling principled evaluation of six complementary mutual information estimators (KSG, MINE, InfoNCE, CCA, PID and V-information). We show that all six estimators identify correct annotations as most informative, and are able to audit the quality of mixed text corpora, choosing the annotations that result in the best downstream forecasting results without the need for model training. Our benchmark identifies limitations of each estimator, and these are validated on seven real-world datasets, which show how estimator performance differs on weak signals. Finally, we establish practical rules for implementing these metrics for annotation auditing and fusion selection.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.IT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-10T09:15:47Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Emma Andrews</name>
+    </author>
+    <author>
+      <name>Gianmarco Mengaldo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.08503v1</id>
+    <title>Temporal Fusion Nexus: A task-agnostic multi-modal embedding model for clinical narratives and irregular time series in post-kidney transplant care</title>
+    <updated>2026-01-13T12:38:33Z</updated>
+    <link href="https://arxiv.org/abs/2601.08503v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.08503v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We introduce Temporal Fusion Nexus (TFN), a multi-modal and task-agnostic embedding model to integrate irregular time series and unstructured clinical narratives. We analysed TFN in post-kidney transplant (KTx) care, with a retrospective cohort of 3382 patients, on three key outcomes: graft loss, graft rejection, and mortality. Compared to state-of-the-art model in post KTx care, TFN achieved higher performance for graft loss (AUC 0.96 vs. 0.94) and graft rejection (AUC 0.84 vs. 0.74). In mortality prediction, TFN yielded an AUC of 0.86. TFN outperformed unimodal baselines (approx 10% AUC improvement over time series only baseline, approx 5% AUC improvement over time series with static patient data). Integrating clinical text improved performance across all tasks. Disentanglement metrics confirmed robust and interpretable latent factors in the embedding space, and SHAP-based attributions confirmed alignment with clinical reasoning. TFN has potential application in clinical tasks beyond KTx, where heterogeneous data sources, irregular longitudinal data, and rich narrative documentation are available.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-13T12:38:33Z</published>
+    <arxiv:comment>31 pages, 9 figures, 3 tables. A supplementary file is also available</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Aditya Kumar</name>
+    </author>
+    <author>
+      <name>Simon Rauch</name>
+    </author>
+    <author>
+      <name>Mario Cypko</name>
+    </author>
+    <author>
+      <name>Marcel Naik</name>
+    </author>
+    <author>
+      <name>Matthieu-P Schapranow</name>
+    </author>
+    <author>
+      <name>Aadil Rashid</name>
+    </author>
+    <author>
+      <name>Fabian Halleck</name>
+    </author>
+    <author>
+      <name>Bilgin Osmanodja</name>
+    </author>
+    <author>
+      <name>Roland Roller</name>
+    </author>
+    <author>
+      <name>Lars Pape</name>
+    </author>
+    <author>
+      <name>Klemens Budde</name>
+    </author>
+    <author>
+      <name>Mario Schiffer</name>
+    </author>
+    <author>
+      <name>Oliver Amft</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2406.06620v4</id>
+    <title>MedualTime: A Dual-Adapter Language Model for Medical Time Series-Text Multimodal Learning</title>
+    <updated>2025-09-08T07:57:56Z</updated>
+    <link href="https://arxiv.org/abs/2406.06620v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2406.06620v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The recent rapid advancements in language models (LMs) have garnered attention in medical time series-text multimodal learning. However, existing contrastive learning-based and prompt-based LM approaches tend to be biased, often assigning a primary role to time series modality while treating text modality as secondary. We classify these approaches under a temporal-primary paradigm, which may overlook the unique and critical task-relevant information embedded in text modality like clinical reports, thus failing to fully leverage mutual benefits and complementarity of different modalities. To fill this gap, we propose a novel textual-temporal multimodal learning paradigm that enables either modality to serve as the primary while being enhanced by the other, thereby effectively capturing modality-specific information and fostering cross-modal interaction. In specific, we design MedualTime, a language model composed of dual adapters to implement temporal-primary and textual-primary modeling simultaneously. Within each adapter, lightweight adaptation tokens are injected into the top layers of LM to encourage high-level modality fusion. The shared LM pipeline by dual adapters not only achieves adapter alignment but also enables efficient fine-tuning, reducing computational resources. Empirically, MedualTime demonstrates superior performance on medical data, achieving notable improvements of 8% accuracy and 12% F1 in supervised settings. Furthermore, MedualTime's transferability is validated by few-shot label transfer experiments from coarse-grained to fine-grained medical data. https://github.com/start2020/MedualTime</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-06-07T14:34:28Z</published>
+    <arxiv:comment>9 pages, 6 figure, 3 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <arxiv:journal_ref>IJCAI 2025 main conference</arxiv:journal_ref>
+    <author>
+      <name>Jiexia Ye</name>
+    </author>
+    <author>
+      <name>Weiqi Zhang</name>
+    </author>
+    <author>
+      <name>Ziyue Li</name>
+    </author>
+    <author>
+      <name>Jia Li</name>
+    </author>
+    <author>
+      <name>Meng Zhao</name>
+    </author>
+    <author>
+      <name>Fugee Tsung</name>
+    </author>
+  </entry>
+</feed>

@@ -43,12 +43,21 @@ Search Agent 写回 `papers`，每篇格式：
   "year": 2025,
   "abstract": "...",
   "url": "...",
-  "source": "arxiv",
+  "source": "openalex",
   "relevance_score": 0.91
 }
 ```
 
 **重要：重新检索时，Search Agent 应将“已有 papers + 新结果”统一去重后再写回完整列表，而不是只写增量。**
+
+成员2已提供 `research_assistant.agents.search.search_node` 和可配置的 `create_search_node`。
+默认只检索 OpenAlex；arXiv、Semantic Scholar、Crossref 可通过配置显式启用。arXiv 使用受控关键词的显式 AND 查询，默认直连优先，网络失败时在有限预算内尝试系统代理；HTTP 429 不重试或切换路线。
+公共 Paper 继续保持这七个字段；`source` 可为 `openalex`、`arxiv`、`semantic_scholar`、`crossref`。
+`url` 是官方记录页或 DOI 解析链接，不能一律按 PDF 下载。OpenAlex 的 `url` 为 `https://openalex.org/W...`，实际提供的出版落地页、PDF 链接和 DOI 保留在独立审计的 `candidates[].provenance[]` 中，字段分别为 `landing_page_url`、`pdf_url`、`doi`；来自 OpenAlex 的 arXiv 收录记录仍标为 `source=openalex`。Reader 应结合来源与审计选择原文入口。OpenAlex 摘要按 API 倒排索引的位置恢复；缺失或无法完整恢复时保持空字符串，不由模型补写。
+默认规则检索不调用模型，可显式选择模型辅助生成查询；新论文元数据始终来自数据库。
+Top-K 限制本轮新增论文数，Critic 补搜保留已有列表，因此多轮后的总数可超过 K。
+部分失败/缺失值提示写入已有的 `errors` 字段；请求、身份与原始响应另存审计，不修改其他成员字段。
+具体参数、去重与恢复 State 的信任边界见 [成员2交接说明](docs/MEMBER2_HANDOFF.md) 和 [成员2完整说明](docs/MEMBER2_SEARCH.md)。
 
 ## 3. Search -> Reader
 

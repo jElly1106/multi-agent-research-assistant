@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "checked_papers": 3,
+  "checked_responses": 1,
+  "status": "success",
+  "started_at": "2026-10-17T16:05:47.492352+00:00",
+  "papers": [
+    {
+      "title": "Multimodal Forecasting for Commodity Prices Using Spectrogram-Based and Time Series Representations",
+      "url": "https://arxiv.org/abs/2603.27321v1",
+      "metadata_matches_saved_api": true
+    },
+    {
+      "title": "Rethinking Multimodal Time-Series Forecasting Evaluation",
+      "url": "https://arxiv.org/abs/2607.06973v1",
+      "metadata_matches_saved_api": true
+    },
+    {
+      "title": "SCENARIODIFF: A Scenario-level Guidance Framework for Multimodal Time Series Forecasting--Extended Version",
+      "url": "https://arxiv.org/abs/2608.17164v1",
+      "metadata_matches_saved_api": true
+    }
+  ],
+  "notice": "仅核验当前 JSON 与保存的 API 原文字节的一致性；没有新联网，也不证明论文结论正确。"
+}

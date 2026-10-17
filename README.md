@@ -1,16 +1,17 @@
-# Multi-Agent Research Assistant — 基础框架、方法分析与 Critic 评价
+# Multi-Agent Research Assistant — 文献检索、方法分析与 Critic 评价
 
 项目目标：根据研究主题完成文献检索、结构化阅读、方法分析、Critic 审核与报告生成。
-当前已交付成员1基础框架、成员4 Method Analyst、成员5 Critic 与系统评价；尚未形成真实文献端到端系统。
+当前已交付成员1基础框架、成员2 Search Agent、成员4 Method Analyst、成员5 Critic 与系统评价；成员3、6仍待接入，尚未形成真实文献端到端系统。
 
 | 模块 | 当前状态 |
 |---|---|
 | 成员1：Graph、共享 State、Coordinator、路由 | 已实现；Coordinator 支持模型调用和无配置时的模板计划 |
+| 成员2：Search Agent | 已实现；OpenAlex（默认）/ arXiv / Semantic Scholar / Crossref，查询生成、筛选去重、Top-K、Critic 补搜及来源审计 |
 | 成员4：Method Analyst | 已实现；支持分类、对比、技术路线归纳、引用校验与独立真实调用 |
 | 成员5：Critic、系统指标、消融实验 | 已实现；包含证据审核、补充查询、独立评价标注与离线成对演示 |
 | 公共模型客户端 | Coordinator、Analyst 和 Critic 共用，支持 Responses / Chat Completions |
-| 成员2、3、6：Search、Reader、Writer | 当前主分支仅有 demo stub，等待正式实现接入 |
-| 前端、真实检索、PDF 解析、真实系统质量实验 | 当前主分支尚未实现；模拟流程验证不代表真实质量实验 |
+| 成员3、6：Reader、Writer | 当前仅有 demo stub，等待正式实现接入 |
+| 前端、PDF 解析、真实系统质量实验 | 尚未实现；Search 独立检索已验证，模拟流程验证不代表真实质量实验 |
 
 **`main.py` 仍注入五个 demo 节点（包括 demo Analyst）；配置密钥不会自动替换它们。**
 其中 Coordinator 可按配置调用真实模型。demo 论文和报告均不能当作科研结果。
@@ -19,6 +20,40 @@
 - 跨成员数据契约：[INTERFACES.md](INTERFACES.md)。
 - 已交付内容、验证记录及汇报提纲：[REPORT.md](REPORT.md)。
 - 成员5完整交付、指标口径、消融复现与真实评测协议：[MEMBER5.md](MEMBER5.md)。
+- 成员2接入与运行入口：[docs/MEMBER2_HANDOFF.md](docs/MEMBER2_HANDOFF.md)。
+- 成员2需求对照、来源选择与历史验收：[docs/MEMBER2_SEARCH.md](docs/MEMBER2_SEARCH.md)、[docs/MEMBER2_OPENALEX.md](docs/MEMBER2_OPENALEX.md)、[docs/MEMBER2_ARXIV.md](docs/MEMBER2_ARXIV.md)、[docs/MEMBER2_RATE_LIMIT.md](docs/MEMBER2_RATE_LIMIT.md)。
+
+## 成员2：文献检索快速运行
+
+在下面的虚拟环境安装完成后，先规划关键词（不联网、不调用模型）：
+
+```powershell
+.\.venv\Scripts\python.exe -m examples.search_demo '多模态时间序列预测' --question '时间序列如何融合文本信息？' --plan-only
+```
+
+真实小规模检索（默认只查 OpenAlex，本次公开 API 实测无须密钥）：
+
+```powershell
+.\.venv\Scripts\python.exe -m examples.search_demo 'Multimodal Time Series Forecasting' --top-k 3 --max-queries 1 --results-per-query 5 --year-from 2020 --output output/search_result.json --audit-dir output/search_audit
+```
+
+省略 `--source` 时仅使用 `openalex`。其他来源可显式选择，例如 `--source arxiv`，或 `--source openalex --source crossref`；记录保留各自来源标识。2026-10-17 的替代来源实测中，OpenAlex 与 Crossref 返回 HTTP 200，Semantic Scholar 返回 HTTP 429，DBLP 连接异常；当天 arXiv 受控请求也曾返回 HTTP 429。北京时间 **2026-10-18 00:06 左右**，arXiv 官方 API 的单次新请求成功，约13.35秒取得5条记录、选入3篇，并核对原始响应和入选元数据。该次成功证明当时可用，不能保证后续持续可用，也不能确定此前429的具体原因；当前默认来源仍为 OpenAlex。OpenAlex 的本次响应提示匿名访问使用共享 IP 免费配额；本实现没有 OpenAlex 密钥支持，不保证无密钥访问始终可用。
+
+直接选择 arXiv 的小规模真实查询：
+
+```powershell
+.\.venv\Scripts\python.exe -m examples.search_demo 'Multimodal Time Series Forecasting' --source arxiv --top-k 3 --max-queries 1 --results-per-query 5 --timeout 20 --max-retries 0 --output output/arxiv_result.json --audit-dir output/arxiv_audit
+```
+
+arXiv 的路由参数仍为 `--arxiv-proxy-mode auto/direct/system`，只作用于显式启用的 arXiv 请求。不会修改 Windows 全局代理，不关闭 TLS 验证。HTTP 429 会立即停止该来源本轮请求，不自动重试或切换路线，并保存服务端等待要求；缺少有效等待头时给出标为本地策略的300秒建议，不保证到时恢复。规则检索默认不请求 LLM；只有显式设置 `--use-llm` 才尝试使用已有模型配置生成查询。新论文元数据只从实际 API 响应解析，缺失字段不会由模型补造。
+
+包内默认提供已归档的真实 OpenAlex API 响应离线重放：
+
+```powershell
+.\.venv\Scripts\python.exe -m examples.search_replay_demo --output output/search_replay.json
+```
+
+重放会核对原始字节 SHA-256，并通过同一套适配器、去重筛选及排序代码，检查选入论文与录制结果完全一致。它不会发起新检索，录制时间与来源限制见 fixture 说明。人工补搜、完整参数与 Graph 接入见成员2文档。
 
 ## 项目结构
 
@@ -33,11 +68,24 @@ multi-agent-research-assistant/
 ├─ examples/
 │  ├─ analyst_mock_demo.py
 │  ├─ analyst_live_demo.py
+│  ├─ search_demo.py
+│  ├─ search_replay_demo.py
 │  ├─ critic_mock_demo.py
 │  ├─ critic_live_demo.py
 │  ├─ critic_ablation_demo.py
 │  ├─ evaluate_run.py
-│  └─ fixtures/analyst_mock.json
+│  └─ fixtures/
+│     ├─ analyst_mock.json
+│     ├─ search_recording_openalex/
+│     ├─ search_recording_arxiv/
+│     └─ search_recording/
+├─ docs/
+│  ├─ MEMBER2_HANDOFF.md
+│  ├─ MEMBER2_SEARCH.md
+│  ├─ MEMBER2_OPENALEX.md
+│  ├─ MEMBER2_ARXIV.md
+│  ├─ MEMBER2_RATE_LIMIT.md
+│  └─ MEMBER2_ACCEPTANCE.md
 ├─ research_assistant/
 │  ├─ graph.py
 │  ├─ state.py
@@ -46,16 +94,29 @@ multi-agent-research-assistant/
 │  ├─ evaluation.py
 │  ├─ ablation.py
 │  ├─ demo_stubs.py
-│  └─ agents/
-│     ├─ analyst.py
-│     ├─ critic.py
-│     └─ coordinator.py
+│  ├─ agents/
+│  │  ├─ analyst.py
+│  │  ├─ critic.py
+│  │  ├─ coordinator.py
+│  │  └─ search.py
+│  └─ search/
+│     ├─ config.py
+│     ├─ keywords.py
+│     ├─ models.py
+│     ├─ providers.py
+│     ├─ openalex.py
+│     ├─ crossref.py
+│     ├─ ranking.py
+│     └─ transport.py
 └─ tests/
    ├─ test_analyst.py
    ├─ test_llm.py
    ├─ test_critic.py
    ├─ test_evaluation.py
-   └─ test_routing.py
+   ├─ test_routing.py
+   ├─ test_search*.py
+   ├─ test_arxiv_routing.py
+   └─ test_rate_limit_diagnostics.py
 ```
 
 ## 安装与运行入口
@@ -72,6 +133,8 @@ pip install -r requirements.txt
 | 入口 | 用途 | 是否调用真实模型 |
 |---|---|---|
 | `python main.py "研究主题"` | 成员1 Graph 编排演示 | 仅 Coordinator 可能调用；其余五个节点均为 stub |
+| `python -m examples.search_demo "研究主题"` | 成员2真实文献检索；默认 OpenAlex | 默认不调用模型；显式 `--use-llm` 才生成模型辅助查询 |
+| `python -m examples.search_replay_demo` | 成员2真实响应离线回放 | 否；也不访问论文 API |
 | `python -m examples.analyst_mock_demo` | 成员4离线样例，使用预设模型响应 | 否，即使本地已配置密钥 |
 | `python -m examples.analyst_live_demo` | 成员4真实分析，默认读取模拟论文 | 有效非空输入时调用真实 Analyst |
 | `python -m examples.critic_mock_demo` | 成员5审核反馈闭环，全部使用模拟材料与预设响应 | 否 |
@@ -92,7 +155,7 @@ PowerShell 中先执行 `$env:COORDINATOR_USE_LLM="0"`，再运行 `python main.
 
 ## 其他成员如何接入
 
-成员2、3、6提供正式节点；成员4已提供 `analyst_node`，成员5已提供 `critic_node`。各节点签名为：
+成员2已提供 `search_node` / `create_search_node`，成员4已提供 `analyst_node`，成员5已提供 `critic_node`；成员3、6仍需提供 Reader、Writer。各节点签名为：
 
 ```python
 search_node(state) -> dict
@@ -102,12 +165,13 @@ critic_node(state) -> dict
 writer_node(state) -> dict
 ```
 
-集成时将实际节点传给 Graph。下面是接入示意，Search、Reader、Writer 需由对应成员导入：
+集成时将实际节点传给 Graph。下面是接入示意，Reader、Writer 需由对应成员导入；现有 `main.py` 仍使用 demo 节点：
 
 ```python
 from research_assistant.graph import build_research_graph
 from research_assistant.agents.analyst import analyst_node
 from research_assistant.agents.critic import critic_node
+from research_assistant.agents.search import search_node
 
 app = build_research_graph(
     search_node=search_node,
