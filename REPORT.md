@@ -191,3 +191,25 @@ python main.py "Multimodal Time Series Forecasting"
 - 按统一字段比较各篇论文，缺失信息标为“输入材料未提供”。
 - 总结方法差异和技术趋势，并在结论中标注支持论文。
 - Critic 要求补充检索后，对更新后的完整阅读结果重新分析。
+
+## 11. 成员5：Critic 与系统评价交付
+
+已实现正式 `critic_node`、结构与语义证据检查、PASS/FAIL 一致性校验、可执行反馈和
+补充查询；复用成员1的 Graph 轮次控制，与成员4的原有 `ResearchLandscape` 兼容。
+新增评价模块、独立标注格式、真实成对实验入口与离线消融样例。Graph 仅新增可选
+Coordinator 注入点，以便两组实验冻结同一规划，原调用方式不变。
+
+离线验证覆盖：来源丢失、分类/对比遗漏、虚构引用、数据集不一致、冲突重复输入、
+缺少配置、模型异常、矛盾判定、FAIL 反馈重新检索、两轮 PASS、达到上限仍 FAIL、
+评价分母、未知值、独立标注覆盖率与对照输入隔离。运行：
+
+```bash
+python -m pytest -q
+python -m examples.critic_mock_demo
+python -m examples.critic_ablation_demo --output output/critic_ablation.json
+```
+
+固定模拟实验中，Without 组审核 0 次、报告覆盖 1/2 问题；With 组审核 2 次、
+FAIL 1 次、报告覆盖 2/2 问题。所有论文均为模拟，所以两组真实论文数都是 0，
+真实引用正确率都是 0；这些结果只说明流程和指标公式可运行。完整验收、独立核验
+口径、真实质量实验协议及成员5汇报提纲见 [MEMBER5.md](MEMBER5.md)。

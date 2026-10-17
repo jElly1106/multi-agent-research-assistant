@@ -133,6 +133,21 @@ Critic 读取：
 
 若 `decision = "FAIL"`，Graph 自动回到 Search；Search 应优先使用 `new_search_queries` 做补充检索。
 
+成员5已实现 `research_assistant.agents.critic.critic_node`，仅写回 `critic_result`；
+`create_critic_node(model)` 可注入结构化模型。确定性来源/覆盖缺口直接 FAIL，不调用
+模型；结构完整时调用共享客户端。无阅读证据时返回带建议和查询的 FAIL。格式错误、
+冲突输入、模型异常和矛盾输出会明确报错，调用方不能把异常当作 PASS。
+
+- PASS：`evidence_gaps`、`missing_topics`、`unsupported_claims`、`new_search_queries` 均为空。
+- FAIL：至少一类问题非空，同时必须有 `feedback` 与 `new_search_queries`。
+- Critic 检查全部当前输入；分类和对比表必须覆盖全部阅读论文，引用可追溯到 Search。
+- 对比表的 `dataset` / `limitation` 沿用成员4从 Reader 拼接的原文，缺失使用“输入材料未提供”。
+- Graph 单独递增轮次；达到上限不修改审核结论。Search、Reader、Analyst 需用新材料
+  返回完整结果。正式 Search/Writer 未接入前，可用 `examples.critic_mock_demo` 验证闭环。
+
+成员5的评价标注和运行历史保存在外部 JSON，不改变共享 State。格式、真实引用核验
+与 With/Without 消融协议见 [MEMBER5.md](MEMBER5.md)。
+
 ## 6. Critic -> Writer
 
 当 `decision = "PASS"` 时进入 Writer。Writer 读取前面所有结果并写回：

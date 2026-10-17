@@ -1,15 +1,16 @@
-# Multi-Agent Research Assistant — 成员1基础框架与成员4方法分析
+# Multi-Agent Research Assistant — 基础框架、方法分析与 Critic 评价
 
 项目目标：根据研究主题完成文献检索、结构化阅读、方法分析、Critic 审核与报告生成。
-当前已交付成员1的基础框架，以及成员4的 Method Analyst；尚未形成真实文献端到端系统。
+当前已交付成员1基础框架、成员4 Method Analyst、成员5 Critic 与系统评价；尚未形成真实文献端到端系统。
 
 | 模块 | 当前状态 |
 |---|---|
 | 成员1：Graph、共享 State、Coordinator、路由 | 已实现；Coordinator 支持模型调用和无配置时的模板计划 |
 | 成员4：Method Analyst | 已实现；支持分类、对比、技术路线归纳、引用校验与独立真实调用 |
-| 公共模型客户端 | Coordinator 和 Analyst 共用，支持 Responses / Chat Completions |
-| 成员2、3、5、6：Search、Reader、Critic、Writer | 目前仅有 demo stub，等待正式实现接入 |
-| 前端、真实检索、PDF 解析、系统质量评价 | 当前仓库尚未实现 |
+| 成员5：Critic、系统指标、消融实验 | 已实现；包含证据审核、补充查询、独立评价标注与离线成对演示 |
+| 公共模型客户端 | Coordinator、Analyst 和 Critic 共用，支持 Responses / Chat Completions |
+| 成员2、3、6：Search、Reader、Writer | 当前主分支仅有 demo stub，等待正式实现接入 |
+| 前端、真实检索、PDF 解析、真实系统质量实验 | 当前主分支尚未实现；模拟流程验证不代表真实质量实验 |
 
 **`main.py` 仍注入五个 demo 节点（包括 demo Analyst）；配置密钥不会自动替换它们。**
 其中 Coordinator 可按配置调用真实模型。demo 论文和报告均不能当作科研结果。
@@ -17,6 +18,7 @@
 - 运行与配置：本文。
 - 跨成员数据契约：[INTERFACES.md](INTERFACES.md)。
 - 已交付内容、验证记录及汇报提纲：[REPORT.md](REPORT.md)。
+- 成员5完整交付、指标口径、消融复现与真实评测协议：[MEMBER5.md](MEMBER5.md)。
 
 ## 项目结构
 
@@ -31,19 +33,28 @@ multi-agent-research-assistant/
 ├─ examples/
 │  ├─ analyst_mock_demo.py
 │  ├─ analyst_live_demo.py
+│  ├─ critic_mock_demo.py
+│  ├─ critic_live_demo.py
+│  ├─ critic_ablation_demo.py
+│  ├─ evaluate_run.py
 │  └─ fixtures/analyst_mock.json
 ├─ research_assistant/
 │  ├─ graph.py
 │  ├─ state.py
 │  ├─ schemas.py
 │  ├─ llm.py
+│  ├─ evaluation.py
+│  ├─ ablation.py
 │  ├─ demo_stubs.py
 │  └─ agents/
 │     ├─ analyst.py
+│     ├─ critic.py
 │     └─ coordinator.py
 └─ tests/
    ├─ test_analyst.py
    ├─ test_llm.py
+   ├─ test_critic.py
+   ├─ test_evaluation.py
    └─ test_routing.py
 ```
 
@@ -63,6 +74,10 @@ pip install -r requirements.txt
 | `python main.py "研究主题"` | 成员1 Graph 编排演示 | 仅 Coordinator 可能调用；其余五个节点均为 stub |
 | `python -m examples.analyst_mock_demo` | 成员4离线样例，使用预设模型响应 | 否，即使本地已配置密钥 |
 | `python -m examples.analyst_live_demo` | 成员4真实分析，默认读取模拟论文 | 有效非空输入时调用真实 Analyst |
+| `python -m examples.critic_mock_demo` | 成员5审核反馈闭环，全部使用模拟材料与预设响应 | 否 |
+| `python -m examples.critic_live_demo --input state.json` | 正式 Critic 独立审核 | 结构完整时调用真实模型 |
+| `python -m examples.critic_ablation_demo --output output/critic_ablation.json` | 成员5模拟消融与评价公式验证 | 否 |
+| `python -m examples.evaluate_run --input state.json --annotations labels.json` | 评价保存的 State，事实判断来自独立标注 | 否 |
 | `python -m pytest -q` | 离线自动化测试 | 否；需先安装 `requirements-dev.txt` |
 
 无 API 配置时，主程序中的 Coordinator 使用模板计划。若已配置密钥但希望强制离线
@@ -77,7 +92,7 @@ PowerShell 中先执行 `$env:COORDINATOR_USE_LLM="0"`，再运行 `python main.
 
 ## 其他成员如何接入
 
-成员2、3、5、6提供正式节点；成员4已提供 `analyst_node`。各节点签名为：
+成员2、3、6提供正式节点；成员4已提供 `analyst_node`，成员5已提供 `critic_node`。各节点签名为：
 
 ```python
 search_node(state) -> dict
@@ -87,11 +102,12 @@ critic_node(state) -> dict
 writer_node(state) -> dict
 ```
 
-集成时将实际节点传给 Graph。下面是接入示意，其他四个函数需由对应成员导入：
+集成时将实际节点传给 Graph。下面是接入示意，Search、Reader、Writer 需由对应成员导入：
 
 ```python
 from research_assistant.graph import build_research_graph
 from research_assistant.agents.analyst import analyst_node
+from research_assistant.agents.critic import critic_node
 
 app = build_research_graph(
     search_node=search_node,
@@ -205,3 +221,25 @@ temperature，以兼容使用默认采样参数的模型。请求失败或输出
 
 内部 `AnalystOutput` 使用带 `papers` 的结论对象和严格的对比行格式；输出时转换回
 团队约定的 `ResearchLandscape`，不要求成员3、5、6修改接口。
+
+## 成员5：Critic Agent 与系统评价
+
+`research_assistant/agents/critic.py` 已提供 `critic_node(state) -> {"critic_result": ...}`。
+先检查来源、引用与论文覆盖，再请求模型审核问题遗漏、证据支持和过度推断。
+FAIL 包含问题、修订建议和补充检索查询；PASS 不允许遗留问题。模型异常或矛盾输出
+明确报错。Graph 负责轮次上限，达到上限仍保留 FAIL，Writer 应标记“审核未完全通过”。
+
+评价模块分别统计论文有效性、重复率、引用可追溯率、独立核验引用正确率、审核次数、
+FAIL 次数和报告问题覆盖率。未核验项为 null，同时报告标注覆盖率；不会把输入中
+存在论文标题直接当作真实论文或正确引用。
+
+```bash
+python -m examples.critic_mock_demo
+python -m examples.critic_ablation_demo --output output/critic_ablation.json
+python -m examples.critic_live_demo --input path/to/state.json --output output/critic_result.json
+```
+
+前两个入口完全离线。模拟消融验证 `FAIL → 补充检索 → PASS`；论文、模型响应和
+评价标签全部为预设，不能证明真实模型质量。真实模型配置沿用上文；Critic 结构完整
+输入缺少配置时会报错，结构缺口可直接 FAIL。接口、指标公式、独立标注格式、
+真实消融协议与汇报材料见 [MEMBER5.md](MEMBER5.md)。
