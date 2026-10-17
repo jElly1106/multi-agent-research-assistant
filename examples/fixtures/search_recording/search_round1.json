@@ -1,0 +1,920 @@
+{
+  "notice": "论文元数据来自数据库 API；相关性分数是本地关键词覆盖分，不是论文质量或真实性概率。恢复的已有 State 需保留上轮来源证据。",
+  "state": {
+    "topic": "Multimodal Time Series Forecasting",
+    "research_questions": [
+      "时间序列如何融合文本信息？"
+    ],
+    "search_keywords": [
+      "multimodal time series forecasting"
+    ],
+    "papers": [
+      {
+        "title": "A Multimodal LLM Framework for Short-Term Footfall Time Series Forecasting",
+        "authors": [
+          "Zhijie Li",
+          "Gao Libo",
+          "Wang Fuqi",
+          "Changhua Li"
+        ],
+        "year": 2026,
+        "abstract": "Short-term footfall forecasting is important for staffing, crowd management, energy scheduling, and event-aware operations in large commercial areas. However, this task remains challenging because pedestrian flow is affected by heterogeneous external factors, strong periodic patterns, and abrupt local deviations. Existing forecasting methods often struggle to jointly model multimodal signals and maintain interpretability under high-frequency prediction settings. To address these challenges, this paper proposes MFF-LLM, a multimodal LLM-based forecasting framework with an offline–online design. In the offline stage, aligned observations are transformed into modality-specific token streams. In the online stage, these tokens are processed by a dual-path forecasting network that integrates Stage-1 fusion, a frozen Transformer backbone, explicit modality posterior estimation, history-guided routing, and a two-stage prediction head. Experiments on real-world footfall forecasting show that the MFF-LLM family achieves the strongest and most consistent MAE performance across multiple forecast horizons. Further ablation and mechanism analyses show that the seasonal prior, explicit modality branch, and structured multimodal fusion are key contributors to the final performance. Case studies also demonstrate that the proposed model can follow event-day deviations, preserve major peak–valley patterns, and capture short-term dynamic changes with reasonable fidelity. These results indicate that MFF-LLM provides an effective and interpretable solution for short-term multimodal footfall forecasting.",
+        "url": "https://doi.org/10.2139/ssrn.6996730",
+        "source": "crossref",
+        "relevance_score": 1.0
+      },
+      {
+        "title": "A universal gating framework for multi-expert fusion in heterogeneous multimodal time series forecasting",
+        "authors": [
+          "Kathy Razmadze",
+          "Yoli Shavit"
+        ],
+        "year": 2026,
+        "abstract": "",
+        "url": "https://doi.org/10.1038/s41598-026-54540-x",
+        "source": "crossref",
+        "relevance_score": 1.0
+      },
+      {
+        "title": "The Evolution of Financial Time Series Forecasting: From Classical Econometrics to Temporal Foundation Models and Multimodal LLMs",
+        "authors": [
+          "Kartik Sirohi"
+        ],
+        "year": 2026,
+        "abstract": "Financial time series forecasting sits at the intersection of applied mathematics, econometrics, and machine learning. The data generating processes involved are characterized by non-stationarity, regime-dependent volatility clustering, very low signal-to-noise ratios, and reflexive feedback between market participants and asset prices. Over roughly six decades, the dominant methodology has moved through five recognizable phases: classical linear econometrics (ARMA, ARIMA, regularized VAR, VECM), conditional volatility modeling (ARCH/GARCH families, Stochastic Volatility), recursive online signal processing (LMS, RLS, Kalman filters), deep sequence learning (LSTMs, TCNs, patch-based Transformers, State Space Models), and the contemporary period (2024--2026) of Time Series Foundation Models (TSFMs), Temporal Language Models (TLMs), and LLMs adapted for financial reasoning. For the purposes of the comparative analysis in Section~10, the deep learning phase is split into two paradigms (recurrent/convolutional networks and Transformer-based architectures), and the foundation model phase is similarly split into numerical TSFMs and multimodal LLM adapters, yielding seven paradigm entries in total. This paper traces that trajectory through the lens of what we call the Capacity-Adaptability Trilemma, a three-way tension between representational capacity, online adaptability, and structural interpretability. We also examine where foundation models fall short in financial contexts, documenting how benchmark contamination and architectural mismatches can cause large zero-shot models to underperform simple statistical baselines. To address this, we propose Econometrically-Informed Neural Networks (EINNs) as a way to embed econometric constraints into modern deep architectures. We present four self-contained synthetic experiments conducted on a MacBook Air M1. These provide limited empirical illustration of several paper claims: that model class rankings shift with SNR and nonlinearity structure (consistent with the trilemma framing), that a noise-dependent crossover exists between DLinear and PatchTST, that trained autoregressors do not beat naive persistence on synthetic random walks, and that the proposed VECM regularizer improves spread stationarity in a bivariate cointegrated setup.",
+        "url": "https://doi.org/10.20944/preprints202506.2416.v2",
+        "source": "crossref",
+        "relevance_score": 1.0
+      },
+      {
+        "title": "Time-VLM: Exploring Multimodal Vision-Language Models for Augmented Time Series Forecasting",
+        "authors": [
+          "Siru Zhong",
+          "Yuxuan Liang",
+          "Weilin Ruan",
+          "Ming Jin",
+          "Huan Li",
+          "Qingsong Wen"
+        ],
+        "year": 2026,
+        "abstract": "",
+        "url": "https://doi.org/10.1201/9781003616719-9",
+        "source": "crossref",
+        "relevance_score": 1.0
+      },
+      {
+        "title": "Forward Growth Forecasting of Greenhouse Lettuce via Multimodal Inputs and Non-Uniform Time Series Data",
+        "authors": [
+          "Yibin Wang",
+          "Mike O. Ojo",
+          "Azlan Zahid"
+        ],
+        "year": 2025,
+        "abstract": "",
+        "url": "https://doi.org/10.2139/ssrn.5686277",
+        "source": "crossref",
+        "relevance_score": 1.0
+      }
+    ],
+    "errors": [
+      "arxiv 检索失败：检索 API 请求失败（网络连接或读取超时）；已用尽 1 次重试。",
+      "semantic_scholar 检索失败：检索 API 请求失败（HTTP 429）；已用尽 1 次重试。",
+      "Crossref 10.2139/ssrn.4872537 未提供可用摘要。",
+      "Crossref 10.2139/ssrn.5686277 未提供可用摘要。",
+      "Crossref 10.1201/9781003616719-9 未提供可用摘要。",
+      "Crossref 10.1038/s41598-026-54540-x 未提供可用摘要。",
+      "Crossref 10.2174/9781681085289117020011 的作者信息缺失或不完整。",
+      "Crossref 10.2174/9781681085289117020011 未提供可用摘要。",
+      "Crossref 10.2174/9781681085289117020012 的作者信息缺失或不完整。",
+      "Crossref 10.2174/9781681085289117020012 未提供可用摘要。",
+      "Crossref 10.2174/9781681085289117020009 的作者信息缺失或不完整。",
+      "Crossref 10.2174/9781681085289117020009 未提供可用摘要。",
+      "Crossref 10.65109/vkyz9649 未提供有效的发表年份，保留为未知。",
+      "Crossref 10.65109/vkyz9649 未提供可用摘要。",
+      "crossref 返回的论文记录未通过来源/格式校验，已排除",
+      "Crossref 10.1109/icpece67187.2025.11435795 未提供可用摘要。",
+      "Crossref 第 3 条记录不是支持的学术论文类型，已跳过。",
+      "Crossref 10.1109/cifer67845.2026.11692383 未提供可用摘要。",
+      "Crossref 第 5 条记录不是支持的学术论文类型，已跳过。",
+      "Crossref 第 6 条记录不是支持的学术论文类型，已跳过。",
+      "Crossref 10.23919/fusion52260.2023.10224217 未提供可用摘要。",
+      "Crossref 10.1016/j.fusengdes.2016.07.011 未提供可用摘要。",
+      "Crossref 第 9 条记录不是支持的学术论文类型，已跳过。",
+      "Crossref 10.1007/978-3-319-55789-2_3 未提供可用摘要。"
+    ]
+  },
+  "search_audit": {
+    "run_id": "20261015T034101-ddf77bbc",
+    "started_at": "2026-10-15T03:41:01.894382+00:00",
+    "topic": "Multimodal Time Series Forecasting",
+    "config": {
+      "top_k": 5,
+      "max_queries": 2,
+      "results_per_query": 10,
+      "year_from": 2020,
+      "year_to": null,
+      "min_relevance": 0.12,
+      "required_keywords": [],
+      "excluded_keywords": [],
+      "keyword_match": "any",
+      "use_llm": false,
+      "sources": [
+        "arxiv",
+        "semantic_scholar",
+        "crossref"
+      ],
+      "timeout": 15.0,
+      "max_retries": 1
+    },
+    "queries": [
+      "multimodal time series forecasting",
+      "time series fusion text"
+    ],
+    "requests": [
+      {
+        "source": "arxiv",
+        "query": "multimodal time series forecasting",
+        "status": "failed",
+        "error": "arxiv 检索失败：检索 API 请求失败（网络连接或读取超时）；已用尽 1 次重试。"
+      },
+      {
+        "source": "semantic_scholar",
+        "query": "multimodal time series forecasting",
+        "status": "failed",
+        "error": "semantic_scholar 检索失败：检索 API 请求失败（HTTP 429）；已用尽 1 次重试。"
+      },
+      {
+        "source": "crossref",
+        "query": "multimodal time series forecasting",
+        "status": "success",
+        "hits": 10,
+        "response_evidence": {
+          "source": "crossref",
+          "source_id": "",
+          "request_url": "https://api.crossref.org/works?query.bibliographic=multimodal+time+series+forecasting&rows=10&sort=relevance&order=desc",
+          "response_sha256": "0d233a0cc85046d3988f54126c3f3283decef8c50d468cded8d8a667bdcc1d13",
+          "retrieved_at": "2026-10-15T03:41:35.955893+00:00",
+          "response_file": "D:\\chatgpt\\outputs\\2026-10-15-member2-search\\audit\\raw\\0d233a0cc85046d3988f54126c3f3283decef8c50d468cded8d8a667bdcc1d13.response",
+          "raw_record_count": 10
+        }
+      },
+      {
+        "source": "crossref",
+        "query": "time series fusion text",
+        "status": "success",
+        "hits": 6,
+        "response_evidence": {
+          "source": "crossref",
+          "source_id": "",
+          "request_url": "https://api.crossref.org/works?query.bibliographic=time+series+fusion+text&rows=10&sort=relevance&order=desc",
+          "response_sha256": "b54f6954bd351575f0de9c3d62b12d6e6ae2a923df78f6c42a27acab1a0f017d",
+          "retrieved_at": "2026-10-15T03:41:37.052567+00:00",
+          "response_file": "D:\\chatgpt\\outputs\\2026-10-15-member2-search\\audit\\raw\\b54f6954bd351575f0de9c3d62b12d6e6ae2a923df78f6c42a27acab1a0f017d.response",
+          "raw_record_count": 10
+        }
+      }
+    ],
+    "warnings": [
+      "arxiv 检索失败：检索 API 请求失败（网络连接或读取超时）；已用尽 1 次重试。",
+      "semantic_scholar 检索失败：检索 API 请求失败（HTTP 429）；已用尽 1 次重试。",
+      "Crossref 10.2139/ssrn.4872537 未提供可用摘要。",
+      "Crossref 10.2139/ssrn.5686277 未提供可用摘要。",
+      "Crossref 10.1201/9781003616719-9 未提供可用摘要。",
+      "Crossref 10.1038/s41598-026-54540-x 未提供可用摘要。",
+      "Crossref 10.2174/9781681085289117020011 的作者信息缺失或不完整。",
+      "Crossref 10.2174/9781681085289117020011 未提供可用摘要。",
+      "Crossref 10.2174/9781681085289117020012 的作者信息缺失或不完整。",
+      "Crossref 10.2174/9781681085289117020012 未提供可用摘要。",
+      "Crossref 10.2174/9781681085289117020009 的作者信息缺失或不完整。",
+      "Crossref 10.2174/9781681085289117020009 未提供可用摘要。",
+      "Crossref 10.65109/vkyz9649 未提供有效的发表年份，保留为未知。",
+      "Crossref 10.65109/vkyz9649 未提供可用摘要。",
+      "crossref 返回的论文记录未通过来源/格式校验，已排除",
+      "crossref 返回的论文记录未通过来源/格式校验，已排除",
+      "crossref 返回的论文记录未通过来源/格式校验，已排除",
+      "Crossref 10.1109/icpece67187.2025.11435795 未提供可用摘要。",
+      "Crossref 第 3 条记录不是支持的学术论文类型，已跳过。",
+      "Crossref 10.1109/cifer67845.2026.11692383 未提供可用摘要。",
+      "Crossref 第 5 条记录不是支持的学术论文类型，已跳过。",
+      "Crossref 第 6 条记录不是支持的学术论文类型，已跳过。",
+      "Crossref 10.23919/fusion52260.2023.10224217 未提供可用摘要。",
+      "Crossref 10.1016/j.fusengdes.2016.07.011 未提供可用摘要。",
+      "Crossref 第 9 条记录不是支持的学术论文类型，已跳过。",
+      "Crossref 10.1007/978-3-319-55789-2_3 未提供可用摘要。"
+    ],
+    "counts": {
+      "existing_input": 0,
+      "api_records": 20,
+      "api_hits": 16,
+      "invalid_hits": 3,
+      "source_discarded": 4,
+      "duplicates_removed": 0,
+      "unique_candidates": 13,
+      "filtered": {
+        "year_unknown": 1,
+        "year_out_of_range": 2
+      },
+      "new_selected": 5,
+      "existing_retained": 0,
+      "returned": 5,
+      "outside_top_k": 5
+    },
+    "candidates": [
+      {
+        "paper": {
+          "title": "Multimodal Adaptive Dynamic Graph Learning for Multivariate Time Series Forecasting",
+          "authors": [
+            "Seunghan Lee",
+            "Kibok Lee",
+            "Taeyoung Park"
+          ],
+          "year": 2024,
+          "abstract": "",
+          "url": "https://doi.org/10.2139/ssrn.4872537",
+          "source": "crossref",
+          "relevance_score": 1.0
+        },
+        "existing": false,
+        "score": 1.0,
+        "score_details": {
+          "topic_coverage": 1.0,
+          "best_query_coverage": 1.0,
+          "matched_terms": [
+            "forecasting",
+            "multimodal",
+            "series",
+            "time"
+          ],
+          "formula": "0.65 * topic_coverage + 0.35 * best_query_coverage; title=1, abstract_only=0.7"
+        },
+        "filter_reason": "outside_top_k",
+        "identifiers": {
+          "dois": [
+            "10.2139/ssrn.4872537"
+          ],
+          "arxiv_ids": []
+        },
+        "provenance": [
+          {
+            "source": "crossref",
+            "source_id": "10.2139/ssrn.4872537",
+            "url": "https://doi.org/10.2139/ssrn.4872537",
+            "query": "multimodal time series forecasting",
+            "retrieved_at": "2026-10-15T03:41:35.955893+00:00",
+            "request_url": "https://api.crossref.org/works?query.bibliographic=multimodal+time+series+forecasting&rows=10&sort=relevance&order=desc",
+            "response_sha256": "0d233a0cc85046d3988f54126c3f3283decef8c50d468cded8d8a667bdcc1d13",
+            "response_file": "D:\\chatgpt\\outputs\\2026-10-15-member2-search\\audit\\raw\\0d233a0cc85046d3988f54126c3f3283decef8c50d468cded8d8a667bdcc1d13.response"
+          }
+        ],
+        "selected": false
+      },
+      {
+        "paper": {
+          "title": "A Multimodal LLM Framework for Short-Term Footfall Time Series Forecasting",
+          "authors": [
+            "Zhijie Li",
+            "Gao Libo",
+            "Wang Fuqi",
+            "Changhua Li"
+          ],
+          "year": 2026,
+          "abstract": "Short-term footfall forecasting is important for staffing, crowd management, energy scheduling, and event-aware operations in large commercial areas. However, this task remains challenging because pedestrian flow is affected by heterogeneous external factors, strong periodic patterns, and abrupt local deviations. Existing forecasting methods often struggle to jointly model multimodal signals and maintain interpretability under high-frequency prediction settings. To address these challenges, this paper proposes MFF-LLM, a multimodal LLM-based forecasting framework with an offline–online design. In the offline stage, aligned observations are transformed into modality-specific token streams. In the online stage, these tokens are processed by a dual-path forecasting network that integrates Stage-1 fusion, a frozen Transformer backbone, explicit modality posterior estimation, history-guided routing, and a two-stage prediction head. Experiments on real-world footfall forecasting show that the MFF-LLM family achieves the strongest and most consistent MAE performance across multiple forecast horizons. Further ablation and mechanism analyses show that the seasonal prior, explicit modality branch, and structured multimodal fusion are key contributors to the final performance. Case studies also demonstrate that the proposed model can follow event-day deviations, preserve major peak–valley patterns, and capture short-term dynamic changes with reasonable fidelity. These results indicate that MFF-LLM provides an effective and interpretable solution for short-term multimodal footfall forecasting.",
+          "url": "https://doi.org/10.2139/ssrn.6996730",
+          "source": "crossref",
+          "relevance_score": 1.0
+        },
+        "existing": false,
+        "score": 1.0,
+        "score_details": {
+          "topic_coverage": 1.0,
+          "best_query_coverage": 1.0,
+          "matched_terms": [
+            "forecasting",
+            "fusion",
+            "multimodal",
+            "series",
+            "time"
+          ],
+          "formula": "0.65 * topic_coverage + 0.35 * best_query_coverage; title=1, abstract_only=0.7"
+        },
+        "filter_reason": null,
+        "identifiers": {
+          "dois": [
+            "10.2139/ssrn.6996730"
+          ],
+          "arxiv_ids": []
+        },
+        "provenance": [
+          {
+            "source": "crossref",
+            "source_id": "10.2139/ssrn.6996730",
+            "url": "https://doi.org/10.2139/ssrn.6996730",
+            "query": "multimodal time series forecasting",
+            "retrieved_at": "2026-10-15T03:41:35.955893+00:00",
+            "request_url": "https://api.crossref.org/works?query.bibliographic=multimodal+time+series+forecasting&rows=10&sort=relevance&order=desc",
+            "response_sha256": "0d233a0cc85046d3988f54126c3f3283decef8c50d468cded8d8a667bdcc1d13",
+            "response_file": "D:\\chatgpt\\outputs\\2026-10-15-member2-search\\audit\\raw\\0d233a0cc85046d3988f54126c3f3283decef8c50d468cded8d8a667bdcc1d13.response"
+          }
+        ],
+        "selected": true
+      },
+      {
+        "paper": {
+          "title": "Forward Growth Forecasting of Greenhouse Lettuce via Multimodal Inputs and Non-Uniform Time Series Data",
+          "authors": [
+            "Yibin Wang",
+            "Mike O. Ojo",
+            "Azlan Zahid"
+          ],
+          "year": 2025,
+          "abstract": "",
+          "url": "https://doi.org/10.2139/ssrn.5686277",
+          "source": "crossref",
+          "relevance_score": 1.0
+        },
+        "existing": false,
+        "score": 1.0,
+        "score_details": {
+          "topic_coverage": 1.0,
+          "best_query_coverage": 1.0,
+          "matched_terms": [
+            "forecasting",
+            "multimodal",
+            "series",
+            "time"
+          ],
+          "formula": "0.65 * topic_coverage + 0.35 * best_query_coverage; title=1, abstract_only=0.7"
+        },
+        "filter_reason": null,
+        "identifiers": {
+          "dois": [
+            "10.2139/ssrn.5686277"
+          ],
+          "arxiv_ids": []
+        },
+        "provenance": [
+          {
+            "source": "crossref",
+            "source_id": "10.2139/ssrn.5686277",
+            "url": "https://doi.org/10.2139/ssrn.5686277",
+            "query": "multimodal time series forecasting",
+            "retrieved_at": "2026-10-15T03:41:35.955893+00:00",
+            "request_url": "https://api.crossref.org/works?query.bibliographic=multimodal+time+series+forecasting&rows=10&sort=relevance&order=desc",
+            "response_sha256": "0d233a0cc85046d3988f54126c3f3283decef8c50d468cded8d8a667bdcc1d13",
+            "response_file": "D:\\chatgpt\\outputs\\2026-10-15-member2-search\\audit\\raw\\0d233a0cc85046d3988f54126c3f3283decef8c50d468cded8d8a667bdcc1d13.response"
+          }
+        ],
+        "selected": true
+      },
+      {
+        "paper": {
+          "title": "The Evolution of Financial Time Series Forecasting: From Classical Econometrics to Temporal Foundation Models and Multimodal LLMs",
+          "authors": [
+            "Kartik Sirohi"
+          ],
+          "year": 2026,
+          "abstract": "Financial time series forecasting sits at the intersection of applied mathematics, econometrics, and machine learning. The data generating processes involved are characterized by non-stationarity, regime-dependent volatility clustering, very low signal-to-noise ratios, and reflexive feedback between market participants and asset prices. Over roughly six decades, the dominant methodology has moved through five recognizable phases: classical linear econometrics (ARMA, ARIMA, regularized VAR, VECM), conditional volatility modeling (ARCH/GARCH families, Stochastic Volatility), recursive online signal processing (LMS, RLS, Kalman filters), deep sequence learning (LSTMs, TCNs, patch-based Transformers, State Space Models), and the contemporary period (2024--2026) of Time Series Foundation Models (TSFMs), Temporal Language Models (TLMs), and LLMs adapted for financial reasoning. For the purposes of the comparative analysis in Section~10, the deep learning phase is split into two paradigms (recurrent/convolutional networks and Transformer-based architectures), and the foundation model phase is similarly split into numerical TSFMs and multimodal LLM adapters, yielding seven paradigm entries in total. This paper traces that trajectory through the lens of what we call the Capacity-Adaptability Trilemma, a three-way tension between representational capacity, online adaptability, and structural interpretability. We also examine where foundation models fall short in financial contexts, documenting how benchmark contamination and architectural mismatches can cause large zero-shot models to underperform simple statistical baselines. To address this, we propose Econometrically-Informed Neural Networks (EINNs) as a way to embed econometric constraints into modern deep architectures. We present four self-contained synthetic experiments conducted on a MacBook Air M1. These provide limited empirical illustration of several paper claims: that model class rankings shift with SNR and nonlinearity structure (consistent with the trilemma framing), that a noise-dependent crossover exists between DLinear and PatchTST, that trained autoregressors do not beat naive persistence on synthetic random walks, and that the proposed VECM regularizer improves spread stationarity in a bivariate cointegrated setup.",
+          "url": "https://doi.org/10.20944/preprints202506.2416.v2",
+          "source": "crossref",
+          "relevance_score": 1.0
+        },
+        "existing": false,
+        "score": 1.0,
+        "score_details": {
+          "topic_coverage": 1.0,
+          "best_query_coverage": 1.0,
+          "matched_terms": [
+            "forecasting",
+            "multimodal",
+            "series",
+            "time"
+          ],
+          "formula": "0.65 * topic_coverage + 0.35 * best_query_coverage; title=1, abstract_only=0.7"
+        },
+        "filter_reason": null,
+        "identifiers": {
+          "dois": [
+            "10.20944/preprints202506.2416.v2"
+          ],
+          "arxiv_ids": []
+        },
+        "provenance": [
+          {
+            "source": "crossref",
+            "source_id": "10.20944/preprints202506.2416.v2",
+            "url": "https://doi.org/10.20944/preprints202506.2416.v2",
+            "query": "multimodal time series forecasting",
+            "retrieved_at": "2026-10-15T03:41:35.955893+00:00",
+            "request_url": "https://api.crossref.org/works?query.bibliographic=multimodal+time+series+forecasting&rows=10&sort=relevance&order=desc",
+            "response_sha256": "0d233a0cc85046d3988f54126c3f3283decef8c50d468cded8d8a667bdcc1d13",
+            "response_file": "D:\\chatgpt\\outputs\\2026-10-15-member2-search\\audit\\raw\\0d233a0cc85046d3988f54126c3f3283decef8c50d468cded8d8a667bdcc1d13.response"
+          }
+        ],
+        "selected": true
+      },
+      {
+        "paper": {
+          "title": "Time-VLM: Exploring Multimodal Vision-Language Models for Augmented Time Series Forecasting",
+          "authors": [
+            "Siru Zhong",
+            "Yuxuan Liang",
+            "Weilin Ruan",
+            "Ming Jin",
+            "Huan Li",
+            "Qingsong Wen"
+          ],
+          "year": 2026,
+          "abstract": "",
+          "url": "https://doi.org/10.1201/9781003616719-9",
+          "source": "crossref",
+          "relevance_score": 1.0
+        },
+        "existing": false,
+        "score": 1.0,
+        "score_details": {
+          "topic_coverage": 1.0,
+          "best_query_coverage": 1.0,
+          "matched_terms": [
+            "forecasting",
+            "multimodal",
+            "series",
+            "time"
+          ],
+          "formula": "0.65 * topic_coverage + 0.35 * best_query_coverage; title=1, abstract_only=0.7"
+        },
+        "filter_reason": null,
+        "identifiers": {
+          "dois": [
+            "10.1201/9781003616719-9"
+          ],
+          "arxiv_ids": []
+        },
+        "provenance": [
+          {
+            "source": "crossref",
+            "source_id": "10.1201/9781003616719-9",
+            "url": "https://doi.org/10.1201/9781003616719-9",
+            "query": "multimodal time series forecasting",
+            "retrieved_at": "2026-10-15T03:41:35.955893+00:00",
+            "request_url": "https://api.crossref.org/works?query.bibliographic=multimodal+time+series+forecasting&rows=10&sort=relevance&order=desc",
+            "response_sha256": "0d233a0cc85046d3988f54126c3f3283decef8c50d468cded8d8a667bdcc1d13",
+            "response_file": "D:\\chatgpt\\outputs\\2026-10-15-member2-search\\audit\\raw\\0d233a0cc85046d3988f54126c3f3283decef8c50d468cded8d8a667bdcc1d13.response"
+          }
+        ],
+        "selected": true
+      },
+      {
+        "paper": {
+          "title": "A universal gating framework for multi-expert fusion in heterogeneous multimodal time series forecasting",
+          "authors": [
+            "Kathy Razmadze",
+            "Yoli Shavit"
+          ],
+          "year": 2026,
+          "abstract": "",
+          "url": "https://doi.org/10.1038/s41598-026-54540-x",
+          "source": "crossref",
+          "relevance_score": 1.0
+        },
+        "existing": false,
+        "score": 1.0,
+        "score_details": {
+          "topic_coverage": 1.0,
+          "best_query_coverage": 1.0,
+          "matched_terms": [
+            "forecasting",
+            "fusion",
+            "multimodal",
+            "series",
+            "time"
+          ],
+          "formula": "0.65 * topic_coverage + 0.35 * best_query_coverage; title=1, abstract_only=0.7"
+        },
+        "filter_reason": null,
+        "identifiers": {
+          "dois": [
+            "10.1038/s41598-026-54540-x"
+          ],
+          "arxiv_ids": []
+        },
+        "provenance": [
+          {
+            "source": "crossref",
+            "source_id": "10.1038/s41598-026-54540-x",
+            "url": "https://doi.org/10.1038/s41598-026-54540-x",
+            "query": "multimodal time series forecasting",
+            "retrieved_at": "2026-10-15T03:41:35.955893+00:00",
+            "request_url": "https://api.crossref.org/works?query.bibliographic=multimodal+time+series+forecasting&rows=10&sort=relevance&order=desc",
+            "response_sha256": "0d233a0cc85046d3988f54126c3f3283decef8c50d468cded8d8a667bdcc1d13",
+            "response_file": "D:\\chatgpt\\outputs\\2026-10-15-member2-search\\audit\\raw\\0d233a0cc85046d3988f54126c3f3283decef8c50d468cded8d8a667bdcc1d13.response"
+          }
+        ],
+        "selected": true
+      },
+      {
+        "paper": {
+          "title": "Automated Negotiation and Multimodal Time-Series Forecasting for Efficient Procurement",
+          "authors": [
+            "Yasser Mohammad",
+            "Haifeng Chen"
+          ],
+          "year": null,
+          "abstract": "",
+          "url": "https://doi.org/10.65109/vkyz9649",
+          "source": "crossref",
+          "relevance_score": 1.0
+        },
+        "existing": false,
+        "score": 1.0,
+        "score_details": {
+          "topic_coverage": 1.0,
+          "best_query_coverage": 1.0,
+          "matched_terms": [
+            "forecasting",
+            "multimodal",
+            "series",
+            "time"
+          ],
+          "formula": "0.65 * topic_coverage + 0.35 * best_query_coverage; title=1, abstract_only=0.7"
+        },
+        "filter_reason": "year_unknown",
+        "identifiers": {
+          "dois": [
+            "10.65109/vkyz9649"
+          ],
+          "arxiv_ids": []
+        },
+        "provenance": [
+          {
+            "source": "crossref",
+            "source_id": "10.65109/vkyz9649",
+            "url": "https://doi.org/10.65109/vkyz9649",
+            "query": "multimodal time series forecasting",
+            "retrieved_at": "2026-10-15T03:41:35.955893+00:00",
+            "request_url": "https://api.crossref.org/works?query.bibliographic=multimodal+time+series+forecasting&rows=10&sort=relevance&order=desc",
+            "response_sha256": "0d233a0cc85046d3988f54126c3f3283decef8c50d468cded8d8a667bdcc1d13",
+            "response_file": "D:\\chatgpt\\outputs\\2026-10-15-member2-search\\audit\\raw\\0d233a0cc85046d3988f54126c3f3283decef8c50d468cded8d8a667bdcc1d13.response"
+          }
+        ],
+        "selected": false
+      },
+      {
+        "paper": {
+          "title": "Multi-Source Data Fusion-Based Pretraining Method for Power Equipment Time-Series-Text Multimodal Large Models",
+          "authors": [
+            "Xiya Li",
+            "Peng Gao",
+            "Renyu Li"
+          ],
+          "year": 2025,
+          "abstract": "",
+          "url": "https://doi.org/10.1109/icpece67187.2025.11435795",
+          "source": "crossref",
+          "relevance_score": 0.8375
+        },
+        "existing": false,
+        "score": 0.8375,
+        "score_details": {
+          "topic_coverage": 0.75,
+          "best_query_coverage": 1.0,
+          "matched_terms": [
+            "fusion",
+            "multimodal",
+            "series",
+            "text",
+            "time"
+          ],
+          "formula": "0.65 * topic_coverage + 0.35 * best_query_coverage; title=1, abstract_only=0.7"
+        },
+        "filter_reason": "outside_top_k",
+        "identifiers": {
+          "dois": [
+            "10.1109/icpece67187.2025.11435795"
+          ],
+          "arxiv_ids": []
+        },
+        "provenance": [
+          {
+            "source": "crossref",
+            "source_id": "10.1109/icpece67187.2025.11435795",
+            "url": "https://doi.org/10.1109/icpece67187.2025.11435795",
+            "query": "time series fusion text",
+            "retrieved_at": "2026-10-15T03:41:37.052567+00:00",
+            "request_url": "https://api.crossref.org/works?query.bibliographic=time+series+fusion+text&rows=10&sort=relevance&order=desc",
+            "response_sha256": "b54f6954bd351575f0de9c3d62b12d6e6ae2a923df78f6c42a27acab1a0f017d",
+            "response_file": "D:\\chatgpt\\outputs\\2026-10-15-member2-search\\audit\\raw\\b54f6954bd351575f0de9c3d62b12d6e6ae2a923df78f6c42a27acab1a0f017d.response"
+          }
+        ],
+        "selected": false
+      },
+      {
+        "paper": {
+          "title": "Optimal Text-Based Time-Series Indices",
+          "authors": [
+            "David Ardia",
+            "Keven Bluteau"
+          ],
+          "year": 2024,
+          "abstract": "We propose an approach to construct text-based time-series indices in an optimal way—typically, indices that maximize the contemporaneous relation or the predictive performance with respect to a target variable, such as inflation. Our methodology relies on binary selection matrices that, applied to the vocabulary of tokens, select the relevant texts in the corpus. Various widely known text-based indices, such as the Economic Policy Uncertainty (EPU) index, can be formulated in terms of selection matrices. We design a genetic algorithm with domain-specific knowledge featuring tailor-made crossover and mutation operations to perform the complex optimization. We illustrate our methodology with a corpus of news articles from the Wall Street Journal by optimizing text-based indices that forecast inflation at various horizons.",
+          "url": "https://doi.org/10.2139/ssrn.4830848",
+          "source": "crossref",
+          "relevance_score": 0.70125
+        },
+        "existing": false,
+        "score": 0.70125,
+        "score_details": {
+          "topic_coverage": 0.675,
+          "best_query_coverage": 0.75,
+          "matched_terms": [
+            "forecasting",
+            "series",
+            "text",
+            "time"
+          ],
+          "formula": "0.65 * topic_coverage + 0.35 * best_query_coverage; title=1, abstract_only=0.7"
+        },
+        "filter_reason": "outside_top_k",
+        "identifiers": {
+          "dois": [
+            "10.2139/ssrn.4830848"
+          ],
+          "arxiv_ids": []
+        },
+        "provenance": [
+          {
+            "source": "crossref",
+            "source_id": "10.2139/ssrn.4830848",
+            "url": "https://doi.org/10.2139/ssrn.4830848",
+            "query": "time series fusion text",
+            "retrieved_at": "2026-10-15T03:41:37.052567+00:00",
+            "request_url": "https://api.crossref.org/works?query.bibliographic=time+series+fusion+text&rows=10&sort=relevance&order=desc",
+            "response_sha256": "b54f6954bd351575f0de9c3d62b12d6e6ae2a923df78f6c42a27acab1a0f017d",
+            "response_file": "D:\\chatgpt\\outputs\\2026-10-15-member2-search\\audit\\raw\\b54f6954bd351575f0de9c3d62b12d6e6ae2a923df78f6c42a27acab1a0f017d.response"
+          }
+        ],
+        "selected": false
+      },
+      {
+        "paper": {
+          "title": "Multimodal Fusion of Financial Text and Time Series Based on Contrastive Learning for Price Prediction",
+          "authors": [
+            "Ryoya Yoshida",
+            "Ryota Ozaki",
+            "Kentaro Imajo",
+            "Masanori Hirano"
+          ],
+          "year": 2026,
+          "abstract": "",
+          "url": "https://doi.org/10.1109/cifer67845.2026.11692383",
+          "source": "crossref",
+          "relevance_score": 0.8375
+        },
+        "existing": false,
+        "score": 0.8375,
+        "score_details": {
+          "topic_coverage": 0.75,
+          "best_query_coverage": 1.0,
+          "matched_terms": [
+            "fusion",
+            "multimodal",
+            "series",
+            "text",
+            "time"
+          ],
+          "formula": "0.65 * topic_coverage + 0.35 * best_query_coverage; title=1, abstract_only=0.7"
+        },
+        "filter_reason": "outside_top_k",
+        "identifiers": {
+          "dois": [
+            "10.1109/cifer67845.2026.11692383"
+          ],
+          "arxiv_ids": []
+        },
+        "provenance": [
+          {
+            "source": "crossref",
+            "source_id": "10.1109/cifer67845.2026.11692383",
+            "url": "https://doi.org/10.1109/cifer67845.2026.11692383",
+            "query": "time series fusion text",
+            "retrieved_at": "2026-10-15T03:41:37.052567+00:00",
+            "request_url": "https://api.crossref.org/works?query.bibliographic=time+series+fusion+text&rows=10&sort=relevance&order=desc",
+            "response_sha256": "b54f6954bd351575f0de9c3d62b12d6e6ae2a923df78f6c42a27acab1a0f017d",
+            "response_file": "D:\\chatgpt\\outputs\\2026-10-15-member2-search\\audit\\raw\\b54f6954bd351575f0de9c3d62b12d6e6ae2a923df78f6c42a27acab1a0f017d.response"
+          }
+        ],
+        "selected": false
+      },
+      {
+        "paper": {
+          "title": "Late Meta-learning Fusion Using Representation Learning for Time Series Forecasting",
+          "authors": [
+            "Terence L. van Zyl"
+          ],
+          "year": 2023,
+          "abstract": "",
+          "url": "https://doi.org/10.23919/fusion52260.2023.10224217",
+          "source": "crossref",
+          "relevance_score": 0.75
+        },
+        "existing": false,
+        "score": 0.75,
+        "score_details": {
+          "topic_coverage": 0.75,
+          "best_query_coverage": 0.75,
+          "matched_terms": [
+            "forecasting",
+            "fusion",
+            "series",
+            "time"
+          ],
+          "formula": "0.65 * topic_coverage + 0.35 * best_query_coverage; title=1, abstract_only=0.7"
+        },
+        "filter_reason": "outside_top_k",
+        "identifiers": {
+          "dois": [
+            "10.23919/fusion52260.2023.10224217"
+          ],
+          "arxiv_ids": []
+        },
+        "provenance": [
+          {
+            "source": "crossref",
+            "source_id": "10.23919/fusion52260.2023.10224217",
+            "url": "https://doi.org/10.23919/fusion52260.2023.10224217",
+            "query": "time series fusion text",
+            "retrieved_at": "2026-10-15T03:41:37.052567+00:00",
+            "request_url": "https://api.crossref.org/works?query.bibliographic=time+series+fusion+text&rows=10&sort=relevance&order=desc",
+            "response_sha256": "b54f6954bd351575f0de9c3d62b12d6e6ae2a923df78f6c42a27acab1a0f017d",
+            "response_file": "D:\\chatgpt\\outputs\\2026-10-15-member2-search\\audit\\raw\\b54f6954bd351575f0de9c3d62b12d6e6ae2a923df78f6c42a27acab1a0f017d.response"
+          }
+        ],
+        "selected": false
+      },
+      {
+        "paper": {
+          "title": "The new control system of J-TEXT divertor power supply system using J-TEXT real-time framework",
+          "authors": [
+            "Ming Zhang",
+            "Guozhen Zheng",
+            "Zhi Chen",
+            "Wei Zheng",
+            "Tao Yuan",
+            "Yang Li"
+          ],
+          "year": 2016,
+          "abstract": "",
+          "url": "https://doi.org/10.1016/j.fusengdes.2016.07.011",
+          "source": "crossref",
+          "relevance_score": 0.3375
+        },
+        "existing": false,
+        "score": 0.3375,
+        "score_details": {
+          "topic_coverage": 0.25,
+          "best_query_coverage": 0.5,
+          "matched_terms": [
+            "text",
+            "time"
+          ],
+          "formula": "0.65 * topic_coverage + 0.35 * best_query_coverage; title=1, abstract_only=0.7"
+        },
+        "filter_reason": "year_out_of_range",
+        "identifiers": {
+          "dois": [
+            "10.1016/j.fusengdes.2016.07.011"
+          ],
+          "arxiv_ids": []
+        },
+        "provenance": [
+          {
+            "source": "crossref",
+            "source_id": "10.1016/j.fusengdes.2016.07.011",
+            "url": "https://doi.org/10.1016/j.fusengdes.2016.07.011",
+            "query": "time series fusion text",
+            "retrieved_at": "2026-10-15T03:41:37.052567+00:00",
+            "request_url": "https://api.crossref.org/works?query.bibliographic=time+series+fusion+text&rows=10&sort=relevance&order=desc",
+            "response_sha256": "b54f6954bd351575f0de9c3d62b12d6e6ae2a923df78f6c42a27acab1a0f017d",
+            "response_file": "D:\\chatgpt\\outputs\\2026-10-15-member2-search\\audit\\raw\\b54f6954bd351575f0de9c3d62b12d6e6ae2a923df78f6c42a27acab1a0f017d.response"
+          }
+        ],
+        "selected": false
+      },
+      {
+        "paper": {
+          "title": "Using Time Series Analysis for Estimating the Time Stamp of a Text",
+          "authors": [
+            "Costin-Gabriel Chiru",
+            "Madalina Toia"
+          ],
+          "year": 2017,
+          "abstract": "",
+          "url": "https://doi.org/10.1007/978-3-319-55789-2_3",
+          "source": "crossref",
+          "relevance_score": 0.5875
+        },
+        "existing": false,
+        "score": 0.5875,
+        "score_details": {
+          "topic_coverage": 0.5,
+          "best_query_coverage": 0.75,
+          "matched_terms": [
+            "series",
+            "text",
+            "time"
+          ],
+          "formula": "0.65 * topic_coverage + 0.35 * best_query_coverage; title=1, abstract_only=0.7"
+        },
+        "filter_reason": "year_out_of_range",
+        "identifiers": {
+          "dois": [
+            "10.1007/978-3-319-55789-2_3"
+          ],
+          "arxiv_ids": []
+        },
+        "provenance": [
+          {
+            "source": "crossref",
+            "source_id": "10.1007/978-3-319-55789-2_3",
+            "url": "https://doi.org/10.1007/978-3-319-55789-2_3",
+            "query": "time series fusion text",
+            "retrieved_at": "2026-10-15T03:41:37.052567+00:00",
+            "request_url": "https://api.crossref.org/works?query.bibliographic=time+series+fusion+text&rows=10&sort=relevance&order=desc",
+            "response_sha256": "b54f6954bd351575f0de9c3d62b12d6e6ae2a923df78f6c42a27acab1a0f017d",
+            "response_file": "D:\\chatgpt\\outputs\\2026-10-15-member2-search\\audit\\raw\\b54f6954bd351575f0de9c3d62b12d6e6ae2a923df78f6c42a27acab1a0f017d.response"
+          }
+        ],
+        "selected": false
+      }
+    ],
+    "papers": [
+      {
+        "title": "A Multimodal LLM Framework for Short-Term Footfall Time Series Forecasting",
+        "authors": [
+          "Zhijie Li",
+          "Gao Libo",
+          "Wang Fuqi",
+          "Changhua Li"
+        ],
+        "year": 2026,
+        "abstract": "Short-term footfall forecasting is important for staffing, crowd management, energy scheduling, and event-aware operations in large commercial areas. However, this task remains challenging because pedestrian flow is affected by heterogeneous external factors, strong periodic patterns, and abrupt local deviations. Existing forecasting methods often struggle to jointly model multimodal signals and maintain interpretability under high-frequency prediction settings. To address these challenges, this paper proposes MFF-LLM, a multimodal LLM-based forecasting framework with an offline–online design. In the offline stage, aligned observations are transformed into modality-specific token streams. In the online stage, these tokens are processed by a dual-path forecasting network that integrates Stage-1 fusion, a frozen Transformer backbone, explicit modality posterior estimation, history-guided routing, and a two-stage prediction head. Experiments on real-world footfall forecasting show that the MFF-LLM family achieves the strongest and most consistent MAE performance across multiple forecast horizons. Further ablation and mechanism analyses show that the seasonal prior, explicit modality branch, and structured multimodal fusion are key contributors to the final performance. Case studies also demonstrate that the proposed model can follow event-day deviations, preserve major peak–valley patterns, and capture short-term dynamic changes with reasonable fidelity. These results indicate that MFF-LLM provides an effective and interpretable solution for short-term multimodal footfall forecasting.",
+        "url": "https://doi.org/10.2139/ssrn.6996730",
+        "source": "crossref",
+        "relevance_score": 1.0
+      },
+      {
+        "title": "A universal gating framework for multi-expert fusion in heterogeneous multimodal time series forecasting",
+        "authors": [
+          "Kathy Razmadze",
+          "Yoli Shavit"
+        ],
+        "year": 2026,
+        "abstract": "",
+        "url": "https://doi.org/10.1038/s41598-026-54540-x",
+        "source": "crossref",
+        "relevance_score": 1.0
+      },
+      {
+        "title": "The Evolution of Financial Time Series Forecasting: From Classical Econometrics to Temporal Foundation Models and Multimodal LLMs",
+        "authors": [
+          "Kartik Sirohi"
+        ],
+        "year": 2026,
+        "abstract": "Financial time series forecasting sits at the intersection of applied mathematics, econometrics, and machine learning. The data generating processes involved are characterized by non-stationarity, regime-dependent volatility clustering, very low signal-to-noise ratios, and reflexive feedback between market participants and asset prices. Over roughly six decades, the dominant methodology has moved through five recognizable phases: classical linear econometrics (ARMA, ARIMA, regularized VAR, VECM), conditional volatility modeling (ARCH/GARCH families, Stochastic Volatility), recursive online signal processing (LMS, RLS, Kalman filters), deep sequence learning (LSTMs, TCNs, patch-based Transformers, State Space Models), and the contemporary period (2024--2026) of Time Series Foundation Models (TSFMs), Temporal Language Models (TLMs), and LLMs adapted for financial reasoning. For the purposes of the comparative analysis in Section~10, the deep learning phase is split into two paradigms (recurrent/convolutional networks and Transformer-based architectures), and the foundation model phase is similarly split into numerical TSFMs and multimodal LLM adapters, yielding seven paradigm entries in total. This paper traces that trajectory through the lens of what we call the Capacity-Adaptability Trilemma, a three-way tension between representational capacity, online adaptability, and structural interpretability. We also examine where foundation models fall short in financial contexts, documenting how benchmark contamination and architectural mismatches can cause large zero-shot models to underperform simple statistical baselines. To address this, we propose Econometrically-Informed Neural Networks (EINNs) as a way to embed econometric constraints into modern deep architectures. We present four self-contained synthetic experiments conducted on a MacBook Air M1. These provide limited empirical illustration of several paper claims: that model class rankings shift with SNR and nonlinearity structure (consistent with the trilemma framing), that a noise-dependent crossover exists between DLinear and PatchTST, that trained autoregressors do not beat naive persistence on synthetic random walks, and that the proposed VECM regularizer improves spread stationarity in a bivariate cointegrated setup.",
+        "url": "https://doi.org/10.20944/preprints202506.2416.v2",
+        "source": "crossref",
+        "relevance_score": 1.0
+      },
+      {
+        "title": "Time-VLM: Exploring Multimodal Vision-Language Models for Augmented Time Series Forecasting",
+        "authors": [
+          "Siru Zhong",
+          "Yuxuan Liang",
+          "Weilin Ruan",
+          "Ming Jin",
+          "Huan Li",
+          "Qingsong Wen"
+        ],
+        "year": 2026,
+        "abstract": "",
+        "url": "https://doi.org/10.1201/9781003616719-9",
+        "source": "crossref",
+        "relevance_score": 1.0
+      },
+      {
+        "title": "Forward Growth Forecasting of Greenhouse Lettuce via Multimodal Inputs and Non-Uniform Time Series Data",
+        "authors": [
+          "Yibin Wang",
+          "Mike O. Ojo",
+          "Azlan Zahid"
+        ],
+        "year": 2025,
+        "abstract": "",
+        "url": "https://doi.org/10.2139/ssrn.5686277",
+        "source": "crossref",
+        "relevance_score": 1.0
+      }
+    ],
+    "status": "partial",
+    "finished_at": "2026-10-15T03:41:37.062564+00:00"
+  }
+}
