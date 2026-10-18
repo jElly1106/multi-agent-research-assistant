@@ -1,5 +1,7 @@
 # Reader 独立运行与本地性能选项
 
+> 当前状态与最新测试见 [reader-status.md](reader-status.md)；本页测试数字和“未验收”记录为对应开发阶段快照。换机配置及运行风险见 [reader-operations.md](reader-operations.md)。
+
 2026-10-18：新增独立 CLI、有界 PDF 并行解析和显式内存材料缓存。
 最终交付状态及基本性能见 [reader-status.md](reader-status.md)。
 这些是本地材料路径的实现，不代表跨成员联调或真实模型质量验收完成。

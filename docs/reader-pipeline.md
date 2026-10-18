@@ -1,5 +1,7 @@
 # Reader 独立统一入口与调用预算
 
+> 当前状态与最新测试见 [reader-status.md](reader-status.md)；本页测试数字和“未验收”记录为对应开发阶段快照。换机配置及运行风险见 [reader-operations.md](reader-operations.md)。
+
 ## 调用
 
 ```python

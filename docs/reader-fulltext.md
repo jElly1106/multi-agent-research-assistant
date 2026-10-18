@@ -1,5 +1,7 @@
 # P2 独立全文提取层
 
+> 当前状态与最新测试见 [reader-status.md](reader-status.md)；本页测试数字和“未验收”记录为对应开发阶段快照。换机配置及运行风险见 [reader-operations.md](reader-operations.md)。
+
 2026-10-17：已实现 opt-in 内部接口，默认 reader_node 仍只分析摘要。
 本阶段不下载论文、不合入 main、不与其他成员联调。共享 Schema、State、Graph 不变。
 

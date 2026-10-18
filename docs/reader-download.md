@@ -1,5 +1,7 @@
 # Reader arXiv 全文获取
 
+> 当前状态与最新测试见 [reader-status.md](reader-status.md)；本页测试数字和“未验收”记录为对应开发阶段快照。换机配置及运行风险见 [reader-operations.md](reader-operations.md)。
+
 2026-10-18：按原有分工，Search 提供论文元数据，Reader 获取并准备相应全文。
 不重新搜索论文，不改 Search、共享 Schema、State 或默认图节点。
 本轮实现范围为 arXiv 官方 PDF；其他来源仍接受显式本地 PDF 映射。

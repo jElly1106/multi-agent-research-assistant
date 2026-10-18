@@ -16,7 +16,6 @@
 member1_research_assistant/
 ├─ main.py
 ├─ requirements.txt
-├─ .env.example
 ├─ INTERFACES.md
 ├─ MEMBER1_REPORT.md
 ├─ research_assistant/
@@ -42,7 +41,7 @@ python main.py "Multimodal Time Series Forecasting"
 
 默认可不配置 API Key：Coordinator 会使用 fallback 生成示例任务拆解，方便先验证 Graph 编排。
 
-若要让 Coordinator 对任意主题调用 LLM：复制 `.env.example` 为 `.env`，填写 `OPENAI_API_KEY` 与 `LLM_MODEL`。若团队使用 OpenAI-compatible 网关，可同时填写 `OPENAI_BASE_URL`。
+若要让 Coordinator 对任意主题调用 LLM：在运行进程中设置 `OPENAI_API_KEY` 与 `LLM_MODEL`；使用 OpenAI-compatible 网关时同时设置 `OPENAI_BASE_URL`。也可自行创建本地 `.env`，但不得提交密钥。当前仓库没有 `.env.example`。Reader 的配置、换机步骤和运行风险见 [部署与风险说明](docs/reader-operations.md)。
 
 ## 其他成员如何接入
 
@@ -95,3 +94,5 @@ READER_USE_LLM=0 明确禁用。已有 DASHSCOPE 变量不会自动映射；如�
 [预算](docs/reader-pipeline.md)、[arXiv获取](docs/reader-download.md)。
 验证事实与尚未覆盖的层次见 [真实数据测试记录](docs/reader-real-data-test.md)；
 合成测试或一次模型成功都不代表所有论文和模型的质量保证。
+
+换机、容器或 CI 联调前，请先阅读 [Reader 部署、配置与风险](docs/reader-operations.md)。本机环境变量、虚拟环境及本地 PDF 不随 Git 迁移。
