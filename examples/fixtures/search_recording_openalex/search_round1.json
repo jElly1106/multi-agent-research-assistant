@@ -1,0 +1,788 @@
+{
+  "notice": "本结果使用已成功取得的 OpenAlex 官方原文，修正作者原始署名优先级后离线重新解析；没有新增 API 或模型调用。",
+  "retrieval_mode": "recorded_bytes_reparse",
+  "original_live_result": "openalex-live.json",
+  "original_retrieved_at": "2026-10-17T03:54:07.740218+00:00",
+  "state": {
+    "topic": "Multimodal Time Series Forecasting",
+    "search_keywords": [
+      "multimodal time series forecasting"
+    ],
+    "papers": [
+      {
+        "title": "MulTiCast: A Multimodal Time Series Forecasting System",
+        "authors": [
+          "Sehyuk Park",
+          "Caren Han",
+          "Hyunsuk Chung"
+        ],
+        "year": 2026,
+        "abstract": "Time-series forecasting plays an essential role in domains such as finance, healthcare, and energy. Yet most existing systems operate in a unimodal setting, overlooking complementary information available from visual and textual modalities. There are surprisingly few time-series forecasting demos, and multimodal, interpretable demos are rarer still. In practice, it is difficult for users to experiment with foundation models on their own time-series data due to strict input requirements, heavy setup burdens, and limited interpretability support. We present MulTiCast, an interactive Multimodal Time series foreCasting system that enables users to combine numerical signals with visual and textual context to improve predictions. The system builds on pretrained models with lightweight adaptation, but its central contribution lies in the interactive demonstration platform. Through a web interface via Hugging Face Spaces, users can load datasets, toggle modality inclusion, and visualize forecasts together with the attention maps of each modality, providing insights into the reasoning path behind the predictions.",
+        "url": "https://openalex.org/W7138928672",
+        "source": "openalex",
+        "relevance_score": 1.0
+      },
+      {
+        "title": "Rethinking Multimodal Time-Series Forecasting Evaluation",
+        "authors": [
+          "Liu, Haoxin",
+          "Zhou, Yichen",
+          "Sen, Rajat",
+          "Prakash, B. Aditya",
+          "Das, Abhimanyu"
+        ],
+        "year": 2026,
+        "abstract": "We introduce a new context-enriched, multimodal time series forecasting benchmark, TimesX. TimesX contains a wide selection of high-quality real-world time series with diverse domains and textual contexts obtained from an automated data generation pipeline, which helps address three main issues of existing multimodal forecasting benchmarks: (1) poor generalization due to the small scale and synthetic nature of benchmark data, (2) very limited types of textual contexts in the benchmarks, and (3) an inability to mitigate data leakage in evaluation. We conduct a thorough empirical study of zero-shot multimodal forecasting approaches on TimesX. Our results suggest that many approaches that perform well on existing benchmarks may fail on TimesX. In contrast, simple ensemble methods that leverage rich textual context accompanying time-series can outperform strong baselines on TimesX.",
+        "url": "https://openalex.org/W7167852552",
+        "source": "openalex",
+        "relevance_score": 1.0
+      },
+      {
+        "title": "Adaptive Information Routing for Multimodal Time Series Forecasting",
+        "authors": [
+          "Seo, Jun",
+          "Choe, Hyeokjun",
+          "Bae, Seohui",
+          "Park, Soyeon",
+          "Ahn, Wonbin",
+          "Lim, Taeyoon",
+          "Kang, Junhyeok",
+          "Han, Sangjun",
+          "Lee, Jaehoon",
+          "Kang, Dongwan",
+          "Kim, Minjae",
+          "Yoo, Sungdong",
+          "Lee, Soonyoung"
+        ],
+        "year": 2025,
+        "abstract": "Time series forecasting is a critical task for artificial intelligence with numerous real-world applications. Traditional approaches primarily rely on historical time series data to predict the future values. However, in practical scenarios, this is often insufficient for accurate predictions due to the limited information available. To address this challenge, multimodal time series forecasting methods which incorporate additional data modalities, mainly text data, alongside time series data have been explored. In this work, we introduce the Adaptive Information Routing (AIR) framework, a novel approach for multimodal time series forecasting. Unlike existing methods that treat text data on par with time series data as interchangeable auxiliary features for forecasting, AIR leverages text information to dynamically guide the time series model by controlling how and to what extent multivariate time series information should be combined. We also present a text-refinement pipeline that employs a large language model to convert raw text data into a form suitable for multimodal forecasting, and we introduce a benchmark that facilitates multimodal forecasting experiments based on this pipeline. Experiment results with the real world market data such as crude oil price and exchange rates demonstrate that AIR effectively modulates the behavior of the time series model using textual inputs, significantly enhancing forecasting accuracy in various time series forecasting tasks.",
+        "url": "https://openalex.org/W4417295209",
+        "source": "openalex",
+        "relevance_score": 1.0
+      }
+    ],
+    "errors": [
+      "OpenAlex W7138928672 有 1 位作者的文献原始署名与作者档案名不同，采用文献原始署名；差异已保留在证据中，未判定档案名错误。",
+      "OpenAlex W4393145940 有 1 位作者的文献原始署名与作者档案名不同，采用文献原始署名；差异已保留在证据中，未判定档案名错误。",
+      "OpenAlex W7167852552 有 4 位作者的文献原始署名与作者档案名不同，采用文献原始署名；差异已保留在证据中，未判定档案名错误。",
+      "OpenAlex W4417295209 有 10 位作者的文献原始署名与作者档案名不同，采用文献原始署名；差异已保留在证据中，未判定档案名错误。",
+      "OpenAlex W4414854661 有 5 位作者的文献原始署名与作者档案名不同，采用文献原始署名；差异已保留在证据中，未判定档案名错误。"
+    ]
+  },
+  "search_audit": {
+    "run_id": "20261017T035714-850f8115",
+    "started_at": "2026-10-17T03:57:14.606711+00:00",
+    "topic": "Multimodal Time Series Forecasting",
+    "config": {
+      "top_k": 3,
+      "max_queries": 1,
+      "results_per_query": 5,
+      "year_from": null,
+      "year_to": null,
+      "min_relevance": 0.12,
+      "required_keywords": [],
+      "excluded_keywords": [],
+      "keyword_match": "any",
+      "use_llm": false,
+      "sources": [
+        "openalex"
+      ],
+      "timeout": 20,
+      "max_retries": 0,
+      "arxiv_proxy_mode": "auto"
+    },
+    "queries": [
+      "multimodal time series forecasting"
+    ],
+    "requests": [
+      {
+        "source": "openalex",
+        "query": "multimodal time series forecasting",
+        "status": "success",
+        "hits": 5,
+        "response_evidence": {
+          "source": "openalex",
+          "source_id": "",
+          "request_url": "https://api.openalex.org/works?search=multimodal+time+series+forecasting&per-page=5&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cauthorships%2Cabstract_inverted_index%2Cprimary_location%2Cids%2Ctype%2Cprimary_topic",
+          "response_sha256": "652b77f917c0fd7f2def811b1984ac26459b5ef81be8892495b9f3ea88b567f8",
+          "retrieved_at": "2026-10-17T03:54:07.740218+00:00",
+          "route": "direct",
+          "attempts": 1,
+          "response_file": "raw/652b77f917c0fd7f2def811b1984ac26459b5ef81be8892495b9f3ea88b567f8.response",
+          "raw_record_count": 5,
+          "total_results": 65417
+        }
+      }
+    ],
+    "warnings": [
+      "OpenAlex W7138928672 有 1 位作者的文献原始署名与作者档案名不同，采用文献原始署名；差异已保留在证据中，未判定档案名错误。",
+      "OpenAlex W4393145940 有 1 位作者的文献原始署名与作者档案名不同，采用文献原始署名；差异已保留在证据中，未判定档案名错误。",
+      "OpenAlex W7167852552 有 4 位作者的文献原始署名与作者档案名不同，采用文献原始署名；差异已保留在证据中，未判定档案名错误。",
+      "OpenAlex W4417295209 有 10 位作者的文献原始署名与作者档案名不同，采用文献原始署名；差异已保留在证据中，未判定档案名错误。",
+      "OpenAlex W4414854661 有 5 位作者的文献原始署名与作者档案名不同，采用文献原始署名；差异已保留在证据中，未判定档案名错误。"
+    ],
+    "counts": {
+      "existing_input": 0,
+      "api_records": 5,
+      "api_hits": 5,
+      "invalid_hits": 0,
+      "source_discarded": 0,
+      "duplicates_removed": 0,
+      "unique_candidates": 5,
+      "filtered": {},
+      "new_selected": 3,
+      "existing_retained": 0,
+      "returned": 3,
+      "outside_top_k": 2
+    },
+    "candidates": [
+      {
+        "paper": {
+          "title": "MulTiCast: A Multimodal Time Series Forecasting System",
+          "authors": [
+            "Sehyuk Park",
+            "Caren Han",
+            "Hyunsuk Chung"
+          ],
+          "year": 2026,
+          "abstract": "Time-series forecasting plays an essential role in domains such as finance, healthcare, and energy. Yet most existing systems operate in a unimodal setting, overlooking complementary information available from visual and textual modalities. There are surprisingly few time-series forecasting demos, and multimodal, interpretable demos are rarer still. In practice, it is difficult for users to experiment with foundation models on their own time-series data due to strict input requirements, heavy setup burdens, and limited interpretability support. We present MulTiCast, an interactive Multimodal Time series foreCasting system that enables users to combine numerical signals with visual and textual context to improve predictions. The system builds on pretrained models with lightweight adaptation, but its central contribution lies in the interactive demonstration platform. Through a web interface via Hugging Face Spaces, users can load datasets, toggle modality inclusion, and visualize forecasts together with the attention maps of each modality, providing insights into the reasoning path behind the predictions.",
+          "url": "https://openalex.org/W7138928672",
+          "source": "openalex",
+          "relevance_score": 1.0
+        },
+        "existing": false,
+        "score": 1.0,
+        "score_details": {
+          "topic_coverage": 1.0,
+          "best_query_coverage": 1.0,
+          "matched_terms": [
+            "forecasting",
+            "multimodal",
+            "series",
+            "time"
+          ],
+          "formula": "0.65 * topic_coverage + 0.35 * best_query_coverage; title=1, abstract_only=0.7"
+        },
+        "filter_reason": null,
+        "identifiers": {
+          "dois": [
+            "10.1609/aaai.v40i48.42371"
+          ],
+          "arxiv_ids": []
+        },
+        "provenance": [
+          {
+            "source": "openalex",
+            "source_id": "W7138928672",
+            "url": "https://openalex.org/W7138928672",
+            "query": "multimodal time series forecasting",
+            "retrieved_at": "2026-10-17T03:54:07.740218+00:00",
+            "request_url": "https://api.openalex.org/works?search=multimodal+time+series+forecasting&per-page=5&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cauthorships%2Cabstract_inverted_index%2Cprimary_location%2Cids%2Ctype%2Cprimary_topic",
+            "response_sha256": "652b77f917c0fd7f2def811b1984ac26459b5ef81be8892495b9f3ea88b567f8",
+            "route": "direct",
+            "attempts": 1,
+            "response_file": "raw/652b77f917c0fd7f2def811b1984ac26459b5ef81be8892495b9f3ea88b567f8.response",
+            "doi": "10.1609/aaai.v40i48.42371",
+            "landing_page_url": "https://doi.org/10.1609/aaai.v40i48.42371",
+            "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/42371/46332",
+            "publication_type": "conference-paper",
+            "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+            "primary_topic": "Time Series Analysis and Forecasting",
+            "field": "Computer Science",
+            "field_id": "https://openalex.org/fields/17",
+            "author_name_basis": [
+              {
+                "author_index": 1,
+                "selected_name": "Sehyuk Park",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 2,
+                "selected_name": "Caren Han",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 3,
+                "selected_name": "Hyunsuk Chung",
+                "basis": "raw_author_name"
+              }
+            ],
+            "author_name_conflicts": [
+              {
+                "author_index": 2,
+                "raw_author_name": "Caren Han",
+                "display_name": "Cheon Goo Han"
+              }
+            ]
+          }
+        ],
+        "selected": true
+      },
+      {
+        "paper": {
+          "title": "GPT4MTS: Prompt-based Large Language Model for Multimodal Time-series Forecasting",
+          "authors": [
+            "Furong Jia",
+            "Kevin Wang",
+            "Yixiang Zheng",
+            "Defu Cao",
+            "Yan Liu"
+          ],
+          "year": 2024,
+          "abstract": "Time series forecasting is an essential area of machine learning with a wide range of real-world applications. Most of the previous forecasting models aim to capture dynamic characteristics from uni-modal numerical historical data. Although extra knowledge can boost the time series forecasting performance, it is hard to collect such information. In addition, how to fuse the multimodal information is non-trivial. In this paper, we first propose a general principle of collecting the corresponding textual information from different data sources with the help of modern large language models (LLM). Then, we propose a prompt-based LLM framework to utilize both the numerical data and the textual information simultaneously, named GPT4MTS. In practice, we propose a GDELT-based multimodal time series dataset for news impact forecasting, which provides a concise and well-structured version of time series dataset with textual information for further research in communication. Through extensive experiments, we demonstrate the effectiveness of our proposed method on forecasting tasks with extra-textual information.",
+          "url": "https://openalex.org/W4393145940",
+          "source": "openalex",
+          "relevance_score": 1.0
+        },
+        "existing": false,
+        "score": 1.0,
+        "score_details": {
+          "topic_coverage": 1.0,
+          "best_query_coverage": 1.0,
+          "matched_terms": [
+            "forecasting",
+            "multimodal",
+            "series",
+            "time"
+          ],
+          "formula": "0.65 * topic_coverage + 0.35 * best_query_coverage; title=1, abstract_only=0.7"
+        },
+        "filter_reason": "outside_top_k",
+        "identifiers": {
+          "dois": [
+            "10.1609/aaai.v38i21.30383"
+          ],
+          "arxiv_ids": []
+        },
+        "provenance": [
+          {
+            "source": "openalex",
+            "source_id": "W4393145940",
+            "url": "https://openalex.org/W4393145940",
+            "query": "multimodal time series forecasting",
+            "retrieved_at": "2026-10-17T03:54:07.740218+00:00",
+            "request_url": "https://api.openalex.org/works?search=multimodal+time+series+forecasting&per-page=5&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cauthorships%2Cabstract_inverted_index%2Cprimary_location%2Cids%2Ctype%2Cprimary_topic",
+            "response_sha256": "652b77f917c0fd7f2def811b1984ac26459b5ef81be8892495b9f3ea88b567f8",
+            "route": "direct",
+            "attempts": 1,
+            "response_file": "raw/652b77f917c0fd7f2def811b1984ac26459b5ef81be8892495b9f3ea88b567f8.response",
+            "doi": "10.1609/aaai.v38i21.30383",
+            "landing_page_url": "https://doi.org/10.1609/aaai.v38i21.30383",
+            "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/30383/32447",
+            "publication_type": "conference-paper",
+            "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+            "primary_topic": "Time Series Analysis and Forecasting",
+            "field": "Computer Science",
+            "field_id": "https://openalex.org/fields/17",
+            "author_name_basis": [
+              {
+                "author_index": 1,
+                "selected_name": "Furong Jia",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 2,
+                "selected_name": "Kevin Wang",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 3,
+                "selected_name": "Yixiang Zheng",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 4,
+                "selected_name": "Defu Cao",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 5,
+                "selected_name": "Yan Liu",
+                "basis": "raw_author_name"
+              }
+            ],
+            "author_name_conflicts": [
+              {
+                "author_index": 2,
+                "raw_author_name": "Kevin Wang",
+                "display_name": "Kevin Y. X. Wang"
+              }
+            ]
+          }
+        ],
+        "selected": false
+      },
+      {
+        "paper": {
+          "title": "Rethinking Multimodal Time-Series Forecasting Evaluation",
+          "authors": [
+            "Liu, Haoxin",
+            "Zhou, Yichen",
+            "Sen, Rajat",
+            "Prakash, B. Aditya",
+            "Das, Abhimanyu"
+          ],
+          "year": 2026,
+          "abstract": "We introduce a new context-enriched, multimodal time series forecasting benchmark, TimesX. TimesX contains a wide selection of high-quality real-world time series with diverse domains and textual contexts obtained from an automated data generation pipeline, which helps address three main issues of existing multimodal forecasting benchmarks: (1) poor generalization due to the small scale and synthetic nature of benchmark data, (2) very limited types of textual contexts in the benchmarks, and (3) an inability to mitigate data leakage in evaluation. We conduct a thorough empirical study of zero-shot multimodal forecasting approaches on TimesX. Our results suggest that many approaches that perform well on existing benchmarks may fail on TimesX. In contrast, simple ensemble methods that leverage rich textual context accompanying time-series can outperform strong baselines on TimesX.",
+          "url": "https://openalex.org/W7167852552",
+          "source": "openalex",
+          "relevance_score": 1.0
+        },
+        "existing": false,
+        "score": 1.0,
+        "score_details": {
+          "topic_coverage": 1.0,
+          "best_query_coverage": 1.0,
+          "matched_terms": [
+            "forecasting",
+            "multimodal",
+            "series",
+            "time"
+          ],
+          "formula": "0.65 * topic_coverage + 0.35 * best_query_coverage; title=1, abstract_only=0.7"
+        },
+        "filter_reason": null,
+        "identifiers": {
+          "dois": [
+            "10.48550/arxiv.2607.06973"
+          ],
+          "arxiv_ids": [
+            "2607.06973"
+          ]
+        },
+        "provenance": [
+          {
+            "source": "openalex",
+            "source_id": "W7167852552",
+            "url": "https://openalex.org/W7167852552",
+            "query": "multimodal time series forecasting",
+            "retrieved_at": "2026-10-17T03:54:07.740218+00:00",
+            "request_url": "https://api.openalex.org/works?search=multimodal+time+series+forecasting&per-page=5&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cauthorships%2Cabstract_inverted_index%2Cprimary_location%2Cids%2Ctype%2Cprimary_topic",
+            "response_sha256": "652b77f917c0fd7f2def811b1984ac26459b5ef81be8892495b9f3ea88b567f8",
+            "route": "direct",
+            "attempts": 1,
+            "response_file": "raw/652b77f917c0fd7f2def811b1984ac26459b5ef81be8892495b9f3ea88b567f8.response",
+            "doi": "10.48550/arxiv.2607.06973",
+            "landing_page_url": "https://arxiv.org/abs/2607.06973",
+            "pdf_url": "https://arxiv.org/pdf/2607.06973",
+            "publication_type": "preprint",
+            "venue": "arXiv (Cornell University)",
+            "primary_topic": "Time Series Analysis and Forecasting",
+            "field": "Computer Science",
+            "field_id": "https://openalex.org/fields/17",
+            "author_name_basis": [
+              {
+                "author_index": 1,
+                "selected_name": "Liu, Haoxin",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 2,
+                "selected_name": "Zhou, Yichen",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 3,
+                "selected_name": "Sen, Rajat",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 4,
+                "selected_name": "Prakash, B. Aditya",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 5,
+                "selected_name": "Das, Abhimanyu",
+                "basis": "raw_author_name"
+              }
+            ],
+            "author_name_conflicts": [
+              {
+                "author_index": 1,
+                "raw_author_name": "Liu, Haoxin",
+                "display_name": "Haoxin Liu"
+              },
+              {
+                "author_index": 2,
+                "raw_author_name": "Zhou, Yichen",
+                "display_name": "Yichen Zhou"
+              },
+              {
+                "author_index": 3,
+                "raw_author_name": "Sen, Rajat",
+                "display_name": "Rajat Sen"
+              },
+              {
+                "author_index": 4,
+                "raw_author_name": "Prakash, B. Aditya",
+                "display_name": "B. Aditya Prakash"
+              }
+            ]
+          }
+        ],
+        "selected": true
+      },
+      {
+        "paper": {
+          "title": "Adaptive Information Routing for Multimodal Time Series Forecasting",
+          "authors": [
+            "Seo, Jun",
+            "Choe, Hyeokjun",
+            "Bae, Seohui",
+            "Park, Soyeon",
+            "Ahn, Wonbin",
+            "Lim, Taeyoon",
+            "Kang, Junhyeok",
+            "Han, Sangjun",
+            "Lee, Jaehoon",
+            "Kang, Dongwan",
+            "Kim, Minjae",
+            "Yoo, Sungdong",
+            "Lee, Soonyoung"
+          ],
+          "year": 2025,
+          "abstract": "Time series forecasting is a critical task for artificial intelligence with numerous real-world applications. Traditional approaches primarily rely on historical time series data to predict the future values. However, in practical scenarios, this is often insufficient for accurate predictions due to the limited information available. To address this challenge, multimodal time series forecasting methods which incorporate additional data modalities, mainly text data, alongside time series data have been explored. In this work, we introduce the Adaptive Information Routing (AIR) framework, a novel approach for multimodal time series forecasting. Unlike existing methods that treat text data on par with time series data as interchangeable auxiliary features for forecasting, AIR leverages text information to dynamically guide the time series model by controlling how and to what extent multivariate time series information should be combined. We also present a text-refinement pipeline that employs a large language model to convert raw text data into a form suitable for multimodal forecasting, and we introduce a benchmark that facilitates multimodal forecasting experiments based on this pipeline. Experiment results with the real world market data such as crude oil price and exchange rates demonstrate that AIR effectively modulates the behavior of the time series model using textual inputs, significantly enhancing forecasting accuracy in various time series forecasting tasks.",
+          "url": "https://openalex.org/W4417295209",
+          "source": "openalex",
+          "relevance_score": 1.0
+        },
+        "existing": false,
+        "score": 1.0,
+        "score_details": {
+          "topic_coverage": 1.0,
+          "best_query_coverage": 1.0,
+          "matched_terms": [
+            "forecasting",
+            "multimodal",
+            "series",
+            "time"
+          ],
+          "formula": "0.65 * topic_coverage + 0.35 * best_query_coverage; title=1, abstract_only=0.7"
+        },
+        "filter_reason": null,
+        "identifiers": {
+          "dois": [
+            "10.48550/arxiv.2512.10229"
+          ],
+          "arxiv_ids": [
+            "2512.10229"
+          ]
+        },
+        "provenance": [
+          {
+            "source": "openalex",
+            "source_id": "W4417295209",
+            "url": "https://openalex.org/W4417295209",
+            "query": "multimodal time series forecasting",
+            "retrieved_at": "2026-10-17T03:54:07.740218+00:00",
+            "request_url": "https://api.openalex.org/works?search=multimodal+time+series+forecasting&per-page=5&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cauthorships%2Cabstract_inverted_index%2Cprimary_location%2Cids%2Ctype%2Cprimary_topic",
+            "response_sha256": "652b77f917c0fd7f2def811b1984ac26459b5ef81be8892495b9f3ea88b567f8",
+            "route": "direct",
+            "attempts": 1,
+            "response_file": "raw/652b77f917c0fd7f2def811b1984ac26459b5ef81be8892495b9f3ea88b567f8.response",
+            "doi": "10.48550/arxiv.2512.10229",
+            "landing_page_url": "http://arxiv.org/abs/2512.10229",
+            "pdf_url": "https://arxiv.org/pdf/2512.10229",
+            "publication_type": "preprint",
+            "venue": "arXiv (Cornell University)",
+            "primary_topic": "Time Series Analysis and Forecasting",
+            "field": "Computer Science",
+            "field_id": "https://openalex.org/fields/17",
+            "author_name_basis": [
+              {
+                "author_index": 1,
+                "selected_name": "Seo, Jun",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 2,
+                "selected_name": "Choe, Hyeokjun",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 3,
+                "selected_name": "Bae, Seohui",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 4,
+                "selected_name": "Park, Soyeon",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 5,
+                "selected_name": "Ahn, Wonbin",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 6,
+                "selected_name": "Lim, Taeyoon",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 7,
+                "selected_name": "Kang, Junhyeok",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 8,
+                "selected_name": "Han, Sangjun",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 9,
+                "selected_name": "Lee, Jaehoon",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 10,
+                "selected_name": "Kang, Dongwan",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 11,
+                "selected_name": "Kim, Minjae",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 12,
+                "selected_name": "Yoo, Sungdong",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 13,
+                "selected_name": "Lee, Soonyoung",
+                "basis": "raw_author_name"
+              }
+            ],
+            "author_name_conflicts": [
+              {
+                "author_index": 1,
+                "raw_author_name": "Seo, Jun",
+                "display_name": "Jun Seok Seo"
+              },
+              {
+                "author_index": 3,
+                "raw_author_name": "Bae, Seohui",
+                "display_name": "Seohui Bae"
+              },
+              {
+                "author_index": 4,
+                "raw_author_name": "Park, Soyeon",
+                "display_name": "Soyeon Park"
+              },
+              {
+                "author_index": 5,
+                "raw_author_name": "Ahn, Wonbin",
+                "display_name": "Wonbin Ahn"
+              },
+              {
+                "author_index": 7,
+                "raw_author_name": "Kang, Junhyeok",
+                "display_name": "Junhyuk Kang"
+              },
+              {
+                "author_index": 8,
+                "raw_author_name": "Han, Sangjun",
+                "display_name": "Sangjun Han"
+              },
+              {
+                "author_index": 10,
+                "raw_author_name": "Kang, Dongwan",
+                "display_name": "Dongwan Kang"
+              },
+              {
+                "author_index": 11,
+                "raw_author_name": "Kim, Minjae",
+                "display_name": "Minjae Kim"
+              },
+              {
+                "author_index": 12,
+                "raw_author_name": "Yoo, Sungdong",
+                "display_name": "Sungdong Yoo"
+              },
+              {
+                "author_index": 13,
+                "raw_author_name": "Lee, Soonyoung",
+                "display_name": "Soonyoung Lee"
+              }
+            ]
+          }
+        ],
+        "selected": true
+      },
+      {
+        "paper": {
+          "title": "MoTime: A Dataset Suite for Multimodal Time Series Forecasting",
+          "authors": [
+            "Zhou, Xin",
+            "Wang, Weiqing",
+            "Baldán, Francisco J.",
+            "Buntine, Wray",
+            "Bergmeir, Christoph"
+          ],
+          "year": 2025,
+          "abstract": "While multimodal data sources are increasingly available from real-world forecasting, most existing research remains on unimodal time series. In this work, we present MoTime, a suite of multimodal time series forecasting datasets that pair temporal signals with external modalities such as text, metadata, and images. Covering diverse domains, MoTime supports structured evaluation of modality utility under two scenarios: 1) the common forecasting task, where varying-length history is available, and 2) cold-start forecasting, where no historical data is available. Experiments show that external modalities can improve forecasting performance in both scenarios, with particularly strong benefits for short series in some datasets, though the impact varies depending on data characteristics. By making datasets and findings publicly available, we aim to support more comprehensive and realistic benchmarks in future multimodal time series forecasting research.",
+          "url": "https://openalex.org/W4414854661",
+          "source": "openalex",
+          "relevance_score": 1.0
+        },
+        "existing": false,
+        "score": 1.0,
+        "score_details": {
+          "topic_coverage": 1.0,
+          "best_query_coverage": 1.0,
+          "matched_terms": [
+            "forecasting",
+            "multimodal",
+            "series",
+            "time"
+          ],
+          "formula": "0.65 * topic_coverage + 0.35 * best_query_coverage; title=1, abstract_only=0.7"
+        },
+        "filter_reason": "outside_top_k",
+        "identifiers": {
+          "dois": [
+            "10.48550/arxiv.2505.15072"
+          ],
+          "arxiv_ids": [
+            "2505.15072"
+          ]
+        },
+        "provenance": [
+          {
+            "source": "openalex",
+            "source_id": "W4414854661",
+            "url": "https://openalex.org/W4414854661",
+            "query": "multimodal time series forecasting",
+            "retrieved_at": "2026-10-17T03:54:07.740218+00:00",
+            "request_url": "https://api.openalex.org/works?search=multimodal+time+series+forecasting&per-page=5&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cauthorships%2Cabstract_inverted_index%2Cprimary_location%2Cids%2Ctype%2Cprimary_topic",
+            "response_sha256": "652b77f917c0fd7f2def811b1984ac26459b5ef81be8892495b9f3ea88b567f8",
+            "route": "direct",
+            "attempts": 1,
+            "response_file": "raw/652b77f917c0fd7f2def811b1984ac26459b5ef81be8892495b9f3ea88b567f8.response",
+            "doi": "10.48550/arxiv.2505.15072",
+            "landing_page_url": "http://arxiv.org/abs/2505.15072",
+            "pdf_url": "https://arxiv.org/pdf/2505.15072",
+            "publication_type": "preprint",
+            "venue": "arXiv (Cornell University)",
+            "primary_topic": "Time Series Analysis and Forecasting",
+            "field": "Computer Science",
+            "field_id": "https://openalex.org/fields/17",
+            "author_name_basis": [
+              {
+                "author_index": 1,
+                "selected_name": "Zhou, Xin",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 2,
+                "selected_name": "Wang, Weiqing",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 3,
+                "selected_name": "Baldán, Francisco J.",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 4,
+                "selected_name": "Buntine, Wray",
+                "basis": "raw_author_name"
+              },
+              {
+                "author_index": 5,
+                "selected_name": "Bergmeir, Christoph",
+                "basis": "raw_author_name"
+              }
+            ],
+            "author_name_conflicts": [
+              {
+                "author_index": 1,
+                "raw_author_name": "Zhou, Xin",
+                "display_name": "Xin Zhou"
+              },
+              {
+                "author_index": 2,
+                "raw_author_name": "Wang, Weiqing",
+                "display_name": "Weiqing Wang"
+              },
+              {
+                "author_index": 3,
+                "raw_author_name": "Baldán, Francisco J.",
+                "display_name": "Francisco J. Baldán"
+              },
+              {
+                "author_index": 4,
+                "raw_author_name": "Buntine, Wray",
+                "display_name": "Wray Buntine"
+              },
+              {
+                "author_index": 5,
+                "raw_author_name": "Bergmeir, Christoph",
+                "display_name": "Christoph Bergmeir"
+              }
+            ]
+          }
+        ],
+        "selected": false
+      }
+    ],
+    "papers": [
+      {
+        "title": "MulTiCast: A Multimodal Time Series Forecasting System",
+        "authors": [
+          "Sehyuk Park",
+          "Caren Han",
+          "Hyunsuk Chung"
+        ],
+        "year": 2026,
+        "abstract": "Time-series forecasting plays an essential role in domains such as finance, healthcare, and energy. Yet most existing systems operate in a unimodal setting, overlooking complementary information available from visual and textual modalities. There are surprisingly few time-series forecasting demos, and multimodal, interpretable demos are rarer still. In practice, it is difficult for users to experiment with foundation models on their own time-series data due to strict input requirements, heavy setup burdens, and limited interpretability support. We present MulTiCast, an interactive Multimodal Time series foreCasting system that enables users to combine numerical signals with visual and textual context to improve predictions. The system builds on pretrained models with lightweight adaptation, but its central contribution lies in the interactive demonstration platform. Through a web interface via Hugging Face Spaces, users can load datasets, toggle modality inclusion, and visualize forecasts together with the attention maps of each modality, providing insights into the reasoning path behind the predictions.",
+        "url": "https://openalex.org/W7138928672",
+        "source": "openalex",
+        "relevance_score": 1.0
+      },
+      {
+        "title": "Rethinking Multimodal Time-Series Forecasting Evaluation",
+        "authors": [
+          "Liu, Haoxin",
+          "Zhou, Yichen",
+          "Sen, Rajat",
+          "Prakash, B. Aditya",
+          "Das, Abhimanyu"
+        ],
+        "year": 2026,
+        "abstract": "We introduce a new context-enriched, multimodal time series forecasting benchmark, TimesX. TimesX contains a wide selection of high-quality real-world time series with diverse domains and textual contexts obtained from an automated data generation pipeline, which helps address three main issues of existing multimodal forecasting benchmarks: (1) poor generalization due to the small scale and synthetic nature of benchmark data, (2) very limited types of textual contexts in the benchmarks, and (3) an inability to mitigate data leakage in evaluation. We conduct a thorough empirical study of zero-shot multimodal forecasting approaches on TimesX. Our results suggest that many approaches that perform well on existing benchmarks may fail on TimesX. In contrast, simple ensemble methods that leverage rich textual context accompanying time-series can outperform strong baselines on TimesX.",
+        "url": "https://openalex.org/W7167852552",
+        "source": "openalex",
+        "relevance_score": 1.0
+      },
+      {
+        "title": "Adaptive Information Routing for Multimodal Time Series Forecasting",
+        "authors": [
+          "Seo, Jun",
+          "Choe, Hyeokjun",
+          "Bae, Seohui",
+          "Park, Soyeon",
+          "Ahn, Wonbin",
+          "Lim, Taeyoon",
+          "Kang, Junhyeok",
+          "Han, Sangjun",
+          "Lee, Jaehoon",
+          "Kang, Dongwan",
+          "Kim, Minjae",
+          "Yoo, Sungdong",
+          "Lee, Soonyoung"
+        ],
+        "year": 2025,
+        "abstract": "Time series forecasting is a critical task for artificial intelligence with numerous real-world applications. Traditional approaches primarily rely on historical time series data to predict the future values. However, in practical scenarios, this is often insufficient for accurate predictions due to the limited information available. To address this challenge, multimodal time series forecasting methods which incorporate additional data modalities, mainly text data, alongside time series data have been explored. In this work, we introduce the Adaptive Information Routing (AIR) framework, a novel approach for multimodal time series forecasting. Unlike existing methods that treat text data on par with time series data as interchangeable auxiliary features for forecasting, AIR leverages text information to dynamically guide the time series model by controlling how and to what extent multivariate time series information should be combined. We also present a text-refinement pipeline that employs a large language model to convert raw text data into a form suitable for multimodal forecasting, and we introduce a benchmark that facilitates multimodal forecasting experiments based on this pipeline. Experiment results with the real world market data such as crude oil price and exchange rates demonstrate that AIR effectively modulates the behavior of the time series model using textual inputs, significantly enhancing forecasting accuracy in various time series forecasting tasks.",
+        "url": "https://openalex.org/W4417295209",
+        "source": "openalex",
+        "relevance_score": 1.0
+      }
+    ],
+    "status": "success",
+    "finished_at": "2026-10-17T03:57:14.612273+00:00"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "request_url": "https://api.crossref.org/works?query.bibliographic=multimodal+time+series+forecasting&rows=10&sort=relevance&order=desc",
+  "retrieved_at": "2026-10-15T03:41:35.955893+00:00",
+  "response_sha256": "0d233a0cc85046d3988f54126c3f3283decef8c50d468cded8d8a667bdcc1d13",
+  "response_file": "0d233a0cc85046d3988f54126c3f3283decef8c50d468cded8d8a667bdcc1d13.response"
+}

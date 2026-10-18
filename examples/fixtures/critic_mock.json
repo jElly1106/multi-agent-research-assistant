@@ -1,0 +1,50 @@
+{
+  "notice": "MOCK_ONLY：论文、阅读材料、模型响应和评价标注均为人工构造，仅验证流程与指标公式，不能证明真实系统质量或 Critic 的真实推理能力。",
+  "initial_state": {
+    "topic": "Multimodal Time Series Forecasting",
+    "research_scope": "仅比较给出的模拟方法及局限，不推断整个领域。",
+    "research_questions": ["这些样本采用什么融合方法？", "这些样本有哪些局限？"],
+    "max_critic_rounds": 2,
+    "papers": [
+      {"title": "MOCK_ONLY A", "authors": ["Mock Author"], "year": 2024, "source": "MOCK_ONLY"}
+    ],
+    "paper_analysis": [
+      {
+        "paper_title": "MOCK_ONLY A", "problem": "如何融合时序与文本？", "motivation": "模拟注意力融合。",
+        "method": "Transformer 通过 Cross Attention 融合时序与文本。",
+        "datasets": ["MOCK_DATASET_A"], "metrics": ["MAE"], "main_results": "没有跨数据集对照实验。",
+        "contributions": ["模拟注意力方法"], "limitations": ["仅测试一个模拟数据集"]
+      }
+    ],
+    "method_summary": {
+      "categories": [{"name": "跨模态注意力", "description": "按融合机制分类", "papers": ["MOCK_ONLY A"]}],
+      "comparison_table": [
+        {"paper": "MOCK_ONLY A", "input": "时序与文本", "fusion": "Cross Attention", "backbone": "Transformer", "dataset": "MOCK_DATASET_A", "limitation": "仅测试一个模拟数据集"}
+      ],
+      "evolution": [],
+      "summary": "MOCK_ONLY：样本 A 采用 Cross Attention。Cross Attention 是目前最有效的方法。（依据：MOCK_ONLY A）"
+    }
+  },
+  "supplement": {
+    "paper": {"title": "MOCK_ONLY B", "authors": ["Mock Author"], "year": 2025, "source": "MOCK_ONLY"},
+    "analysis": {
+      "paper_title": "MOCK_ONLY B", "problem": "如何融合时序与文本？", "motivation": "模拟特征拼接。",
+      "method": "MLP 对时序和文本特征进行拼接预测。", "datasets": ["MOCK_DATASET_B"], "metrics": ["MSE"],
+      "main_results": "未与 A 在相同条件下比较。", "contributions": ["模拟特征拼接"], "limitations": ["未测试文本缺失"]
+    },
+    "category": {"name": "特征拼接", "description": "按融合机制分类", "papers": ["MOCK_ONLY B"]},
+    "comparison": {"paper": "MOCK_ONLY B", "input": "时序与文本", "fusion": "特征拼接", "backbone": "MLP", "dataset": "MOCK_DATASET_B", "limitation": "未测试文本缺失"},
+    "summary": "MOCK_ONLY：样本 A 采用 Cross Attention，样本 B 使用特征拼接。（依据：MOCK_ONLY A；MOCK_ONLY B）\n局限：A 仅测试一个模拟数据集；B 未测试文本缺失。两者数据集和指标不同，不能比较性能优劣。这些描述仅限模拟样本，不代表真实领域结论。（依据：MOCK_ONLY A；MOCK_ONLY B）"
+  },
+  "model_responses": [
+    {
+      "decision": "FAIL",
+      "feedback": ["补充其他融合机制的对照证据，删除最有效的普遍断言，并在总结中说明局限。"],
+      "evidence_gaps": ["只有模拟数据，且缺少同数据集同指标的对照实验。"],
+      "missing_topics": ["总结尚未回答样本局限。"],
+      "unsupported_claims": ["Cross Attention 是目前最有效的方法：现有单篇模拟阅读结果不支持这一领域结论。"],
+      "new_search_queries": ["multimodal time series forecasting fusion comparative evaluation limitations"]
+    },
+    {"decision": "PASS", "feedback": ["仅通过模拟材料内部一致性审核，不代表论文真实存在。"], "evidence_gaps": [], "missing_topics": [], "unsupported_claims": [], "new_search_queries": []}
+  ]
+}

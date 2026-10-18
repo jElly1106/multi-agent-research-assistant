@@ -1,0 +1,6 @@
+{
+  "request_url": "https://api.crossref.org/works?query.bibliographic=time+series+fusion+text&rows=10&sort=relevance&order=desc",
+  "retrieved_at": "2026-10-15T03:41:37.052567+00:00",
+  "response_sha256": "b54f6954bd351575f0de9c3d62b12d6e6ae2a923df78f6c42a27acab1a0f017d",
+  "response_file": "b54f6954bd351575f0de9c3d62b12d6e6ae2a923df78f6c42a27acab1a0f017d.response"
+}

@@ -1,0 +1,427 @@
+{
+  "notice": "论文元数据来自数据库 API；相关性分数是本地关键词覆盖分，不是论文质量或真实性概率。恢复的已有 State 需保留上轮来源证据。",
+  "state": {
+    "topic": "Multimodal Time Series Forecasting",
+    "papers": [
+      {
+        "title": "Multimodal Forecasting for Commodity Prices Using Spectrogram-Based and Time Series Representations",
+        "authors": [
+          "Soyeon Park",
+          "Doohee Chung",
+          "Charmgil Hong"
+        ],
+        "year": 2026,
+        "abstract": "Forecasting multivariate time series remains challenging due to complex cross-variable dependencies and the presence of heterogeneous external influences. This paper presents Spectrogram-Enhanced Multimodal Fusion (SEMF), which combines spectral and temporal representations for more accurate and robust forecasting. The target time series is transformed into Morlet wavelet spectrograms, from which a Vision Transformer encoder extracts localized, frequency-aware features. In parallel, exogenous variables, such as financial indicators and macroeconomic signals, are encoded via a Transformer to capture temporal dependencies and multivariate dynamics. A bidirectional cross-attention module integrates these modalities into a unified representation that preserves distinct signal characteristics while modeling cross-modal correlations. Applied to multiple commodity price forecasting tasks, SEMF achieves consistent improvements over seven competitive baselines across multiple forecasting horizons and evaluation metrics. These results demonstrate the effectiveness of multimodal fusion and spectrogram-based encoding in capturing multi-scale patterns within complex financial time series.",
+        "url": "https://arxiv.org/abs/2603.27321v1",
+        "source": "arxiv",
+        "relevance_score": 1.0
+      },
+      {
+        "title": "Rethinking Multimodal Time-Series Forecasting Evaluation",
+        "authors": [
+          "Haoxin Liu",
+          "Yichen Zhou",
+          "Rajat Sen",
+          "B. Aditya Prakash",
+          "Abhimanyu Das"
+        ],
+        "year": 2026,
+        "abstract": "We introduce a new context-enriched, multimodal time series forecasting benchmark, TimesX. TimesX contains a wide selection of high-quality real-world time series with diverse domains and textual contexts obtained from an automated data generation pipeline, which helps address three main issues of existing multimodal forecasting benchmarks: (1) poor generalization due to the small scale and synthetic nature of benchmark data, (2) very limited types of textual contexts in the benchmarks, and (3) an inability to mitigate data leakage in evaluation. We conduct a thorough empirical study of zero-shot multimodal forecasting approaches on TimesX. Our results suggest that many approaches that perform well on existing benchmarks may fail on TimesX. In contrast, simple ensemble methods that leverage rich textual context accompanying time-series can outperform strong baselines on TimesX.",
+        "url": "https://arxiv.org/abs/2607.06973v1",
+        "source": "arxiv",
+        "relevance_score": 1.0
+      },
+      {
+        "title": "SCENARIODIFF: A Scenario-level Guidance Framework for Multimodal Time Series Forecasting--Extended Version",
+        "authors": [
+          "Tuan-Binh Tran",
+          "Dat Nguyen Cong",
+          "Duc-Trong Le",
+          "Thanh Trung Huynh",
+          "Tung Kieu"
+        ],
+        "year": 2026,
+        "abstract": "Textual context such as news, reports, and logs can provide valuable signals for time series forecasting, especially when future dynamics are driven by external events that are not yet visible in historical values. Existing multimodal forecasting methods often either ask large language models (LLMs) to predict numerical values directly or fuse text and time series implicitly, making contextual influence difficult to interpret and control. We propose SCENARIODIFF, a hierarchical contextual reasoning framework for multimodal time series forecasting under noisy and weakly aligned documents. SCENARIODIFF organizes contextual information into three levels: a Historical Context Agent extracts stepwise evidence from raw documents, a Scenario Agent produces a qualitative scenario description for the forecast horizon, and an Anchor Guidance Agent generates sparse anchor points for event-relevant future regions. These structured signals condition a Multimodal Diffusion Transformer, while Anchor Blended Sampling locally refines generated trajectories without retraining. Experiments on the Time-MMD benchmark show that SCENARIODIFF is especially effective in event-driven domains, demonstrating the value of explicit hierarchical scenario guidance for multimodal time series forecasting. Our full implementation is available at https://anonymous.4open.science/r/ScenarioDiff_ICDM-2C4C",
+        "url": "https://arxiv.org/abs/2608.17164v1",
+        "source": "arxiv",
+        "relevance_score": 1.0
+      }
+    ]
+  },
+  "search_audit": {
+    "run_id": "20261017T160547-74d8fb9a",
+    "started_at": "2026-10-17T16:05:47.492352+00:00",
+    "topic": "Multimodal Time Series Forecasting",
+    "config": {
+      "top_k": 3,
+      "max_queries": 1,
+      "results_per_query": 5,
+      "year_from": null,
+      "year_to": null,
+      "min_relevance": 0.12,
+      "required_keywords": [],
+      "excluded_keywords": [],
+      "keyword_match": "any",
+      "use_llm": false,
+      "sources": [
+        "arxiv"
+      ],
+      "timeout": 20.0,
+      "max_retries": 0,
+      "arxiv_proxy_mode": "auto"
+    },
+    "queries": [
+      "multimodal time series forecasting"
+    ],
+    "requests": [
+      {
+        "source": "arxiv",
+        "query": "multimodal time series forecasting",
+        "status": "success",
+        "hits": 5,
+        "response_evidence": {
+          "source": "arxiv",
+          "source_id": "",
+          "request_url": "https://export.arxiv.org/api/query?search_query=all%3A%22multimodal%22+AND+all%3A%22time%22+AND+all%3A%22series%22+AND+all%3A%22forecasting%22&start=0&max_results=5&sortBy=relevance&sortOrder=descending",
+          "response_sha256": "e38975a88f06559f320ea9058ac29c066d01a6298b94879e7b62303ad08de323",
+          "retrieved_at": "2026-10-17T16:06:00.835994+00:00",
+          "route": "direct",
+          "attempts": 1,
+          "response_file": "raw/e38975a88f06559f320ea9058ac29c066d01a6298b94879e7b62303ad08de323.response",
+          "raw_record_count": 5
+        }
+      }
+    ],
+    "warnings": [],
+    "counts": {
+      "existing_input": 0,
+      "api_records": 5,
+      "api_hits": 5,
+      "invalid_hits": 0,
+      "source_discarded": 0,
+      "duplicates_removed": 0,
+      "unique_candidates": 5,
+      "filtered": {},
+      "new_selected": 3,
+      "existing_retained": 0,
+      "returned": 3,
+      "outside_top_k": 2
+    },
+    "candidates": [
+      {
+        "paper": {
+          "title": "SCENARIODIFF: A Scenario-level Guidance Framework for Multimodal Time Series Forecasting--Extended Version",
+          "authors": [
+            "Tuan-Binh Tran",
+            "Dat Nguyen Cong",
+            "Duc-Trong Le",
+            "Thanh Trung Huynh",
+            "Tung Kieu"
+          ],
+          "year": 2026,
+          "abstract": "Textual context such as news, reports, and logs can provide valuable signals for time series forecasting, especially when future dynamics are driven by external events that are not yet visible in historical values. Existing multimodal forecasting methods often either ask large language models (LLMs) to predict numerical values directly or fuse text and time series implicitly, making contextual influence difficult to interpret and control. We propose SCENARIODIFF, a hierarchical contextual reasoning framework for multimodal time series forecasting under noisy and weakly aligned documents. SCENARIODIFF organizes contextual information into three levels: a Historical Context Agent extracts stepwise evidence from raw documents, a Scenario Agent produces a qualitative scenario description for the forecast horizon, and an Anchor Guidance Agent generates sparse anchor points for event-relevant future regions. These structured signals condition a Multimodal Diffusion Transformer, while Anchor Blended Sampling locally refines generated trajectories without retraining. Experiments on the Time-MMD benchmark show that SCENARIODIFF is especially effective in event-driven domains, demonstrating the value of explicit hierarchical scenario guidance for multimodal time series forecasting. Our full implementation is available at https://anonymous.4open.science/r/ScenarioDiff_ICDM-2C4C",
+          "url": "https://arxiv.org/abs/2608.17164v1",
+          "source": "arxiv",
+          "relevance_score": 1.0
+        },
+        "existing": false,
+        "score": 1.0,
+        "score_details": {
+          "topic_coverage": 1.0,
+          "best_query_coverage": 1.0,
+          "matched_terms": [
+            "forecasting",
+            "multimodal",
+            "series",
+            "time"
+          ],
+          "formula": "0.65 * topic_coverage + 0.35 * best_query_coverage; title=1, abstract_only=0.7"
+        },
+        "filter_reason": null,
+        "identifiers": {
+          "dois": [],
+          "arxiv_ids": [
+            "2608.17164"
+          ]
+        },
+        "provenance": [
+          {
+            "source": "arxiv",
+            "source_id": "2608.17164v1",
+            "url": "https://arxiv.org/abs/2608.17164v1",
+            "query": "multimodal time series forecasting",
+            "retrieved_at": "2026-10-17T16:06:00.835994+00:00",
+            "request_url": "https://export.arxiv.org/api/query?search_query=all%3A%22multimodal%22+AND+all%3A%22time%22+AND+all%3A%22series%22+AND+all%3A%22forecasting%22&start=0&max_results=5&sortBy=relevance&sortOrder=descending",
+            "response_sha256": "e38975a88f06559f320ea9058ac29c066d01a6298b94879e7b62303ad08de323",
+            "route": "direct",
+            "attempts": 1,
+            "response_file": "raw/e38975a88f06559f320ea9058ac29c066d01a6298b94879e7b62303ad08de323.response"
+          }
+        ],
+        "selected": true
+      },
+      {
+        "paper": {
+          "title": "Multimodal Forecasting for Commodity Prices Using Spectrogram-Based and Time Series Representations",
+          "authors": [
+            "Soyeon Park",
+            "Doohee Chung",
+            "Charmgil Hong"
+          ],
+          "year": 2026,
+          "abstract": "Forecasting multivariate time series remains challenging due to complex cross-variable dependencies and the presence of heterogeneous external influences. This paper presents Spectrogram-Enhanced Multimodal Fusion (SEMF), which combines spectral and temporal representations for more accurate and robust forecasting. The target time series is transformed into Morlet wavelet spectrograms, from which a Vision Transformer encoder extracts localized, frequency-aware features. In parallel, exogenous variables, such as financial indicators and macroeconomic signals, are encoded via a Transformer to capture temporal dependencies and multivariate dynamics. A bidirectional cross-attention module integrates these modalities into a unified representation that preserves distinct signal characteristics while modeling cross-modal correlations. Applied to multiple commodity price forecasting tasks, SEMF achieves consistent improvements over seven competitive baselines across multiple forecasting horizons and evaluation metrics. These results demonstrate the effectiveness of multimodal fusion and spectrogram-based encoding in capturing multi-scale patterns within complex financial time series.",
+          "url": "https://arxiv.org/abs/2603.27321v1",
+          "source": "arxiv",
+          "relevance_score": 1.0
+        },
+        "existing": false,
+        "score": 1.0,
+        "score_details": {
+          "topic_coverage": 1.0,
+          "best_query_coverage": 1.0,
+          "matched_terms": [
+            "forecasting",
+            "multimodal",
+            "series",
+            "time"
+          ],
+          "formula": "0.65 * topic_coverage + 0.35 * best_query_coverage; title=1, abstract_only=0.7"
+        },
+        "filter_reason": null,
+        "identifiers": {
+          "dois": [],
+          "arxiv_ids": [
+            "2603.27321"
+          ]
+        },
+        "provenance": [
+          {
+            "source": "arxiv",
+            "source_id": "2603.27321v1",
+            "url": "https://arxiv.org/abs/2603.27321v1",
+            "query": "multimodal time series forecasting",
+            "retrieved_at": "2026-10-17T16:06:00.835994+00:00",
+            "request_url": "https://export.arxiv.org/api/query?search_query=all%3A%22multimodal%22+AND+all%3A%22time%22+AND+all%3A%22series%22+AND+all%3A%22forecasting%22&start=0&max_results=5&sortBy=relevance&sortOrder=descending",
+            "response_sha256": "e38975a88f06559f320ea9058ac29c066d01a6298b94879e7b62303ad08de323",
+            "route": "direct",
+            "attempts": 1,
+            "response_file": "raw/e38975a88f06559f320ea9058ac29c066d01a6298b94879e7b62303ad08de323.response"
+          }
+        ],
+        "selected": true
+      },
+      {
+        "paper": {
+          "title": "Semantics-Enhanced Retrieval-Augmented Time Series Forecasting",
+          "authors": [
+            "Shiqiao Zhou",
+            "Zipeng Wu",
+            "Holger Schöner",
+            "Edouard Fouché",
+            "IAG Wilson",
+            "Shuo Wang"
+          ],
+          "year": 2026,
+          "abstract": "Time series forecasting models often benefit from historical patterns. Inspired by Retrieval-Augmented Generation (RAG), recent research explored retrieving relevant historical time series segments to enhance forecasting. However, relying solely on time series similarity is often insufficient for retrieval under non-stationarity. To address this, we propose a multimodal approach: a \\textbf{S}emantics-\\textbf{E}nhanced \\textbf{R}etrieval-\\textbf{A}ugmented Time Series \\textbf{F}orecasting framework, SERAF. Unlike mainstream approaches that depend only on time series similarity, SERAF conducts dual retrieval over the time series and their self-generated textual descriptions. It retrieves two complementary sets of historical patterns and corresponding futures, which are selectively and jointly used to guide future predictions. Experiments across seven real-world datasets demonstrate the effectiveness of SERAF in bridging numerical and semantic views of time series compared with state-of-the-art baselines.",
+          "url": "https://arxiv.org/abs/2606.14941v1",
+          "source": "arxiv",
+          "relevance_score": 0.925
+        },
+        "existing": false,
+        "score": 0.925,
+        "score_details": {
+          "topic_coverage": 0.925,
+          "best_query_coverage": 0.925,
+          "matched_terms": [
+            "forecasting",
+            "multimodal",
+            "series",
+            "time"
+          ],
+          "formula": "0.65 * topic_coverage + 0.35 * best_query_coverage; title=1, abstract_only=0.7"
+        },
+        "filter_reason": "outside_top_k",
+        "identifiers": {
+          "dois": [],
+          "arxiv_ids": [
+            "2606.14941"
+          ]
+        },
+        "provenance": [
+          {
+            "source": "arxiv",
+            "source_id": "2606.14941v1",
+            "url": "https://arxiv.org/abs/2606.14941v1",
+            "query": "multimodal time series forecasting",
+            "retrieved_at": "2026-10-17T16:06:00.835994+00:00",
+            "request_url": "https://export.arxiv.org/api/query?search_query=all%3A%22multimodal%22+AND+all%3A%22time%22+AND+all%3A%22series%22+AND+all%3A%22forecasting%22&start=0&max_results=5&sortBy=relevance&sortOrder=descending",
+            "response_sha256": "e38975a88f06559f320ea9058ac29c066d01a6298b94879e7b62303ad08de323",
+            "route": "direct",
+            "attempts": 1,
+            "response_file": "raw/e38975a88f06559f320ea9058ac29c066d01a6298b94879e7b62303ad08de323.response"
+          }
+        ],
+        "selected": false
+      },
+      {
+        "paper": {
+          "title": "Rethinking Multimodal Time-Series Forecasting Evaluation",
+          "authors": [
+            "Haoxin Liu",
+            "Yichen Zhou",
+            "Rajat Sen",
+            "B. Aditya Prakash",
+            "Abhimanyu Das"
+          ],
+          "year": 2026,
+          "abstract": "We introduce a new context-enriched, multimodal time series forecasting benchmark, TimesX. TimesX contains a wide selection of high-quality real-world time series with diverse domains and textual contexts obtained from an automated data generation pipeline, which helps address three main issues of existing multimodal forecasting benchmarks: (1) poor generalization due to the small scale and synthetic nature of benchmark data, (2) very limited types of textual contexts in the benchmarks, and (3) an inability to mitigate data leakage in evaluation. We conduct a thorough empirical study of zero-shot multimodal forecasting approaches on TimesX. Our results suggest that many approaches that perform well on existing benchmarks may fail on TimesX. In contrast, simple ensemble methods that leverage rich textual context accompanying time-series can outperform strong baselines on TimesX.",
+          "url": "https://arxiv.org/abs/2607.06973v1",
+          "source": "arxiv",
+          "relevance_score": 1.0
+        },
+        "existing": false,
+        "score": 1.0,
+        "score_details": {
+          "topic_coverage": 1.0,
+          "best_query_coverage": 1.0,
+          "matched_terms": [
+            "forecasting",
+            "multimodal",
+            "series",
+            "time"
+          ],
+          "formula": "0.65 * topic_coverage + 0.35 * best_query_coverage; title=1, abstract_only=0.7"
+        },
+        "filter_reason": null,
+        "identifiers": {
+          "dois": [],
+          "arxiv_ids": [
+            "2607.06973"
+          ]
+        },
+        "provenance": [
+          {
+            "source": "arxiv",
+            "source_id": "2607.06973v1",
+            "url": "https://arxiv.org/abs/2607.06973v1",
+            "query": "multimodal time series forecasting",
+            "retrieved_at": "2026-10-17T16:06:00.835994+00:00",
+            "request_url": "https://export.arxiv.org/api/query?search_query=all%3A%22multimodal%22+AND+all%3A%22time%22+AND+all%3A%22series%22+AND+all%3A%22forecasting%22&start=0&max_results=5&sortBy=relevance&sortOrder=descending",
+            "response_sha256": "e38975a88f06559f320ea9058ac29c066d01a6298b94879e7b62303ad08de323",
+            "route": "direct",
+            "attempts": 1,
+            "response_file": "raw/e38975a88f06559f320ea9058ac29c066d01a6298b94879e7b62303ad08de323.response"
+          }
+        ],
+        "selected": true
+      },
+      {
+        "paper": {
+          "title": "Adaptive Information Routing for Multimodal Time Series Forecasting",
+          "authors": [
+            "Jun Seo",
+            "Hyeokjun Choe",
+            "Seohui Bae",
+            "Soyeon Park",
+            "Wonbin Ahn",
+            "Taeyoon Lim",
+            "Junhyeok Kang",
+            "Sangjun Han",
+            "Jaehoon Lee",
+            "Dongwan Kang",
+            "Minjae Kim",
+            "Sungdong Yoo",
+            "Soonyoung Lee"
+          ],
+          "year": 2025,
+          "abstract": "Time series forecasting is a critical task for artificial intelligence with numerous real-world applications. Traditional approaches primarily rely on historical time series data to predict the future values. However, in practical scenarios, this is often insufficient for accurate predictions due to the limited information available. To address this challenge, multimodal time series forecasting methods which incorporate additional data modalities, mainly text data, alongside time series data have been explored. In this work, we introduce the Adaptive Information Routing (AIR) framework, a novel approach for multimodal time series forecasting. Unlike existing methods that treat text data on par with time series data as interchangeable auxiliary features for forecasting, AIR leverages text information to dynamically guide the time series model by controlling how and to what extent multivariate time series information should be combined. We also present a text-refinement pipeline that employs a large language model to convert raw text data into a form suitable for multimodal forecasting, and we introduce a benchmark that facilitates multimodal forecasting experiments based on this pipeline. Experiment results with the real world market data such as crude oil price and exchange rates demonstrate that AIR effectively modulates the behavior of the time series model using textual inputs, significantly enhancing forecasting accuracy in various time series forecasting tasks.",
+          "url": "https://arxiv.org/abs/2512.10229v3",
+          "source": "arxiv",
+          "relevance_score": 1.0
+        },
+        "existing": false,
+        "score": 1.0,
+        "score_details": {
+          "topic_coverage": 1.0,
+          "best_query_coverage": 1.0,
+          "matched_terms": [
+            "forecasting",
+            "multimodal",
+            "series",
+            "time"
+          ],
+          "formula": "0.65 * topic_coverage + 0.35 * best_query_coverage; title=1, abstract_only=0.7"
+        },
+        "filter_reason": "outside_top_k",
+        "identifiers": {
+          "dois": [],
+          "arxiv_ids": [
+            "2512.10229"
+          ]
+        },
+        "provenance": [
+          {
+            "source": "arxiv",
+            "source_id": "2512.10229v3",
+            "url": "https://arxiv.org/abs/2512.10229v3",
+            "query": "multimodal time series forecasting",
+            "retrieved_at": "2026-10-17T16:06:00.835994+00:00",
+            "request_url": "https://export.arxiv.org/api/query?search_query=all%3A%22multimodal%22+AND+all%3A%22time%22+AND+all%3A%22series%22+AND+all%3A%22forecasting%22&start=0&max_results=5&sortBy=relevance&sortOrder=descending",
+            "response_sha256": "e38975a88f06559f320ea9058ac29c066d01a6298b94879e7b62303ad08de323",
+            "route": "direct",
+            "attempts": 1,
+            "response_file": "raw/e38975a88f06559f320ea9058ac29c066d01a6298b94879e7b62303ad08de323.response"
+          }
+        ],
+        "selected": false
+      }
+    ],
+    "papers": [
+      {
+        "title": "Multimodal Forecasting for Commodity Prices Using Spectrogram-Based and Time Series Representations",
+        "authors": [
+          "Soyeon Park",
+          "Doohee Chung",
+          "Charmgil Hong"
+        ],
+        "year": 2026,
+        "abstract": "Forecasting multivariate time series remains challenging due to complex cross-variable dependencies and the presence of heterogeneous external influences. This paper presents Spectrogram-Enhanced Multimodal Fusion (SEMF), which combines spectral and temporal representations for more accurate and robust forecasting. The target time series is transformed into Morlet wavelet spectrograms, from which a Vision Transformer encoder extracts localized, frequency-aware features. In parallel, exogenous variables, such as financial indicators and macroeconomic signals, are encoded via a Transformer to capture temporal dependencies and multivariate dynamics. A bidirectional cross-attention module integrates these modalities into a unified representation that preserves distinct signal characteristics while modeling cross-modal correlations. Applied to multiple commodity price forecasting tasks, SEMF achieves consistent improvements over seven competitive baselines across multiple forecasting horizons and evaluation metrics. These results demonstrate the effectiveness of multimodal fusion and spectrogram-based encoding in capturing multi-scale patterns within complex financial time series.",
+        "url": "https://arxiv.org/abs/2603.27321v1",
+        "source": "arxiv",
+        "relevance_score": 1.0
+      },
+      {
+        "title": "Rethinking Multimodal Time-Series Forecasting Evaluation",
+        "authors": [
+          "Haoxin Liu",
+          "Yichen Zhou",
+          "Rajat Sen",
+          "B. Aditya Prakash",
+          "Abhimanyu Das"
+        ],
+        "year": 2026,
+        "abstract": "We introduce a new context-enriched, multimodal time series forecasting benchmark, TimesX. TimesX contains a wide selection of high-quality real-world time series with diverse domains and textual contexts obtained from an automated data generation pipeline, which helps address three main issues of existing multimodal forecasting benchmarks: (1) poor generalization due to the small scale and synthetic nature of benchmark data, (2) very limited types of textual contexts in the benchmarks, and (3) an inability to mitigate data leakage in evaluation. We conduct a thorough empirical study of zero-shot multimodal forecasting approaches on TimesX. Our results suggest that many approaches that perform well on existing benchmarks may fail on TimesX. In contrast, simple ensemble methods that leverage rich textual context accompanying time-series can outperform strong baselines on TimesX.",
+        "url": "https://arxiv.org/abs/2607.06973v1",
+        "source": "arxiv",
+        "relevance_score": 1.0
+      },
+      {
+        "title": "SCENARIODIFF: A Scenario-level Guidance Framework for Multimodal Time Series Forecasting--Extended Version",
+        "authors": [
+          "Tuan-Binh Tran",
+          "Dat Nguyen Cong",
+          "Duc-Trong Le",
+          "Thanh Trung Huynh",
+          "Tung Kieu"
+        ],
+        "year": 2026,
+        "abstract": "Textual context such as news, reports, and logs can provide valuable signals for time series forecasting, especially when future dynamics are driven by external events that are not yet visible in historical values. Existing multimodal forecasting methods often either ask large language models (LLMs) to predict numerical values directly or fuse text and time series implicitly, making contextual influence difficult to interpret and control. We propose SCENARIODIFF, a hierarchical contextual reasoning framework for multimodal time series forecasting under noisy and weakly aligned documents. SCENARIODIFF organizes contextual information into three levels: a Historical Context Agent extracts stepwise evidence from raw documents, a Scenario Agent produces a qualitative scenario description for the forecast horizon, and an Anchor Guidance Agent generates sparse anchor points for event-relevant future regions. These structured signals condition a Multimodal Diffusion Transformer, while Anchor Blended Sampling locally refines generated trajectories without retraining. Experiments on the Time-MMD benchmark show that SCENARIODIFF is especially effective in event-driven domains, demonstrating the value of explicit hierarchical scenario guidance for multimodal time series forecasting. Our full implementation is available at https://anonymous.4open.science/r/ScenarioDiff_ICDM-2C4C",
+        "url": "https://arxiv.org/abs/2608.17164v1",
+        "source": "arxiv",
+        "relevance_score": 1.0
+      }
+    ],
+    "status": "success",
+    "finished_at": "2026-10-17T16:06:00.843761+00:00"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "request_url": "https://export.arxiv.org/api/query?search_query=all%3A%22time%22+AND+all%3A%22series%22+AND+all%3A%22fusion%22+AND+all%3A%22text%22&start=0&max_results=10&sortBy=relevance&sortOrder=descending",
+  "retrieved_at": "2026-10-15T04:08:16.379555+00:00",
+  "response_sha256": "96afa3428d5a2b427b77bee36edc323a412c54f7a06e747065db6a77146ed260",
+  "response_file": "96afa3428d5a2b427b77bee36edc323a412c54f7a06e747065db6a77146ed260.response",
+  "route": "direct",
+  "attempts": 1
+}

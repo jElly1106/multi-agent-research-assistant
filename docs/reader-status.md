@@ -45,7 +45,6 @@
 
 换机/容器/CI 的必要配置、离线检查与风险判读见 [部署与风险说明](reader-operations.md)。
 
-
 [独立运行](reader-standalone.md)、[全文规则](reader-fulltext.md)、[下载](reader-download.md)、
 [调用预算](reader-pipeline.md)、[完整真实测试记录](reader-real-data-test.md)。
 
@@ -79,3 +78,17 @@ max_reserved_tokens；不同模型应重新确认。预算是本地准入预留�
 本次离线定向回归：配置、CLI、提供方输出失败处理共30 passed（5.37秒）。
 首次沙箱运行21 passed、9项fixture因临时目录权限失败，正常权限重跑30项全部通过；
 该结果不替代此前216项完整回归，也不代表换机或真实服务已重新验收。
+
+
+## 最终合并请求准备
+
+Reader 分支提交前完整离线回归：216 passed（54.72秒）。随后同步当前 main，
+保留其其他成员实现与文档，解决 README 和 Agent 导出的冲突；未主动改变共享契约
+或默认节点接入。main 带入 `.env.example`，部署文档已据此修正，历史“文件不存在”
+记录仅描述同步前 Reader 分支。正式图接入与跨成员联调仍未进行。
+
+同步 main 后全仓离线回归：614 passed（65.85秒）。首轮613 passed、1项 Search
+历史响应重放失败，已确认 main 原始 blob 哈希正确、本机 autocrlf 转换使检出字节
+不符；仅将两个本地录制恢复为 Git 原始字节后重跑通过，没有修改 Search 源录制、
+哈希校验或实现。风险与处理已写入部署说明。相对 main 的共享契约差异为空。
+本次未新增真实模型调用或跨成员端到端验收；合并请求用于提交成员3独立交付。

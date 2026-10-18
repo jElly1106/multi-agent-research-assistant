@@ -1,5 +1,3 @@
-# 成员1：系统架构 + Coordinator Agent 完成稿
-
 ## 1. 成员1承担的内容
 
 成员1负责整个多智能体科研助手的“骨架”：定义 LangGraph 节点、节点连接关系、条件分支、共享 State、Coordinator Agent 与跨成员统一数据接口。
@@ -164,3 +162,54 @@ python main.py "Multimodal Time Series Forecasting"
 - FAIL -> Search
 - 最大反馈轮次避免无限循环
 - 体现 Multi-Agent 的“自检查”能力
+
+## 10. 成员4汇报建议（3页）
+
+### 第1页：成员4职责
+
+- 实现 Method Analyst Agent，将多篇论文的阅读结果整理成领域方法总结。
+- 完成论文分类、方法对比和技术路线归纳。
+- 核心代码：`research_assistant/agents/analyst.py`。
+
+### 第2页：输入与输出
+
+输入：成员3提供的 `paper_analysis`，结合研究问题及 `papers` 中的年份信息。
+
+输出：`method_summary`，交给成员5的 Critic 审核，包含：
+
+- `categories`：方法分类及对应论文。
+- `comparison_table`：输入模态、融合方式、主干模型、数据集和局限的对比表。
+- `evolution`：有材料依据的技术路线总结。
+- `summary`：主要发现和证据缺口。
+
+节点接口为 `analyst_node(state) -> {"method_summary": ...}`，具体格式沿用
+`INTERFACES.md` 第4节。
+
+### 第3页：方法分析流程
+
+- 根据论文内容选择分类维度，例如特征拼接、跨模态注意力、对比表示对齐。
+- 按统一字段比较各篇论文，缺失信息标为“输入材料未提供”。
+- 总结方法差异和技术趋势，并在结论中标注支持论文。
+- Critic 要求补充检索后，对更新后的完整阅读结果重新分析。
+
+## 11. 成员5：Critic 与系统评价交付
+
+已实现正式 `critic_node`、结构与语义证据检查、PASS/FAIL 一致性校验、可执行反馈和
+补充查询；复用成员1的 Graph 轮次控制，与成员4的原有 `ResearchLandscape` 兼容。
+新增评价模块、独立标注格式、真实成对实验入口与离线消融样例。Graph 仅新增可选
+Coordinator 注入点，以便两组实验冻结同一规划，原调用方式不变。
+
+离线验证覆盖：来源丢失、分类/对比遗漏、虚构引用、数据集不一致、冲突重复输入、
+缺少配置、模型异常、矛盾判定、FAIL 反馈重新检索、两轮 PASS、达到上限仍 FAIL、
+评价分母、未知值、独立标注覆盖率与对照输入隔离。运行：
+
+```bash
+python -m pytest -q
+python -m examples.critic_mock_demo
+python -m examples.critic_ablation_demo --output output/critic_ablation.json
+```
+
+固定模拟实验中，Without 组审核 0 次、报告覆盖 1/2 问题；With 组审核 2 次、
+FAIL 1 次、报告覆盖 2/2 问题。所有论文均为模拟，所以两组真实论文数都是 0，
+真实引用正确率都是 0；这些结果只说明流程和指标公式可运行。完整验收、独立核验
+口径、真实质量实验协议及成员5汇报提纲见 [MEMBER5.md](MEMBER5.md)。

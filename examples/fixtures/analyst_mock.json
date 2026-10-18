@@ -1,0 +1,70 @@
+{
+  "notice": "MOCK_ONLY：所有论文、数据集和模型响应均为人工构造，仅用于接口与逻辑测试，不是科研证据。",
+  "state": {
+    "topic": "Multimodal Time Series Forecasting",
+    "research_scope": "比较测试材料中时序与文本的融合机制，不推断整个领域的结论。",
+    "research_questions": ["不同融合机制有何差异？", "当前材料有哪些局限？"],
+    "papers": [
+      {"title": "MOCK_ONLY A: Feature Concatenation", "authors": ["Mock Author"], "year": 2022, "source": "MOCK_ONLY"},
+      {"title": "MOCK_ONLY B: Cross Attention", "authors": ["Mock Author"], "year": 2024, "source": "MOCK_ONLY"},
+      {"title": "MOCK_ONLY C: Contrastive Alignment", "authors": ["Mock Author"], "year": 2025, "source": "MOCK_ONLY"}
+    ],
+    "paper_analysis": [
+      {
+        "paper_title": "MOCK_ONLY A: Feature Concatenation",
+        "problem": "如何将文本作为时序预测的外部信息？",
+        "motivation": "测试特征拼接路线。",
+        "method": "将时间序列和文本嵌入进行早期特征拼接，再输入 MLP 预测。",
+        "datasets": ["MOCK_DATASET_A"],
+        "metrics": ["MAE"],
+        "main_results": "仅提供测试用定性描述，未提供实验数值。",
+        "contributions": ["演示特征拼接方法"],
+        "limitations": ["仅在一个模拟数据集上验证"]
+      },
+      {
+        "paper_title": "MOCK_ONLY B: Cross Attention",
+        "problem": "如何实现时序与文本的交互？",
+        "motivation": "测试跨模态注意力路线。",
+        "method": "使用 Transformer 编码时序和文本，通过 Cross Attention 交互后进行预测。",
+        "datasets": ["MOCK_DATASET_B"],
+        "metrics": ["MSE"],
+        "main_results": "未提供与 A 在相同实验条件下的比较。",
+        "contributions": ["演示跨模态注意力机制"],
+        "limitations": ["尚未测试文本缺失场景"]
+      },
+      {
+        "paper_title": "MOCK_ONLY C: Contrastive Alignment",
+        "problem": "如何对齐时序与文本表示？",
+        "motivation": "测试对比对齐路线。",
+        "method": "通过对比学习对齐时间序列与文本表示；材料未说明主干架构。",
+        "datasets": [],
+        "metrics": [],
+        "main_results": "",
+        "contributions": ["演示表示对齐机制"],
+        "limitations": []
+      }
+    ]
+  },
+  "model_response": {
+    "categories": [
+      {"name": "早期特征拼接", "description": "按融合机制分类：先拼接两种模态的特征，再进行预测。", "papers": ["MOCK_ONLY A: Feature Concatenation"]},
+      {"name": "跨模态注意力", "description": "按融合机制分类：通过注意力实现模态之间的交互。", "papers": ["MOCK_ONLY B: Cross Attention"]},
+      {"name": "对比表示对齐", "description": "按融合机制分类：使用对比学习约束跨模态表示。", "papers": ["MOCK_ONLY C: Contrastive Alignment"]}
+    ],
+    "comparison_table": [
+      {"paper": "MOCK_ONLY A: Feature Concatenation", "input": "时间序列 + 文本", "fusion": "早期特征拼接", "backbone": "MLP"},
+      {"paper": "MOCK_ONLY B: Cross Attention", "input": "时间序列 + 文本", "fusion": "Cross Attention", "backbone": "Transformer"},
+      {"paper": "MOCK_ONLY C: Contrastive Alignment", "input": "时间序列 + 文本", "fusion": "对比学习对齐", "backbone": "输入材料未提供"}
+    ],
+    "evolution": [
+      {"text": "2022 年的模拟样本展示特征拼接路线；仅表示样本发表时间，不代表技术起源。", "papers": ["MOCK_ONLY A: Feature Concatenation"]},
+      {"text": "2024 年的模拟样本展示注意力交互路线，不能据此断言替代了早期拼接。", "papers": ["MOCK_ONLY B: Cross Attention"]},
+      {"text": "2025 年的模拟样本展示对比表示对齐路线，未提供对前述方法的继承关系。", "papers": ["MOCK_ONLY C: Contrastive Alignment"]}
+    ],
+    "findings": [
+      {"text": "MOCK_ONLY：这些样本分别使用特征拼接、注意力交互和对比对齐，体现融合机制的差异。", "papers": ["MOCK_ONLY A: Feature Concatenation", "MOCK_ONLY B: Cross Attention", "MOCK_ONLY C: Contrastive Alignment"]},
+      {"text": "A、B 使用不同模拟数据集及指标，现有材料不能支持性能优劣排名。", "papers": ["MOCK_ONLY A: Feature Concatenation", "MOCK_ONLY B: Cross Attention"]}
+    ],
+    "evidence_gaps": ["仅覆盖三篇人工构造样本，不能用于真实科研结论。", "C 缺少主干模型、数据集和实验结果信息。"]
+  }
+}

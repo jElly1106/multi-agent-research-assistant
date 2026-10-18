@@ -13,7 +13,7 @@
 - All graph nodes use `node(state: ResearchState) -> dict` and return only the fields they own.
 - Cross-agent values must be JSON serializable. `ResearchState` currently carries dictionaries/lists at runtime; Pydantic models in `research_assistant/schemas.py` define the agreed shapes.
 - The current graph is `Coordinator -> Search -> Reader -> Analyst -> Critic -> Writer`, with a Critic `FAIL` loop back to Search. See `INTERFACES.md` and `research_assistant/graph.py` before changing an agent.
-- The only production agent currently present is Coordinator. The nodes in `research_assistant/demo_stubs.py` are demonstration-only and must not be represented as real research results.
+- Coordinator, Search, Reader, Analyst, and Critic implementations are present; Reader remains independently validated and is not automatically wired into `main.py`. Use README.md and docs/reader-status.md for delivery boundaries. The nodes in `research_assistant/demo_stubs.py` are demonstration-only and must not be represented as real research results.
 
 ## Reader Agent rules
 
