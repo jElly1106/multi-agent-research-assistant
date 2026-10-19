@@ -112,6 +112,13 @@ ENV/
 env.bak/
 venv.bak/
 
+# Local caches and temporary files
+cache/
+tmp/
+temp/
+*.tmp
+*.temp
+
 # Spyder project settings
 .spyderproject
 .spyproject

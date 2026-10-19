@@ -1,0 +1,2 @@
+# Optional local PDF preparation dependency; P0 does not import it.
+pypdf>=6,<7

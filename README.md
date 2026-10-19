@@ -1,7 +1,7 @@
 # Multi-Agent Research Assistant — 文献检索、方法分析与 Critic 评价
 
 项目目标：根据研究主题完成文献检索、结构化阅读、方法分析、Critic 审核与报告生成。
-当前已交付成员1基础框架、成员2 Search Agent、成员4 Method Analyst、成员5 Critic 与系统评价；成员3、6仍待接入，尚未形成真实文献端到端系统。
+当前已交付成员1基础框架、成员2 Search Agent、成员4 Method Analyst、成员5 Critic 与系统评价；成员3 Reader 已有独立实现、待正式接入，成员6仍待实现接入，尚未形成真实文献端到端系统。
 
 | 模块 | 当前状态 |
 |---|---|
@@ -10,8 +10,9 @@
 | 成员4：Method Analyst | 已实现；支持分类、对比、技术路线归纳、引用校验与独立真实调用 |
 | 成员5：Critic、系统指标、消融实验 | 已实现；包含证据审核、补充查询、独立评价标注与离线成对演示 |
 | 公共模型客户端 | Coordinator、Analyst 和 Critic 共用，支持 Responses / Chat Completions |
-| 成员3、6：Reader、Writer | 当前仅有 demo stub，等待正式实现接入 |
-| 前端、PDF 解析、真实系统质量实验 | 尚未实现；Search 独立检索已验证，模拟流程验证不代表真实质量实验 |
+| 成员3：Reader | 独立摘要/PDF/全文核心功能已实现并有有限样本验证，正式图接入与跨成员联调待做 |
+| 成员6：Writer | 当前仅有 demo stub，等待正式实现接入 |
+| 前端、真实系统质量实验 | 尚未实现；Reader 独立 PDF 解析已实现，模拟流程验证不代表真实系统质量实验 |
 
 **`main.py` 仍注入五个 demo 节点（包括 demo Analyst）；配置密钥不会自动替换它们。**
 其中 Coordinator 可按配置调用真实模型。demo 论文和报告均不能当作科研结果。
@@ -307,3 +308,31 @@ python -m examples.critic_live_demo --input path/to/state.json --output output/c
 评价标签全部为预设，不能证明真实模型质量。真实模型配置沿用上文；Critic 结构完整
 输入缺少配置时会报错，结构缺口可直接 FAIL。接口、指标公式、独立标注格式、
 真实消融协议与汇报材料见 [MEMBER5.md](MEMBER5.md)。
+
+## Reader 独立实现（成员3）
+
+交付结论、最终测试与基本性能见 [Reader 当前状态](docs/reader-status.md)。
+
+本分支已提供摘要结构化阅读、本地文本型 PDF 准备、显式 arXiv PDF 获取、带引句的
+全文提取与合并、可选语义协调，以及调用预算、解析超时、适度并行和内存材料缓存。
+Reader 只负责 `paper_analysis`，不改共享 Schema/State/Graph，也不重新检索论文。
+`main.py` 仍是 demo 编排，不会因配置模型密钥自动切换到正式 Reader 或其他正式节点。
+
+- 摘要节点：`research_assistant.agents.reader.reader_node`。
+- 全文节点：`research_assistant.reader_node.create_fulltext_reader_node`，默认只使用本地
+  映射，`download_arxiv=True` 才获取已有 arXiv 论文。
+- 独立 API：`run_reader` / `run_reader_with_downloads`，位于 reader_pipeline.py。
+- 独立 CLI：`python -m research_assistant.reader_cli --input input.json --output result.json --offline`。
+  `--download-arxiv --no-llm` 只获取/解析；不加模型禁用选项时可能调用真实模型。
+- PDF 可选依赖：[requirements-reader-pdf.txt](requirements-reader-pdf.txt)，摘要节点不要求安装。
+
+Reader 使用 OPENAI_API_KEY、LLM_MODEL、可选 OPENAI_BASE_URL 和 LLM_API。
+READER_USE_LLM=0 明确禁用。已有 DASHSCOPE 变量不会自动映射；如何在进程中复用
+百炼配置及输出预算建议见 [独立验收说明](docs/reader-acceptance.md)。不要在仓库写入密钥。
+
+入口和边界：[独立运行](docs/reader-standalone.md)、[全文提取与协调](docs/reader-fulltext.md)、
+[预算](docs/reader-pipeline.md)、[arXiv获取](docs/reader-download.md)。
+验证事实与尚未覆盖的层次见 [真实数据测试记录](docs/reader-real-data-test.md)；
+合成测试或一次模型成功都不代表所有论文和模型的质量保证。
+
+换机、容器或 CI 联调前，请先阅读 [Reader 部署、配置与风险](docs/reader-operations.md)。本机环境变量、虚拟环境及本地 PDF 不随 Git 迁移。
