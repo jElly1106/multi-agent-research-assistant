@@ -1,7 +1,7 @@
 # Multi-Agent Research Assistant — 文献检索、方法分析与 Critic 评价
 
 项目目标：根据研究主题完成文献检索、结构化阅读、方法分析、Critic 审核与报告生成。
-当前已交付成员1基础框架、成员2 Search Agent、成员4 Method Analyst、成员5 Critic 与系统评价；成员3 Reader 已有独立实现、待正式接入，成员6仍待实现接入，尚未形成真实文献端到端系统。
+当前已有成员1基础框架、成员2 Search Agent、成员3独立 Reader、成员4 Method Analyst、成员5 Critic 与系统评价，以及成员6 Writer、Streamlit 页面和报告导出。成员6新增启动入口已接入各正式节点的摘要阅读流程；真实服务下的端到端质量验收尚未执行，原 `main.py` 保持框架演示。
 
 | 模块 | 当前状态 |
 |---|---|
@@ -10,12 +10,18 @@
 | 成员4：Method Analyst | 已实现；支持分类、对比、技术路线归纳、引用校验与独立真实调用 |
 | 成员5：Critic、系统指标、消融实验 | 已实现；包含证据审核、补充查询、独立评价标注与离线成对演示 |
 | 公共模型客户端 | Coordinator、Analyst 和 Critic 共用，支持 Responses / Chat Completions |
-| 成员3：Reader | 独立摘要/PDF/全文核心功能已实现并有有限样本验证，正式图接入与跨成员联调待做 |
-| 成员6：Writer | 当前仅有 demo stub，等待正式实现接入 |
-| 前端、真实系统质量实验 | 尚未实现；Reader 独立 PDF 解析已实现，模拟流程验证不代表真实系统质量实验 |
+| 成员3：Reader | 独立摘要/PDF/全文核心功能已实现；成员6新入口已接入摘要节点，全文跨成员联调待做 |
+| 成员6：Writer | 已实现；模型叙述、引用与问题覆盖校验、确定性参考文献及未通过审核警告 |
+| 前端、导出 | 本地 Streamlit 页面、节点进度与中间结果、Markdown/中文 PDF 导出已实现 |
+| 真实系统质量实验 | 尚未执行；模拟流程和离线测试不代表真实系统质量验收 |
 
 **`main.py` 仍注入五个 demo 节点（包括 demo Analyst）；配置密钥不会自动替换它们。**
 其中 Coordinator 可按配置调用真实模型。demo 论文和报告均不能当作科研结果。
+
+成员6新入口：先安装 `requirements-member6.txt`，再运行 `python -m streamlit run app.py`。
+页面默认离线演示；真实研究模式显式接入正式 Search、摘要 Reader、Analyst、Critic、Writer，
+需要有效模型配置且开启 Coordinator/Reader。命令行可用 `python -m research_assistant.member6_cli`。
+完整运行、配置、离线与真实模式边界见 [成员6交付说明](docs/MEMBER6.md)。
 
 - 运行与配置：本文。
 - 跨成员数据契约：[INTERFACES.md](INTERFACES.md)。
@@ -156,7 +162,7 @@ PowerShell 中先执行 `$env:COORDINATOR_USE_LLM="0"`，再运行 `python main.
 
 ## 其他成员如何接入
 
-成员2已提供 `search_node` / `create_search_node`，成员4已提供 `analyst_node`，成员5已提供 `critic_node`；成员3、6仍需提供 Reader、Writer。各节点签名为：
+成员2已提供 `search_node` / `create_search_node`，成员3已提供摘要 Reader 与独立全文工厂，成员4已提供 `analyst_node`，成员5已提供 `critic_node`，成员6已提供 `research_assistant.agents.writer.writer_node`。各节点签名为：
 
 ```python
 search_node(state) -> dict
