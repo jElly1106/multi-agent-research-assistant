@@ -12,7 +12,7 @@ def create_fulltext_reader_node(
     pdf_paths=None, *, download_arxiv=False, download_options=None,
     abstract_analyzer_factory=None, fulltext_analyzer_factory=None,
     reconciler_factory=None, budget_options=None, pdf_options=None,
-    fulltext_options=None, material_cache=None,
+    fulltext_options=None, material_cache=None, on_result=None,
 ):
     """Configure a node that reads papers and returns only paper_analysis.
 
@@ -23,6 +23,8 @@ def create_fulltext_reader_node(
     """
     if type(download_arxiv) is not bool:
         raise ValueError("download_arxiv must be a boolean")
+    if on_result is not None and not callable(on_result):
+        raise ValueError("on_result must be callable")
     if download_options is not None and not download_arxiv:
         raise ValueError("download_options requires download_arxiv=True")
     paths = copy.deepcopy({} if pdf_paths is None else pdf_paths)
@@ -46,6 +48,8 @@ def create_fulltext_reader_node(
             fulltext_analyzer_factory=fulltext_analyzer_factory,
             reconciler_factory=reconciler_factory, material_cache=material_cache,
             **options, **extra)
+        if on_result is not None:
+            on_result(copy.deepcopy(result))
         return {"paper_analysis": result["paper_analysis"]}
 
     return node

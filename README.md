@@ -1,7 +1,7 @@
 # Multi-Agent Research Assistant — 文献检索、方法分析与 Critic 评价
 
 项目目标：根据研究主题完成文献检索、结构化阅读、方法分析、Critic 审核与报告生成。
-当前已有成员1基础框架、成员2 Search Agent、成员3独立 Reader、成员4 Method Analyst、成员5 Critic 与系统评价，以及成员6 Writer、Streamlit 页面和报告导出。成员6新增启动入口已接入各正式节点的摘要阅读流程；真实服务下的端到端质量验收尚未执行，原 `main.py` 保持框架演示。
+当前已有成员1基础框架、成员2 Search Agent、成员3 Reader、成员4 Method Analyst、成员5 Critic 与系统评价，以及成员6 Writer、Streamlit 页面和报告导出。成员6启动入口已接入全文 Reader，自动尝试 arXiv PDF（含 OpenAlex 关联副本），失败时保留摘要；真实服务下的端到端质量验收尚未执行，原 `main.py` 保持框架演示。
 
 | 模块 | 当前状态 |
 |---|---|
@@ -10,7 +10,7 @@
 | 成员4：Method Analyst | 已实现；支持分类、对比、技术路线归纳、引用校验与独立真实调用 |
 | 成员5：Critic、系统指标、消融实验 | 已实现；包含证据审核、补充查询、独立评价标注与离线成对演示 |
 | 公共模型客户端 | Coordinator、Analyst 和 Critic 共用，支持 Responses / Chat Completions |
-| 成员3：Reader | 独立摘要/PDF/全文核心功能已实现；成员6新入口已接入摘要节点，全文跨成员联调待做 |
+| 成员3：Reader | 摘要/PDF/全文功能已实现；成员6入口已接入全文节点，有合成串联验证，真实服务联调待做 |
 | 成员6：Writer | 已实现；模型叙述、引用与问题覆盖校验、确定性参考文献及未通过审核警告 |
 | 前端、导出 | 本地 Streamlit 页面、节点进度与中间结果、Markdown/中文 PDF 导出已实现 |
 | 真实系统质量实验 | 尚未执行；模拟流程和离线测试不代表真实系统质量验收 |
@@ -19,7 +19,7 @@
 其中 Coordinator 可按配置调用真实模型。demo 论文和报告均不能当作科研结果。
 
 成员6新入口：先安装 `requirements-member6.txt`，再运行 `python -m streamlit run app.py`。
-页面默认离线演示；真实研究模式显式接入正式 Search、摘要 Reader、Analyst、Critic、Writer，
+页面默认离线演示；真实研究模式接入正式 Search、全文 Reader、Analyst、Critic、Writer，
 需要有效模型配置且开启 Coordinator/Reader。命令行可用 `python -m research_assistant.member6_cli`。
 完整运行、配置、离线与真实模式边界见 [成员6交付说明](docs/MEMBER6.md)。
 
@@ -331,6 +331,11 @@ Reader 只负责 `paper_analysis`，不改共享 Schema/State/Graph，也不重�
 - 独立 CLI：`python -m research_assistant.reader_cli --input input.json --output result.json --offline`。
   `--download-arxiv --no-llm` 只获取/解析；不加模型禁用选项时可能调用真实模型。
 - PDF 可选依赖：[requirements-reader-pdf.txt](requirements-reader-pdf.txt)，摘要节点不要求安装。
+
+成员6真实入口自动启用全文工厂及 `download_options={"resolve_openalex": True}`。
+OpenAlex 记录通过官方 Work 元数据查找 arXiv 副本，不将记录页作为 PDF 下载；没有支持的
+副本时保留摘要。页面展示逐篇全文状态、字段来源和预算拒绝原因，应用 CLI 另存
+`reader-diagnostics.json`；这些诊断不改变共享 State。需安装上述 PDF 可选依赖。
 
 Reader 使用 OPENAI_API_KEY、LLM_MODEL、可选 OPENAI_BASE_URL 和 LLM_API。
 READER_USE_LLM=0 明确禁用。已有 DASHSCOPE 变量不会自动映射；如何在进程中复用

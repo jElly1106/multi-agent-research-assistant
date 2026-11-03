@@ -31,9 +31,16 @@ def main(argv=None):
             state = payload.get("state", payload)
             state.update(create_writer_node(use_llm=not args.compile_only)(state))
         else:
+            reader_diagnostics = []
             for event in stream_research(args.topic, mode=args.mode, top_k=args.top_k, max_critic_rounds=args.rounds):
                 state = event["state"]
+                if "reader_diagnostics" in event:
+                    reader_diagnostics.append({"round": state.get("critic_round", 0) + 1,
+                                               "papers": event["reader_diagnostics"]})
                 print(f"完成：{event['node']}（审核轮次 {state.get('critic_round', 0)}）")
+            if reader_diagnostics:
+                (args.output_dir/"reader-diagnostics.json").write_text(
+                    json.dumps(reader_diagnostics, ensure_ascii=False, indent=2), "utf-8")
         report = state["final_report"]
         (args.output_dir/"report.md").write_bytes(markdown_bytes(report))
         (args.output_dir/"state.json").write_text(json.dumps(state, ensure_ascii=False, indent=2), "utf-8")

@@ -58,12 +58,23 @@ $env:READER_USE_LLM='1'
 
 也可在页面选择“真实研究”，确认允许联网/模型调用，再开始。未配置模型时按钮不可用。
 配置错误、关闭节点开关或运行异常明确失败；不退回合成科研结果。不显示原始网关异常正文。
-真实入口使用正式 Search、摘要 Reader、Analyst、Critic 和 Writer，沿用正式 Coordinator。
+真实入口使用正式 Search、全文 Reader、Analyst、Critic 和 Writer，沿用正式 Coordinator。
 Search 每轮最多一个查询、每查询5条候选，Top-K限制新增论文数；默认 OpenAlex，可在页面选其他来源。
 Search 默认按规则生成查询，不调用关键词模型；Coordinator、逐篇 Reader、Analyst、Critic、Writer 可调用模型。
 最多1–5轮审核，Graph保留FAIL，不把轮次上限当作PASS。轮次/论文数限制不是费用硬上限，模型重试和服务时延仍适用。
 
-当前入口不下载全文，OpenAlex URL 仍为记录页；全文能力由成员3独立入口负责，不能称已完成全文跨成员联调。
+2026-11-03 修复：真实入口接入 `create_fulltext_reader_node(download_arxiv=True)`，并设置
+`download_options={"resolve_openalex": True}`。需要已有 `requirements-reader-pdf.txt` 中的
+可选解析依赖；未安装时逐篇报告 `dependency_unavailable`，不会把下载成功当作读取成功。
+OpenAlex URL 保持原始记录页不变；Reader 请求该 Work 的官方元数据，核对 ID、标题后，
+从 primary_location / best_oa_location / locations 中查找唯一的官方 arXiv 副本。
+不自动下载其他出版社 PDF、付费全文或扫描件。没有支持的副本、网络/解析/提取失败时，
+仍保留摘要或空字段，Critic 继续依据实际证据审核，不保证 PASS。
+页面“阅读与方法”显示逐篇全文状态、已处理块数、字段来源、获取问题及预算拒绝原因；
+新运行会清除旧诊断。应用 CLI 保存各轮 `reader-diagnostics.json`，不加入共享 State。
+每轮 Reader 使用已有默认预算：最多50次模型调用、200000预留 token（默认 UTF-8 字节估算），
+下载最多5次且总预留50 MiB，OpenAlex 元数据最多5次、每次最多2 MiB、默认20秒超时。
+所有限额按每次 Reader 调用重新计算，多轮仍可能追加费用；下载和解析成功不保证所有块均完成模型提取。
 尚未执行本次新入口的真实模型或实时论文 API 验收，不能保证提供者兼容性、检索可用性或科学结论正确性。
 后续应以小规模真实论文对照原文抽查报告，记录未解决问题，并与成员5评价协议结合。
 

@@ -55,6 +55,7 @@ def test_node_does_not_download_by_default(monkeypatch):
     {"download_arxiv": True, "download_options": {"max_requests": 0}},
     {"pdf_paths": {"": "bad.pdf"}}, {"budget_options": {"max_calls": 0}},
     {"fulltext_options": {"reconcile": 1}}, {"pdf_options": {"max_workers": 9}},
+    {"on_result": 123},
 ])
 def test_invalid_factory_configuration_fails_before_work(options):
     with pytest.raises(ValueError):
@@ -89,3 +90,15 @@ def test_download_node_with_synthetic_http_and_cleanup(tmp_path, monkeypatch):
     result = node({"papers": [{**paper(), "url": "https://arxiv.org/abs/2401.12345"}]})
     assert result["paper_analysis"][0]["method"] == "Synthetic method A"
     assert seen and all(not p.exists() and not p.parent.exists() for p in seen)
+
+
+def test_observer_cannot_change_analysis_or_shared_state():
+    observed = []
+    def observer(result):
+        observed.append(copy.deepcopy(result))
+        result["paper_analysis"].clear()
+    node = create_fulltext_reader_node(on_result=observer, abstract_analyzer_factory=SyntheticAbstract)
+    result = node({"papers": [paper()]})
+    assert len(result["paper_analysis"]) == 1
+    assert observed[0]["details"][0]["status"] == "fallback"
+    assert set(result) == {"paper_analysis"}

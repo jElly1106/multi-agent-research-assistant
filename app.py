@@ -32,7 +32,7 @@ with st.sidebar:
     sources = st.multiselect("文献来源", ["openalex", "arxiv", "crossref", "semantic_scholar"], default=["openalex"])
     allowed = True
     if mode == "live":
-        st.caption("使用本地环境中的模型配置。摘要 Reader 接入；当前入口不下载全文。")
+        st.caption("自动尝试 arXiv 全文阅读（含 OpenAlex 关联副本）；不可用时保留摘要，并显示逐篇状态。")
         if not model_configured():
             st.warning("尚未配置模型密钥或模型名称。")
         allowed = st.checkbox("允许本次运行访问论文数据库并调用模型") and model_configured() and bool(sources)
@@ -47,6 +47,7 @@ if start:
     # Clear previous success immediately; failures must never expose a stale report as current.
     st.session_state.pop("result", None)
     st.session_state.pop("pdf", None)
+    st.session_state.pop("reader_diagnostics", None)
     st.session_state["events"] = []
     st.session_state["run_mode"] = mode
     st.session_state["failed"] = False
@@ -64,6 +65,8 @@ if start:
                     status.update(label="正在进行：" + LABELS[next_node])
                 st.session_state["events"].append({"node": event["node"], "round": number})
                 st.session_state["result"] = state
+                if "reader_diagnostics" in event:
+                    st.session_state["reader_diagnostics"] = event["reader_diagnostics"]
             st.session_state["elapsed"] = time.monotonic()-began
             status.update(label="报告已生成", state="complete", expanded=False)
         except Exception as exc:
@@ -106,6 +109,13 @@ if state:
         st.dataframe(state.get("papers", []), hide_index=True, width="stretch")
         st.caption("来源 URL 是记录页或 DOI 链接，不一定是可下载的 PDF。")
     with analysis_tab:
+        diagnostics = st.session_state.get("reader_diagnostics", [])
+        if diagnostics:
+            incomplete = sum(d["status"] != "ok" for d in diagnostics)
+            if incomplete:
+                st.warning(f"{incomplete} 篇论文的全文提取存在缺口或已回退；请核对逐篇状态和字段来源。")
+            with st.expander("全文阅读状态与字段来源", expanded=bool(incomplete)):
+                st.json(diagnostics)
         st.subheader("方法比较")
         st.dataframe(state.get("method_summary", {}).get("comparison_table", []), hide_index=True, width="stretch")
         with st.expander("逐篇阅读结果"):

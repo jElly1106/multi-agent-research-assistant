@@ -39,7 +39,7 @@ CLI 显式启用：
 只接受已有论文的官方 arXiv abs/pdf URL，包括 www/export 主机、HTTP/HTTPS、
 新版编号和旧版分类编号、显式版本号；统一到 `https://arxiv.org/pdf/<id>`。
 不访问原始 HTTP 地址。拒绝账号密码、端口、query、fragment、非官方主机及任意路径；
-不解析 DOI，不爬取 HTML，不猜测 OpenAlex 等记录的全文链接。
+不解析 DOI，不爬取 HTML，不猜测全文链接。2026-11-03 增加显式 OpenAlex 元数据解析，见下文。
 版本号保留；无版本 URL 指向服务当时提供的版本，SHA-256 记录实际取得的字节。
 合法 URL 不能证明元数据标题与全文一致，该关联仍依赖上游，未做语义身份核验。
 
@@ -60,6 +60,22 @@ API 条款对传统 API 的限速不能直接理解成所有 PDF 访问的服务
 也采用保守串行间隔。只用于个人/研究分析，不提供全文再分发服务。
 
 ## 限额、清理与降级
+
+`resolve_openalex=True` 可显式解析已有 OpenAlex Work；成员6真实入口已启用，独立 API
+默认关闭。请求严格形如 `https://api.openalex.org/works/W...`，不重复检索论文。
+核对响应 ID 与标题（忽略大小写和连续空白）后，从 `primary_location`、`best_oa_location`、
+`locations` 的 PDF/落地页字段中查找官方 arXiv URL；多个不同 URL 保守拒绝。
+字段语义依据 [OpenAlex 官方 Locations 文档](https://help.openalex.org/data/locations/)。
+原始 `papers.url` 和来源不变，其他出版社链接不会被下载；无支持副本时使用摘要回退。
+
+全文工厂可用 `on_result(result)` 接收独立 pipeline 结果的副本，用于应用外部诊断。
+节点仍只返回 `paper_analysis`，回调修改副本不会修改该输出或输入 State；回调异常会传播。
+
+元数据查询默认最多5次（`max_metadata_requests` 可设1–20），每次响应上限2 MiB，
+沿用 timeout_seconds 和官方 API 传输层1秒间隔，无重试/重定向；只访问官方 API。
+429 进入进程级冷却，至少300秒，并尊重更长服务端等待建议。
+身份不符、JSON无效、多个候选、无副本、限额或网络问题均记为获取收据中的失败码。
+提供本地 PDF 时不请求元数据。本功能不提供任意网站或付费全文获取能力。
 
 download_options 默认：max_requests=5（允许 1–20）、max_bytes=20 MiB、
 max_total_bytes=50 MiB、timeout_seconds=20、interval_seconds=3。

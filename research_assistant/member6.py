@@ -15,7 +15,7 @@ def model_configured() -> bool:
     return bool(os.getenv("OPENAI_API_KEY", "").strip() and os.getenv("LLM_MODEL", "").strip())
 
 
-def build_app(*, mode="demo", top_k=3, max_queries=1, sources=("openalex",)):
+def build_app(*, mode="demo", top_k=3, max_queries=1, sources=("openalex",), on_reader_result=None):
     if mode == "demo":
         import json
         from pathlib import Path
@@ -47,12 +47,14 @@ def build_app(*, mode="demo", top_k=3, max_queries=1, sources=("openalex",)):
         raise RuntimeError("真实运行需要启用 Coordinator 和 Reader 的模型开关")
     from .agents.search import create_search_node
     from .search.config import SearchConfig
-    from .agents.reader import reader_node
+    from .reader_node import create_fulltext_reader_node
     from .agents.analyst import analyst_node
     from .agents.critic import critic_node
     return build_research_graph(search_node=create_search_node(config=SearchConfig(
         top_k=top_k, max_queries=max_queries, results_per_query=5, sources=tuple(sources), max_retries=0)),
-        reader_node=reader_node, analyst_node=analyst_node, critic_node=critic_node,
+        reader_node=create_fulltext_reader_node(download_arxiv=True,
+            download_options={"resolve_openalex": True}, on_result=on_reader_result),
+        analyst_node=analyst_node, critic_node=critic_node,
         writer_node=create_writer_node())
 
 
@@ -62,7 +64,23 @@ def stream_research(topic, *, mode="demo", max_critic_rounds=2, graph=None, **op
         raise ValueError("请输入研究主题")
     if type(max_critic_rounds) is not int or not 1 <= max_critic_rounds <= 5:
         raise ValueError("审核轮次必须是 1 到 5 的整数")
-    app = graph if graph is not None else build_app(mode=mode, **options)
+    reader_diagnostics = []
+
+    def collect_reader_result(result):
+        acquisitions = {r["paper_title"]: r for r in result.get("acquisition", [])}
+        reader_diagnostics.clear()
+        for detail in result["details"]:
+            title = detail["paper_title"]
+            reader_diagnostics.append({"paper_title": title, "status": detail["status"],
+                "processed_chunks": detail["processed_chunks"],
+                "field_sources": deepcopy(detail["field_sources"]),
+                "issues": [i["code"] for i in detail["issues"]],
+                "acquisition": deepcopy(acquisitions.get(title, {})),
+                "budget_denials": [e["code"] for e in result["budget"]["events"]
+                                   if e["paper_title"] == title and not e["admitted"]]})
+
+    app = graph if graph is not None else build_app(
+        mode=mode, on_reader_result=collect_reader_result, **options)
     state = {"topic": topic, "critic_round": 0, "max_critic_rounds": max_critic_rounds}
     # Each round has four repeatable nodes, plus Coordinator and Writer.
     for update in app.stream(deepcopy(state), stream_mode="updates",
@@ -71,4 +89,7 @@ def stream_research(topic, *, mode="demo", max_critic_rounds=2, graph=None, **op
             if name not in NODES or not isinstance(fields, dict):
                 continue
             state.update(fields)
-            yield {"node": name, "state": deepcopy(state), "mode": mode}
+            event = {"node": name, "state": deepcopy(state), "mode": mode}
+            if name == "reader" and reader_diagnostics:
+                event["reader_diagnostics"] = deepcopy(reader_diagnostics)
+            yield event

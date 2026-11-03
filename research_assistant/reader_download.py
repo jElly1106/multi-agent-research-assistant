@@ -48,7 +48,12 @@ def _open(request, timeout):
 
 def validate_download_options(*, max_requests=5, max_bytes=20 * 1024 * 1024,
                               max_total_bytes=50 * 1024 * 1024, timeout_seconds=20,
-                              interval_seconds=3):
+                              interval_seconds=3, resolve_openalex=False,
+                              max_metadata_requests=5):
+    if type(resolve_openalex) is not bool:
+        raise ValueError("resolve_openalex must be a boolean")
+    if type(max_metadata_requests) is not int or not 1 <= max_metadata_requests <= 20:
+        raise ValueError("max_metadata_requests must be an integer from 1 to 20")
     for name, value in [("max_requests", max_requests), ("max_bytes", max_bytes),
                         ("max_total_bytes", max_total_bytes)]:
         if type(value) is not int or value <= 0:
@@ -162,14 +167,28 @@ def acquire_pdfs(papers, pdf_paths, directory, **options):
     paths = dict(pdf_paths)
     local = {title.strip() for title in paths}
     records, requests, total = [], 0, 0
+    metadata_requests = 0
+    metadata_blocked = False
     for index, paper in enumerate(prepared):
         title = paper.title.strip()
         if title in local:
             records.append({"paper_title": paper.title, "status": "local"})
             continue
         url = arxiv_pdf_url(paper.url)
+        resolution_code = "unsupported_fulltext_url"
+        if url is None and options.get("resolve_openalex") and paper.source == "openalex":
+            if metadata_blocked:
+                resolution_code = "metadata_rate_limited"
+            elif metadata_requests >= options.get("max_metadata_requests", 5):
+                resolution_code = "metadata_budget_exceeded"
+            else:
+                from .reader_sources import openalex_arxiv_url
+                metadata_requests += 1
+                url, resolution_code = openalex_arxiv_url(
+                    paper, timeout_seconds=options.get("timeout_seconds", 20))
+                metadata_blocked = resolution_code == "metadata_rate_limited"
         if url is None:
-            records.append({"paper_title": paper.title, "status": "failed", "code": "unsupported_fulltext_url"})
+            records.append({"paper_title": paper.title, "status": "failed", "code": resolution_code})
             continue
         remaining = options.get("max_total_bytes", 50 * 1024 * 1024) - total
         if requests >= options.get("max_requests", 5) or remaining <= 0:
